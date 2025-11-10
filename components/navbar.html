@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar specific styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: white;
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+            padding: 0.75rem 0;
+        }
+
+        .navbar-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #FFE4B5 0%, #FF8C42 50%, #8B008B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .logo-text {
+            color: #4A1C1C;
+            font-weight: 600;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo-subtitle {
+            color: #4A1C1C;
+            font-size: 0.75rem;
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+            margin-top: -0.25rem;
+        }
+
+        .navbar-nav {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .navbar-nav {
+                display: flex;
+                align-items: center;
+                gap: 2.5rem;
+                margin-left: 2rem;
+            }
+        }
+
+        .nav-link {
+            color: #8B4513;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            color: #6a3d18;
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            width: 14rem;
+            background-color: #F5DC6F;
+            border: none;
+            border-radius: 20px;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            color: #333;
+            font-size: 0.875rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #666;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .nav-icon-container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #8B4513;
+            font-size: 1.25rem;
+        }
+
+        .nav-icon-count {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background-color: #FF6B6B;
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 50%;
+            width: 1.25rem;
+            height: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            margin-left: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #8B4513;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-nav {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav-link {
+            color: #8B4513;
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .mobile-nav-link:hover {
+            color: #6a3d18;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1023px) {
+            .navbar-nav {
+                display: none;
+            }
+            
+            .search-container {
+                display: none;
+            }
+            
+            .navbar-actions {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <div class="logo-container">
+                        <div style="text-align: center;">
+                            <div class="logo-text">N</div>
+                            <div class="logo-subtitle">Natural Things</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="navbar-nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About us</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Search and Icons -->
+                <div class="navbar-actions">
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search" class="search-input">
+                    </div>
+
+                    <!-- Cart Icon -->
+                    <div class="nav-icon-container">
+                        <i class="fas fa-shopping-cart nav-icon"></i>
+                        <span class="nav-icon-count">1</span>
+                    </div>
+
+                    <!-- Heart Icon -->
+                    <div class="nav-icon-container">
+                        <i class="far fa-heart nav-icon"></i>
+                        <span class="nav-icon-count">1</span>
+                    </div>
+
+                    <!-- User Icon -->
+                    <div class="nav-icon-container">
+                        <i class="fas fa-user nav-icon"></i>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobile-nav">
+                <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About us</a>
+                <a href="#products" class="mobile-nav-link" onclick="closeMobileMenu()">Products</a>
+                <a href="#blog" class="mobile-nav-link" onclick="closeMobileMenu()">Blog</a>
+                <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('mobile-menu-icon');
+            
+            mobileNav.classList.toggle('active');
+            
+            if (mobileNav.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('mobile-menu-icon');
+            
+            mobileNav.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    </script>
+</body>
+</html>
