@@ -44,7 +44,7 @@
   let resetEmail = '';
 
   // API CONFIG
-  const API_BASE = 'http://localhost/Narpavi_Honey/Narpavi_Honey_Backend/routes/auth';
+  const API_BASE = 'https://narpavihoney.brandmindz.com/routes/auth';
   const ROUTES = {
     login:           `${API_BASE}/login.php`,
     sendResetCode:   `${API_BASE}/forgot_password.php`,
