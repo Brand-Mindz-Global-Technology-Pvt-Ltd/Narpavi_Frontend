@@ -686,10 +686,378 @@
                     </div>
                   </div>
                   <button
-                    class="mt-5 w-full bg-refbrown text-white py-2 rounded-xl font-semibold hover:bg-brown-700 transition"
-                  >
-                    Check Out
-                  </button>
+                  id="checkoutBtn"
+                  class="mt-5 w-full bg-refbrown text-white py-2 rounded-xl font-semibold hover:bg-brown-700 transition"
+                >
+                  Check Out
+                </button>
+                
+
+<!-- === CHECKOUT POPUP (HIDDEN INITIALLY) === -->
+<div id="checkoutWrapper" class="hidden">
+  
+<!-- ========================= -->
+<!-- CHECKOUT POPUP OVERLAY -->
+<!-- ========================= -->
+<div id="checkoutOverlay"
+     class="fixed inset-0 bg-black bg-opacity-40 z-[999] hidden"></div>
+
+<!-- ========================= -->
+<!-- POPUP MAIN WRAPPER -->
+<!-- ========================= -->
+<div id="checkoutPopup"
+     class="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+
+  <!-- BACKDROP CLICK CLOSE -->
+  <div id="checkoutBackdrop" class="absolute inset-0"></div>
+
+  <!-- POPUP CARD -->
+  <div id="checkoutBox"
+       class="relative bg-white max-w-[1100px] w-full max-h-[90vh] overflow-y-auto 
+              rounded-2xl shadow-2xl p-6 transform scale-100 opacity-100
+              transition-all duration-300 ease-out"
+       style="font-family: 'Alata', sans-serif !important;">
+
+    <!-- Close Button -->
+    <button id="closeCheckoutPopup"
+      class="absolute top-4 right-4 text-3xl font-bold text-gray-600 hover:text-black"
+      style="font-family: 'Alata', sans-serif !important;">
+      ×
+    </button>
+
+    <!-- CONTENT -->
+    <h2 class="text-xl font-normal text-gray-900 mb-6" style="font-family: 'Alata', sans-serif !important; margin-left:0;">Product Details</h2>
+
+    <div class="flex flex-col lg:flex-row gap-0" style="font-family: 'Alata', sans-serif !important;">
+      <!-- LEFT SECTION -->
+      <div class="lg:w-[58%] w-full pr-0 lg:pr-7 flex flex-col space-y-6">
+
+        <!-- PRODUCT CARD -->
+        <div class="rounded-2xl px-4 py-4 flex flex-col gap-0 shadow-lg bg-white mx-0"
+          style="box-shadow:0 4px 20px rgba(0,0,0,0.12); font-family: 'Alata', sans-serif !important; max-width:440px; margin-left:30px; margin-right:0;">
+          <!-- HEADER -->
+          <div class="flex items-center justify-between w-full pb-1 border-b border-gray-200">
+            <span class="text-[13px] text-black font-medium" style="font-family: 'Alata', sans-serif !important; margin-left:0;">Narpavai Honey</span>
+            <div class="flex gap-5 text-xs text-[#232323] font-semibold" style="font-family: 'Alata', sans-serif !important;">
+              <div style="font-size:13px;">Weight: 1/2 kg</div>
+              <div style="font-size:13px;">Qty: 1</div>
+            </div>
+          </div>
+          <!-- BODY -->
+          <div class="flex items-center gap-3 mt-2.5 ml-0">
+            <img src="../components/Modalpopup/CheckOut/Assets/Frame 2147225791.png"
+                class="h-[85px] w-[70px] rounded-lg object-cover" />
+            <div class="flex-1">
+              <p class="text-[1.42rem] font-normal text-[#864610] mb-1"
+                style="font-family:'Alata', sans-serif !important;">
+                Murukai Honey
+              </p>
+              <!-- Stars -->
+              <div class="flex items-center gap-0.5 mb-2" style="font-family: 'Alata', sans-serif !important;">
+                <span class="text-yellow-500" style="font-size:18px;">★</span>
+                <span class="text-yellow-500" style="font-size:18px;">★</span>
+                <span class="text-yellow-500" style="font-size:18px;">★</span>
+                <span class="text-yellow-500" style="font-size:18px;">★</span>
+                <span class="text-yellow-500" style="font-size:18px;">★</span>
+              </div>
+              <p class="text-[#864610] font-normal text-[17px] mt-[-5px]" style="font-family: 'Alata', sans-serif !important;">
+                Rs : 325.00
+              </p>
+            </div>
+            <!-- QUANTITY COUNTER -->
+            <div class="flex flex-col items-center ml-2" style="font-family: 'Alata', sans-serif !important;">
+              <span class="text-xs text-gray-500 mb-1" style="font-family: 'Alata', sans-serif !important; font-size:13px;">Quality</span>
+              <div class="flex items-center px-2 py-0.5 rounded-lg gap-1 mt-[-2px]">
+                <button
+                  class="rounded bg-[#E0E0E0] text-[#232323] w-6 h-6 flex items-center justify-center text-lg font-semibold hover:bg-[#d3d3d3]"
+                  style="font-family: 'Alata', sans-serif !important; font-size:16px;">
+                  -
+                </button>
+                <span class="px-2 text-black font-semibold text-base" style="font-family: 'Alata', sans-serif !important; font-size:16px;">1</span>
+                <button
+                  class="rounded bg-[#232323] text-white w-6 h-6 flex items-center justify-center text-lg font-semibold hover:bg-black"
+                  style="font-family: 'Alata', sans-serif !important; font-size:16px;">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DELIVERY ADDRESS TITLE -->
+        <h3 class="text-lg font-normal" style="font-family: 'Alata', sans-serif !important;">Delivery Address</h3>
+        <!-- FORM INPUTS -->
+        <div class="px-5 sm:px-10 mb-2">
+          <div class="grid grid-cols-1 gap-5">
+            <!-- Name -->
+            <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+              <img src="../components/Modalpopup/CheckOut/Assets/Name.svg"
+                  class="w-5 h-5 opacity-60" />
+              <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                    placeholder="Name"
+                    style="font-family: 'Alata', sans-serif !important;" />
+            </div>
+            <!-- Contact -->
+            <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+              <img src="../components/Modalpopup/CheckOut/Assets/Contact.svg"
+                  class="w-5 h-5 opacity-60" />
+              <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                    placeholder="Contact Number"
+                    style="font-family: 'Alata', sans-serif !important;" />
+            </div>
+            <!-- House -->
+            <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+              <img src="../components/Modalpopup/CheckOut/Assets/House.svg"
+                  class="w-5 h-5 opacity-60" />
+              <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                    placeholder="House no / Building no"
+                    style="font-family: 'Alata', sans-serif !important;" />
+            </div>
+            <!-- Road -->
+            <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+              <img src="../components/Modalpopup/CheckOut/Assets/Road.svg"
+                  class="w-5 h-5 opacity-60" />
+              <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                    placeholder="Road name / Area / Colony"
+                    style="font-family: 'Alata', sans-serif !important;" />
+            </div>
+            <!-- PINCODE -->
+            <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+              <img src="../components/Modalpopup/CheckOut/Assets/Pincode.svg"
+                  class="w-5 h-5 opacity-60" />
+              <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                    placeholder="Pincode"
+                    style="font-family: 'Alata', sans-serif !important;" />
+            </div>
+            <!-- CITY + STATE (SIDE BY SIDE, BOTTOM TWO FIELDS) -->
+            <div class="grid grid-cols-2 gap-4">
+              <!-- City -->
+              <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+                <img src="../components/Modalpopup/CheckOut/Assets/City.svg"
+                    class="w-5 h-5 opacity-60" />
+                <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                      placeholder="City"
+                      style="font-family: 'Alata', sans-serif !important;" />
+              </div>
+              <!-- State -->
+              <div class="flex items-center gap-3 border-b border-gray-300 pb-2" style="border-bottom-width:1px;">
+                <img src="../components/Modalpopup/CheckOut/Assets/State.svg"
+                    class="w-5 h-5 opacity-60" />
+                <input class="w-full bg-transparent p-0 text-[1.07rem] font-medium focus:outline-none placeholder:text-[#999] placeholder:font-[500]"
+                      placeholder="State"
+                      style="font-family: 'Alata', sans-serif !important;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SAVE BUTTON -->
+        <div class="px-5 sm:px-10">
+          <button
+            class="w-full bg-[#A24D03] hover:bg-[#6F3A00] text-white py-3 rounded-lg font-normal mt-3 transition text-[1.12rem] shadow-sm"
+            style="font-family: 'Alata', sans-serif !important;"
+          >
+            Save
+          </button>
+        </div>
+
+        <!-- PAYMENT SECTION: As per design (EXACT MATCH TO IMAGE) -->
+        <div class="mt-10 px-4 sm:px-2">
+          <h3 class="text-[1.2rem] font-normal mb-7" style="font-family:'Alata', sans-serif !important; letter-spacing:0.01em;">
+            Select Payment Method
+          </h3>
+          
+          <div class="flex flex-col gap-6" style="font-family: 'Alata', sans-serif !important;">
+            <!-- Cash on Delivery Card -->
+            <div class="flex items-center">
+              <!-- Left Spacer for button (exact to image, but left empty for now as per prompt) -->
+              <div class="w-3 sm:w-7"></div>
+              <input type="radio" id="payment-cod" name="payment-method" class="peer hidden" checked />
+              <label for="payment-cod"
+                class="group flex-1 min-w-0 flex justify-between items-center cursor-pointer border border-[#458aff] bg-[#458aff] px-7 py-5 rounded-xl shadow-[0_2px_10px_0_rgba(70,110,200,0.09)] transition min-h-[76px] relative"
+                style="font-family: 'Alata', sans-serif !important; box-shadow:0 2px 12px #458aff22;">
+                <span class="flex items-center text-white text-base sm:text-[1.1rem] font-normal gap-2" style="font-family: 'Alata', sans-serif !important;">
+                  Cash on Delivery
+                  <!-- SVG currency/cash-on-delivery icon, visually matched to image -->
+                  <svg width="23" height="23" viewBox="0 0 22 22" fill="none" class="ml-1.5" style="margin-top:2px" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2.8" y="7" width="16.4" height="8" rx="2" fill="none" stroke="white" stroke-width="1.2"/>
+                    <rect x="4.3" y="8.5" width="13.4" height="5" rx="1" fill="none" stroke="white" stroke-width="1.1"/>
+                    <circle cx="11" cy="11" r="1.4" fill="none" stroke="white" stroke-width="1.1"/>
+                    <path d="M4.2 14.4v.6a2 2 0 002 2h9.6a2 2 0 002-2v-.6" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M6.6 7.1V6.3A1.6 1.6 0 018.2 4.7h5.6a1.6 1.6 0 011.6 1.6v.8" stroke="white" stroke-width="1.15" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="flex items-center justify-center">
+                  <span class="inline-flex w-8 h-8 sm:w-9 sm:h-9 bg-white rounded-full border border-[#458aff] items-center justify-center shadow"
+                        style="box-shadow:0 2px 8px #aaa2;">
+                    <!-- Checkmark, exact style to image -->
+                    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="13.5" cy="13.5" r="10.5" fill="#ffffff" stroke="#ffffff" stroke-width="2"/>
+                      <path d="M8.2 14.5L12.1 18.1L19.1 10.5" stroke="#4285F4" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </span>
+              </label>
+              <!-- Right Spacer for button (exact to image, but left empty for now as per prompt) -->
+              <div class="w-3 sm:w-7"></div>
+            </div>
+            <!-- Online Payment Card -->
+            <div class="flex items-center">
+              <!-- Left Spacer for button (empty as per prompt) -->
+              <div class="w-3 sm:w-7"></div>
+              <input type="radio" id="payment-online" name="payment-method" class="peer hidden" />
+              <label for="payment-online" 
+                class="group flex-1 min-w-0 flex justify-between items-center cursor-pointer border border-[#181818] bg-white px-7 py-5 rounded-xl transition min-h-[76px] relative shadow-[0_2px_7px_0_rgba(0,0,0,0.06)]"
+                style="font-family: 'Alata', sans-serif !important;">
+                <span class="flex flex-col">
+                  <span class="flex items-center text-[#151515] text-base sm:text-[1.08rem] font-normal gap-2"
+                        style="font-family: 'Alata', sans-serif !important;">
+                    Online Payment
+                  </span>
+                  <span class="flex items-center text-[0.95rem] pt-1 opacity-80 gap-2 font-medium" style="font-family: 'Alata', sans-serif !important;">
+                    <img src="../components/Modalpopup/CheckOut/Assets/Phonepe.svg" class="h-4 w-auto -ml-1" style="filter:grayscale(0.4);" alt="paytm"/>
+                    <img src="../components/Modalpopup/CheckOut/Assets/Paytm.svg" class="h-4" alt="mastercard"/>
+                    <img src="../components/Modalpopup/CheckOut/Assets/Gpay.svg" class="h-4 grayscale" alt="visa"/>
+                  </span>
+                </span>
+                <span class="flex items-center justify-center">
+                  <span class="inline-flex w-8 h-8 sm:w-9 sm:h-9 bg-white rounded-full border border-[#181818] items-center justify-center"
+                        style="box-shadow:0 1px 2px #bbb1;">
+                    <!-- Unchecked circle, matching image -->
+                    <!-- <svg width="27" height="27" viewBox="0 0 26 26" fill="none" stroke="#191919" stroke-width="2.2">
+                      <circle cx="13" cy="13" r="10" fill="none"/>
+                    </svg> -->
+                  </span>
+                </span>
+              </label>
+              <!-- Right Spacer for button (empty as per prompt) -->
+              <div class="w-3 sm:w-7"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Centre Divider: hidden on mobile, visible on lg+ -->
+      <div class="hidden lg:block w-px bg-[#000000] mx-7"></div>
+
+      <!-- RIGHT SECTION -->
+      <div class="lg:w-[42%] w-full flex flex-col space-y-6" style="font-family: 'Alata', sans-serif !important;">
+        <!-- Heading: Delivery Address -->
+        <h2 class="text-[1.2rem] font-normal mb-2" style="font-family: 'Alata', sans-serif !important;">Delivery Address</h2>
+        <div class="bg-white rounded-2xl shadow-[0_2px_16px_0_rgba(0,0,0,0.09)] p-7 mb-3" style="font-family: 'Alata', sans-serif !important;">
+          <div class="flex items-center gap-2 mb-1" style="font-family: 'Alata', sans-serif !important;">
+            <img src="../components/Modalpopup/CheckOut/Assets/bookmark.svg" alt="address" class="w-5 h-5 opacity-70" />
+            <span class="font-normal text-lg" style="font-family: 'Alata', sans-serif !important;">Maheswari</span>
+          </div>
+          <div class="mt-3 text-[1rem] leading-relaxed font-medium text-[#222]" style="font-family: 'Alata', sans-serif !important;">
+            Sri Vignesh cooler No,1 shopping complex Sivan Kovil eastcar street, Perumal Kovil back side,
+            <br><br>
+            Thirunelveli, Tamil Nadu, 626203,
+            <br><br>
+            7339523241.
+          </div>
+          <div class="flex justify-end mt-4">
+            <button class="text-white bg-[#A24D03] hover:bg-[#6F3A00] text-[0.96rem] font-normal rounded px-4 py-1 shadow"
+              style="box-shadow:0 2px 3px #0001; font-family: 'Alata', sans-serif !important;">CHANGE</button>
+          </div>
+        </div>
+
+        <!-- PAYMENT METHOD SECTION (Moved per prompt) -->
+        <div>
+          <h3 class="text-lg font-normal mb-2" style="font-family: 'Alata', sans-serif !important;">Payment Method</h3>
+          <div class="bg-white rounded-xl px-4 py-3 flex items-center justify-between mb-5 border border-black shadow-[0_4px_15px_0_rgba(30,30,30,0.18)]" style="box-shadow: 0 4px 15px 0 rgba(30,30,30,0.18); font-family: 'Alata', sans-serif !important;">
+            <div class="text-base flex-1 font-normal text-[#222]" style="font-family: 'Alata', sans-serif !important;">
+              Cash on Delivery
+            </div>
+            <button class="ml-3 bg-[#A24D03] hover:bg-[#6F3A00] text-white text-[0.95rem] font-normal px-5 py-1 rounded shadow transition"
+              style="box-shadow:0 2px 3px #0001; font-family: 'Alata', sans-serif !important;">
+              EDIT
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Details & Order Price -->
+        <div class="border-none rounded-2xl shadow-none p-0 bg-transparent" style="font-family: 'Alata', sans-serif !important;">
+          <h4 class="text-[1.2rem] font-normal mb-6 leading-snug" style="font-family: 'Alata', sans-serif !important;">
+            Product Details (1 Items)
+          </h4>
+          <div class="flex justify-between items-center text-base mb-1 px-4" style="color:#666; font-weight:500; font-family: 'Alata', sans-serif !important;">
+            <span>Total Product Price</span>
+            <span>Rs: 325.00</span>
+          </div>
+          <hr class="my-3 mx-4 border-t border-gray-300">
+          <div class="flex justify-between items-center text-[1.14rem] font-normal px-4 pb-1" style="font-family: 'Alata', sans-serif !important;">
+            <span style="color:#222;">Order Price</span>
+            <span style="color:#222; font-size:1.15rem;">Rs: 325.00</span>
+          </div>
+        </div>
+
+        <button id="continueCheckoutBtn"
+          class="w-full mt-4 bg-[#A24D03] hover:bg-[#6F3A00] text-white text-lg py-2.5 rounded-xl font-normal shadow-[0_4px_12px_0_rgba(120,50,0,0.10)] transition"
+          style="font-family: 'Alata', sans-serif !important; letter-spacing: 0.5px;">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================= -->
+<!-- ORDER RECEIVED POPUP (HIDDEN) -->
+<!-- ============================= -->
+<div id="orderReceivedWrapper" class="hidden">
+
+  <!-- DARK OVERLAY -->
+  <div id="orderReceivedOverlay"
+       class="fixed inset-0 bg-black bg-opacity-40 z-[2000] flex items-center justify-center p-4"></div>
+
+  <!-- POPUP CARD -->
+  <div class="fixed inset-0 z-[2100] flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-3xl shadow-2xl max-w-[420px] w-full px-10 py-10 text-center relative">
+
+      <!-- SUCCESS ICON + BEE -->
+      <div class="relative w-40 h-40 mx-auto mb-6">
+
+        <!-- Outer Circle -->
+        <div class="absolute inset-0 rounded-full border-[2px] border-[#A75B13] opacity-60"></div>
+
+        <!-- Inner Circle -->
+        <div class="absolute inset-7 bg-[#A24D03] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-16 h-16 text-white"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <!-- Bee -->
+        <img src="../components/Modalpopup/CheckOut/Assets/Bee.png"
+             class="absolute -top-8 -right-11 w-30 h-30 object-contain rotate-[350deg]" />
+      </div>
+      <!-- Heading -->
+      <h2 class="text-2xl font-normal text-[#232323] tracking-wide">
+        ORDER CONFIRMED
+      </h2>
+      <!-- Text -->
+      <p class="mt-2 text-[#000000] text-base font-medium">
+        Thank you for Shopping
+      </p>
+
+      <!-- Back Button -->
+      <a
+        href="/Product/product.html"
+        class="mt-8 w-full bg-[#8C4A00] hover:bg-[#6F3A00] text-white py-3 rounded-xl
+               font-normal text-lg shadow-md transition inline-block text-center"
+        style="text-decoration:none;"
+      >
+        Back To Home
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
                 </div>
               </div>
             </div>
@@ -1947,5 +2315,56 @@
         }
       });
     </script>
+
+<script>
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  const wrapper = document.getElementById("checkoutWrapper");
+  const overlay = document.getElementById("checkoutOverlay");
+  const popup = document.getElementById("checkoutPopup");
+  const closeBtn = document.getElementById("closeCheckoutPopup");
+  const backdrop = document.getElementById("checkoutBackdrop");
+
+  // Show popup
+  checkoutBtn.addEventListener("click", () => {
+    wrapper.classList.remove("hidden");      // show full wrapper
+    overlay.classList.remove("hidden");      // show dark background
+    popup.classList.add("popup-show");       // animation
+  });
+
+  // Close popup
+  function closePopup() {
+    wrapper.classList.add("hidden");
+    overlay.classList.add("hidden");
+    popup.classList.remove("popup-show");
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+  backdrop.addEventListener("click", closePopup);
+</script>
+
+<script>
+  // Continue button → show Order Received Popup
+  const continueBtn = document.getElementById("continueCheckoutBtn");
+
+  const orderWrapper = document.getElementById("orderReceivedWrapper");
+  const orderOverlay = document.getElementById("orderReceivedOverlay");
+
+  continueBtn.addEventListener("click", () => {
+
+    // Close checkout popup
+    wrapper.classList.add("hidden");
+    overlay.classList.add("hidden");
+
+    // Show Order Received popup
+    orderWrapper.classList.remove("hidden");
+  });
+
+  // Close order popup when clicking outside
+  orderOverlay.addEventListener("click", () => {
+    orderWrapper.classList.add("hidden");
+  });
+</script>
+
+
   </body>
 </html>
