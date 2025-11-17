@@ -44,7 +44,7 @@
   let resetEmail = '';
 
   // API CONFIG
-  const API_BASE = 'http://localhost/Narpavi_Honey/Narpavi_Honey_Backend/routes/auth';
+  const API_BASE = 'https://narpavihoney.brandmindz.com/routes/auth/';
   const ROUTES = {
     login:           `${API_BASE}/login.php`,
     sendResetCode:   `${API_BASE}/forgot_password.php`,
@@ -148,7 +148,7 @@
         localStorage.setItem('token', 'logged_in'); // Simple token for demo
       }
       
-      setTimeout(()=>{ window.location.href = '../pages/homepage.html'; }, 800);
+      setTimeout(()=>{ window.location.href = '../Product/product.html'; }, 800);
     } catch(err){ setText(globalErr,err.message); }
     finally{ loginBtn.disabled=false; }
   });

@@ -24,7 +24,7 @@ document.addEventListener('click', (e) => {
 /* 2) Registration Form class */
 class RegistrationForm {
   constructor() {
-    this.apiBaseUrl = 'http://localhost/Narpavi_Honey/Narpavi_Honey_Backend/routes/auth';
+    this.apiBaseUrl = 'https://narpavihoney.brandmindz.com/routes/auth/';
     this.formData = {};
     this.otpTimer = null;
     this.otpExpiryTime = null;
