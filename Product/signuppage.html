@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Indian Tribe</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root{
+      --primary:#DDA12F;
+      --primary-hover:#b88219;
+      --text-brown:#2b1d12;
+    }
+    .font-alata{font-family:"Alata",system-ui,sans-serif}
+    body{font-family:"Poppins",system-ui,sans-serif; color:var(--text-brown); background:#FFFBE2}
+    .btn-primary{ background:var(--primary); color:#fff; border-radius:12px; padding:.9rem 1rem; font-weight:600; transition:.2s; }
+    .btn-primary:hover{ background:var(--primary-hover) }
+    .btn-secondary{ border:1px solid #E5E7EB; color:var(--text-brown); border-radius:12px; padding:.85rem 1rem; font-weight:600; }
+    .form-input{ width:100%; border:1px solid #000; border-radius:12px; padding:.9rem 1rem; outline:none; transition:.15s; background:#fff; }
+    .form-input:focus{ border-color:#ffd5b7; box-shadow:0 0 0 4px rgba(255, 230, 230, 0.25) }
+    .form-label{font-weight:400; font-size:0.95rem;}
+    .error-message{ color:#c03221; font-size:.85rem; min-height:1rem }
+    .breadcrumb-title{ letter-spacing:.2px }
+    .eye-btn{ position:absolute; right:12px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:1.25rem; color:#6b7280; }
+    .eye-btn:hover{ color:#374151 }
+
+    /* Compact three-dot indicator (top-right above input) */
+    .pw-dots-compact{ display:flex; gap:.35rem; align-items:center; }
+    .pw-dot{ width:8px; height:8px; border-radius:9999px; background:#E5E7EB; transition:.2s; }
+    .pw-dot.active{ background:#16a34a; } /* green when rule satisfied */
+     /* Custom styles for exact match */
+     .navbar-container {
+        background: #ffffff;
+        border-bottom: 1px solid #e6d16b;
+        position: fixed; /* Fixed position */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+    }
+    
+    .logo-container {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    }
+    
+    .nav-link {
+        color: #7E4A1D;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    .nav-link:hover {
+        color: #5d3515;
+    }
+    
+    .nav-link.active {
+        color: #5d3515;
+        font-weight: 600;
+    }
+    
+    .search-container {
+        background: #F9E482;
+        border: 1px solid #e6d16b;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .search-input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+    }
+    
+    .search-input::placeholder {
+        color: #000000;
+    }
+    
+    .icon-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #e6d16b;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+    }
+    
+    .icon-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(126, 74, 29, 0.15);
+    }
+    
+    .icon-btn i {
+        color: #7E4A1D;
+    }
+    
+    .icon-count {
+        color: #7E4A1D;
+        font-weight: 500;
+    }
+    
+    .mobile-menu {
+        background: #ffffff;
+        backdrop-filter: blur(20px);
+        border-top: 1px solid #e6d16b;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-link {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(230, 209, 107, 0.3);
+        }
+        
+        .nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu .nav-link.active {
+            background:rgb(249 228 130) ;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 4px 0;
+        }
+    }
+  </style>
+</head>
+
+<body class="bg-[#FFFBE2]" style="padding-top: 100px;">
+ 
+
+  <!-- Banner -->
+  <section class="relative">
+    <div class="h-60 md:h-72 w-full bg-cover bg-center" style="background-image:url('./Images//ProductBanner.png');"></div>
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center">
+        <h1 class="font-alata text-white text-4xl md:text-5xl breadcrumb-title">Register</h1>
+        <div class="mt-2 text-white/80 text-sm">
+          <a href="../pages/homepage.html" class="hover:underline">Homepage</a>
+          <span class="mx-2">›</span>
+          <span class="opacity-90">Register</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="py-10 md:py-16 bg-white">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <!-- LEFT -->
+        <section class="md:border-r md:pr-10 border-gray-200">
+          <h2 class="font-alata text-2xl md:text-3xl mb-6 font-normal">Create Account</h2>
+
+          <!-- Step 1: Registration Form -->
+          <form id="registrationForm" class="space-y-4" style="display:block">
+            <div>
+              <label for="name" class="form-label">Full Name *</label>
+              <input id="name" type="text" class="form-input" placeholder="Enter your full name" required />
+              <div id="nameError" class="error-message hidden"></div>
+            </div>
+
+            <div>
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input id="phone" type="tel" maxlength="10" class="form-input" placeholder="Enter your phone number" required />
+              <div id="phoneError" class="error-message hidden"></div>
+            </div>
+
+            <div>
+              <label for="email" class="form-label">Email Address *</label>
+              <input id="email" type="email" class="form-input" placeholder="Enter your email" required />
+              <div id="emailError" class="error-message hidden"></div>
+            </div>
+
+            <!-- Password (three dots in top-right above input; no strength text/line) -->
+            <div class="pass">
+              <div class="flex items-center justify-between mb-2 relative">
+                <label for="password" class="form-label mb-0">Password *</label>
+                <!-- top-right, just above the input -->
+                <div class="pw-dots-compact absolute right-0 -bottom-1.5">
+                  <span id="dotLen"  class="pw-dot" title="8+ characters"></span>
+                  <span id="dotCase" class="pw-dot" title="Upper + lower case"></span>
+                  <span id="dotMix"  class="pw-dot" title="Number + special"></span>
+                </div>
+              </div>
+              <div class="relative">
+                <input id="password" type="password" class="form-input pr-12" placeholder="Create a password" required />
+                <button type="button" class="eye-btn" data-eye data-target="password" aria-pressed="false" aria-label="Toggle password">
+                  <i class="ph ph-eye"></i>
+                </button>
+              </div>
+              <div id="passwordError" class="error-message hidden"></div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="confirm-pass">
+              <label for="confirmPassword" class="form-label">Confirm Password *</label>
+              <div class="relative">
+                <input id="confirmPassword" type="password" class="form-input pr-12" placeholder="Confirm your password" required />
+                <button type="button" class="eye-btn" data-eye data-target="confirmPassword" aria-pressed="false" aria-label="Toggle confirm password">
+                  <i class="ph ph-eye"></i>
+                </button>
+              </div>
+              <div id="confirm-password-indicator" class="text-xs mt-1"></div>
+              <div id="confirmPasswordError" class="error-message hidden"></div>
+            </div>
+
+            <label class="inline-flex items-start gap-3 text-sm select-none">
+              <input type="checkbox" id="remember" class="mt-1 rounded border-gray-300" required />
+              <span>I agree to the <a href="#" class="underline">Terms of Use</a>.</span>
+            </label>
+
+            <button type="submit" class="btn-primary w-full" id="registerBtn">
+              <span class="btn-text">Register</span>
+              <span class="btn-loading hidden inline-flex items-center">
+                <i class="ph ph-circle-notch animate-spin mr-2"></i> Sending OTP...
+              </span>
+            </button>
+          </form>
+
+          <!-- Step 2: OTP Verification -->
+          <div id="otpVerification" class="mt-6" style="display:none">
+            <div class="text-center mb-6">
+              <h3 class="font-alata text-xl mb-2 font-normal">Verify Your Email</h3>
+              <p class="text-sm text-gray-600">We sent a 6-digit code to <span id="otpEmail" class="font-semibold"></span>.</p>
+            </div>
+
+            <form id="otpForm">
+              <div class="flex justify-center gap-3 mb-6">
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="0" />
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="1" />
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="2" />
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="3" />
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="4" />
+                <input type="text" class="otp-digit w-12 h-12 text-center border rounded-lg text-lg font-semibold" maxlength="1" data-index="5" />
+              </div>
+
+              <div class="text-center mb-6">
+                <div class="text-sm text-gray-600 mb-3">
+                  <span>OTP expires in: </span>
+                  <span id="otpTimer" class="font-semibold text-red-500">02:00</span>
+                </div>
+                <button type="button" class="text-sm text-black hover:underline disabled:opacity-40" id="resendOtpBtn" disabled>
+                  Resend OTP
+                </button>
+              </div>
+
+              <button type="submit" class="btn-primary w-full" id="verifyOtpBtn">
+                <span class="btn-text">Verify & Complete Registration</span>
+                <span class="btn-loading hidden inline-flex items-center">
+                  <i class="ph ph-circle-notch animate-spin mr-2"></i> Verifying...
+                </span>
+              </button>
+
+              <div class="text-center mt-4">
+                <button type="button" class="text-sm text-gray-600 hover:text-black" id="backToForm">
+                  ← Back to form
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 3: Success -->
+          <div id="successMessage" class="mt-6 text-center" style="display:none">
+            <div class="text-6xl text-green-500 mb-4">✅</div>
+            <h3 class="font-alata text-xl text-green-600 mb-3">Registration Successful!</h3>
+            <p class="text-gray-700 mb-6">Welcome to Indian Tribe! Your account has been created successfully.</p>
+            <a href="./loginpage.html" class="btn-primary inline-flex">Login Now</a>
+          </div>
+        </section>
+
+        <!-- RIGHT -->
+        <aside class="md:pl-10 flex items-center justify-center">
+          <div class="text-center md:text-left">
+            <h3 class="font-alata text-2xl md:text-3xl font-normal">Already have an account?</h3>
+            <p class="mt-3 text-gray-600">Welcome back! Sign in to access your personalized experience.</p>
+            <a href="loginpage.html" class="inline-block mt-6 btn-primary">LOGIN</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-root"></div>
+
+  <!-- Includes (navbar/footer) -->
+  <script>
+    async function include(id, url) {
+      try {
+        const res = await fetch(url + (location.hostname === '' ? '' : `?v=${Date.now()}`));
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        document.getElementById(id).innerHTML = await res.text();
+        document.dispatchEvent(new Event('components:loaded'));
+      } catch (e) {
+        console.error('Include failed:', url, e);
+      }
+    }
+  </script>
+
+  <!-- Separate JS -->
+  <script src="../Narpavai/signuppage.js"></script>
+  <script>
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuToggle.querySelector('i');
+    
+    mobileMenuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        
+        // Toggle icon between hamburger and close
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.className = 'fas fa-bars';
+        } else {
+            menuIcon.className = 'fas fa-times';
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = event.target.closest('nav');
+        if (!isClickInsideNav) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.className = 'fas fa-bars';
+        }
+    });
+    
+    // Active link functionality
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Close mobile menu if open
+            mobileMenu.classList.add('hidden');
+            menuIcon.className = 'fas fa-bars';
+        });
+    });
+    
+    // Search functionality
+    const searchInputs = document.querySelectorAll('.search-input');
+    searchInputs.forEach(input => {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                alert(`Searching for: ${this.value}`);
+                this.value = '';
+            }
+        });
+    });
+       
+    // User login/profile button functionality
+    const userLoginBtn = document.getElementById('user-login-btn');
+    const userNameBtn = document.getElementById('user-name-btn');
+    const userNameText = document.getElementById('user-name-text');
+    const dropdownUserName = document.getElementById('dropdown-user-name');
+    const userDropdown = document.getElementById('user-dropdown');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    // Check if user is logged in
+    function checkLoginStatus() {
+        const userData = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        
+        if (userData && token) {
+            try {
+                const user = JSON.parse(userData);
+                // Show username button instead of login button
+                userNameText.textContent = user.name;
+                dropdownUserName.textContent = user.name;
+                userNameBtn.classList.remove('hidden');
+                userLoginBtn.classList.add('hidden');
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                // Clear invalid data
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                showLoginButton();
+            }
+        } else {
+            showLoginButton();
+        }
+    }
+    
+    // Show login button
+    function showLoginButton() {
+        userNameBtn.classList.add('hidden');
+        userDropdown.classList.add('hidden');
+        userLoginBtn.classList.remove('hidden');
+    }
+    
+    // Handle login button click - redirect to login page
+    userLoginBtn.addEventListener('click', function() {
+        window.location.href = './loginpage.html';
+    });
+    
+    // Handle username button click - toggle dropdown
+    userNameBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        userDropdown.classList.toggle('hidden');
+    });
+    
+    // Handle logout button click
+    logoutBtn.addEventListener('click', function() {
+        // Clear user data
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        // Show login button
+        showLoginButton();
+        // Close dropdown
+        userDropdown.classList.add('hidden');
+        // Redirect to homepage
+        window.location.href = '../pages/homepage.html';
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!userNameBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.classList.add('hidden');
+        }
+    });
+    
+    // Check login status on page load
+    checkLoginStatus();
+    
+    // Add scroll effect to navbar
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar-container');
+    
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add subtle shadow when scrolling
+        if (scrollTop > 10) {
+            navbar.style.boxShadow = '0 4px 20px rgba(126, 74, 29, 0.1)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+</script>
+</body>
+</html>

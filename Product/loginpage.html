@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Narpavai Honey</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    :root{
+      --primary:#DDA12F;
+      --primary-hover:#b88219;
+      --text-brown:#2b1d12;
+    }
+    .font-alata{font-family:"Alata",system-ui,sans-serif}
+    body{font-family:"Poppins",system-ui,sans-serif; color:var(--text-brown)}
+    .btn-primary{
+      background:var(--primary); color:#fff; border-radius:12px; padding:.9rem 1rem;
+      font-weight:600; transition:.2s;
+    }
+    .btn-primary:hover{ background:var(--primary-hover) }
+    .btn-secondary{
+      border:1px solid #E5E7EB; color:var(--text-brown); border-radius:12px; padding:.85rem 1rem; font-weight:600;
+    }
+    .form-input{
+      width:100%; border:1px solid rgb(0, 0, 0); border-radius:12px; padding:.9rem 1rem;
+      outline:none; transition:.15s;
+    }
+    .form-input:focus{ border-color:#ffd5b7; box-shadow:0 0 0 4px rgba(255, 230, 230, 0.25) }
+    .form-label{font-weight:400; font-size:0.95rem;} /* not bold */
+    .error-message{ color:#c03221; font-size:.85rem; min-height:1rem }
+    .success-message{ color:#12805C; font-size:.9rem; margin:.25rem 0 .75rem }
+    .breadcrumb-title{ letter-spacing:.2px }
+    .eye-btn{
+      position:absolute; right:12px; top:50%; transform:translateY(-50%);
+      cursor:pointer; font-size:1rem;
+    }
+
+   
+     /* Custom styles for exact match */
+     .navbar-container {
+        background: #ffffff;
+        border-bottom: 1px solid #e6d16b;
+        position: fixed; /* Fixed position */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+    }
+    
+    .logo-container {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    }
+    
+    .nav-link {
+        color: #7E4A1D;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    .nav-link:hover {
+        color: #5d3515;
+    }
+    
+    .nav-link.active {
+        color: #5d3515;
+        font-weight: 600;
+    }
+    
+    .search-container {
+        background: #F9E482;
+        border: 1px solid #e6d16b;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .search-input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+    }
+    
+    .search-input::placeholder {
+        color: #000000;
+    }
+    
+    .icon-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #e6d16b;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+    }
+    
+    .icon-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(126, 74, 29, 0.15);
+    }
+    
+    .icon-btn i {
+        color: #7E4A1D;
+    }
+    
+    .icon-count {
+        color: #7E4A1D;
+        font-weight: 500;
+    }
+    
+    .mobile-menu {
+        background: #ffffff;
+        backdrop-filter: blur(20px);
+        border-top: 1px solid #e6d16b;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-link {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(230, 209, 107, 0.3);
+        }
+        
+        .nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu .nav-link.active {
+            background:rgb(249 228 130) ;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 4px 0;
+        }
+    }
+
+  </style>
+</head>
+
+<body class="bg-[#FFFBE2]" style="padding-top: 100px;">
+  <!-- Banner -->
+  <section class="relative mt-0">
+    <div class="h-60 md:h-72 w-full bg-cover bg-center" style="background-image:url('./Images//ProductBanner.png');"></div>
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center">
+        <h1 class="font-alata text-white text-4xl md:text-5xl breadcrumb-title">Login</h1>
+        <div class="mt-2 text-white/80 text-sm">
+          <a href="../pages/homepage.html" class="hover:underline">Homepage</a>
+          <span class="mx-2">›</span>
+          <span class="opacity-90">Login</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="py-10 md:py-16 bg-white">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+        
+        <!-- LEFT: forms -->
+        <section class="md:border-r md:pr-10 border-gray-200">
+          <h2 class="font-alata text-2xl md:text-3xl mb-6 font-normal">Login</h2>
+
+          <div id="success-message" class="success-message"></div>
+          <div id="error-message" class="error-message"></div>
+
+          <!-- Login -->
+          <form id="login-form" class="space-y-4">
+            <div>
+              <label for="login-email" class="form-label">Email Address *</label>
+              <input id="login-email" type="email" class="form-input" placeholder="Enter your email" />
+              <div id="login-email-error" class="error-message"></div>
+            </div>
+            <div class="relative">
+              <label for="login-password" class="form-label">Password *</label>
+              <input id="login-password" type="password" class="form-input" placeholder="Enter your password" />
+              <span class="eye-btn toggle-eye" data-target="login-password">👁</span>
+              <div id="login-passrword-error" class="error-message"></div>
+            </div>
+
+            <div class="flex items-center justify-between text-sm">
+              <label class="inline-flex items-center gap-2 select-none">
+                <input type="checkbox" class="rounded border-gray-300" />
+                Remember me
+              </label>
+              <a id="show-forgot-password-form" href="#" class="text-[#d92d20] hover:underline">Forgot Password?</a>
+            </div>
+            <button id="login-submit-btn" type="submit" class="btn-primary w-full">Login</button>
+          </form>
+
+          <!-- Forgot -->
+          <form id="forgot-password-form" class="space-y-4 hidden mt-2">
+            <div>
+              <h3 class="font-alata text-xl mb-2 font-normal">Reset Password</h3>
+              <p class="text-sm text-gray-600">Enter your email to get a verification code.</p>
+            </div>
+            <div>
+              <label for="forgot-email" class="form-label">Email Address *</label>
+              <input id="forgot-email" type="email" class="form-input" placeholder="Enter your email" />
+              <div id="forgot-email-error" class="error-message"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button id="forgot-password-submit-btn" type="submit" class="btn-primary w-full">Send Reset Code</button>
+              <button id="back-to-login-from-forgot" type="button" class="btn-secondary w-full">Back to Login</button>
+            </div>
+          </form>
+
+          <!-- OTP -->
+          <form id="reset-otp-form" class="space-y-4 hidden mt-2">
+            <div>
+              <h3 class="font-alata text-xl mb-2 font-normal">Verify Reset Code</h3>
+              <p class="text-sm text-gray-600">We sent a 4-digit code to your email.</p>
+            </div>
+            <div id="reset-otp-container" class="flex justify-center gap-3">
+              <input class="otp-input form-input w-12 text-center" maxlength="1" inputmode="numeric" />
+              <input class="otp-input form-input w-12 text-center" maxlength="1" inputmode="numeric" />
+              <input class="otp-input form-input w-12 text-center" maxlength="1" inputmode="numeric" />
+              <input class="otp-input form-input w-12 text-center" maxlength="1" inputmode="numeric" />
+            </div>
+            <div id="reset-otp-error" class="error-message text-center"></div>
+            <div class="text-center text-sm">
+              <span id="timer-display">Resend code in <span id="timer-countdown">60</span> sec</span>
+              <button id="resend-otp-btn" type="button" class="btn-secondary hidden mt-2">Resend Code</button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button id="verify-reset-otp-btn" type="submit" class="btn-primary w-full">Verify Code</button>
+              <button id="back-to-forgot-from-otp" type="button" class="btn-secondary w-full">Back</button>
+            </div>
+          </form>
+
+          <!-- Reset password -->
+          <form id="reset-password-form" class="space-y-4 hidden mt-2">
+            <div>
+              <h3 class="font-alata text-xl mb-2 font-normal">Set New Password</h3>
+            </div>
+            <div class="relative">
+              <label class="form-label" for="reset-new-password">New Password *</label>
+              <input id="reset-new-password" type="password" class="form-input" placeholder="Enter new password" />
+              <span class="eye-btn toggle-eye" data-target="reset-new-password">👁</span>
+              <div id="new-password-error" class="error-message"></div>
+            </div>
+            <div class="relative">
+              <label class="form-label" for="reset-confirm-password">Confirm Password *</label>
+              <input id="reset-confirm-password" type="password" class="form-input" placeholder="Confirm new password" />
+              <span class="eye-btn toggle-eye" data-target="reset-confirm-password">👁</span>
+              <div id="confirm-password-error" class="error-message"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button id="reset-password-submit-btn" type="submit" class="btn-primary w-full">Reset Password</button>
+              <button id="back-to-forgot-password" type="button" class="btn-secondary w-full">Back</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- RIGHT -->
+        <aside class="md:pl-10 flex items-center">
+          <div>
+            <h3 class="font-alata text-2xl md:text-3xl font-normal">New Customer?</h3>
+            <p class="mt-3 text-gray-600">Join us today for exclusive benefits and offers.</p>
+            <a href="../auth/signuppage.html" class="inline-block mt-6 btn-primary">Sign Up</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assests/js/auth/loginpage.js"></script>
+
+  <div id="footer-root"></div>
+  <script>
+    async function include(id, url) {
+      try {
+        const res = await fetch(url + (location.hostname === '' ? '' : `?v=${Date.now()}`));
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        document.getElementById(id).innerHTML = await res.text();
+      } catch (e) {
+        console.error('Include failed:', url, e);
+      }
+    }
+  
+    include('navbar-root', '../components/navbar.html');
+    include('footer-root', '../components/footer.html');
+  </script>
+
+<script>
+  // Mobile menu toggle functionality
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = mobileMenuToggle.querySelector('i');
+  
+  mobileMenuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Toggle icon between hamburger and close
+      if (mobileMenu.classList.contains('hidden')) {
+          menuIcon.className = 'fas fa-bars';
+      } else {
+          menuIcon.className = 'fas fa-times';
+      }
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(event) {
+      const isClickInsideNav = event.target.closest('nav');
+      if (!isClickInsideNav) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.className = 'fas fa-bars';
+      }
+  });
+  
+  // Active link functionality
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all links
+          navLinks.forEach(l => l.classList.remove('active'));
+          
+          // Add active class to clicked link
+          this.classList.add('active');
+          
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+          menuIcon.className = 'fas fa-bars';
+      });
+  });
+  
+  // Search functionality
+  const searchInputs = document.querySelectorAll('.search-input');
+  searchInputs.forEach(input => {
+      input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+              e.preventDefault();
+              alert(`Searching for: ${this.value}`);
+              this.value = '';
+          }
+      });
+  });
+  
+ 
+    // User login/profile button functionality
+    const userLoginBtn = document.getElementById('user-login-btn');
+    const userNameBtn = document.getElementById('user-name-btn');
+    const userNameText = document.getElementById('user-name-text');
+    const dropdownUserName = document.getElementById('dropdown-user-name');
+    const userDropdown = document.getElementById('user-dropdown');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    // Check if user is logged in
+    function checkLoginStatus() {
+        const userData = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        
+        if (userData && token) {
+            try {
+                const user = JSON.parse(userData);
+                // Show username button instead of login button
+                userNameText.textContent = user.name;
+                dropdownUserName.textContent = user.name;
+                userNameBtn.classList.remove('hidden');
+                userLoginBtn.classList.add('hidden');
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                // Clear invalid data
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                showLoginButton();
+            }
+        } else {
+            showLoginButton();
+        }
+    }
+    
+    // Show login button
+    function showLoginButton() {
+        userNameBtn.classList.add('hidden');
+        userDropdown.classList.add('hidden');
+        userLoginBtn.classList.remove('hidden');
+    }
+    
+    // Handle login button click - redirect to login page
+    userLoginBtn.addEventListener('click', function() {
+        // Already on login page, do nothing or scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Handle username button click - toggle dropdown
+    userNameBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        userDropdown.classList.toggle('hidden');
+    });
+    
+    // Handle logout button click
+    logoutBtn.addEventListener('click', function() {
+        // Clear user data
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        // Show login button
+        showLoginButton();
+        // Close dropdown
+        userDropdown.classList.add('hidden');
+        // Redirect to homepage
+        window.location.href = '../pages/homepage.html';
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!userNameBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.classList.add('hidden');
+        }
+    });
+    
+    // Check login status on page load
+    checkLoginStatus();
+  
+  // Add scroll effect to navbar
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar-container');
+  
+  window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Add subtle shadow when scrolling
+      if (scrollTop > 10) {
+          navbar.style.boxShadow = '0 4px 20px rgba(126, 74, 29, 0.1)';
+      } else {
+          navbar.style.boxShadow = 'none';
+      }
+      
+      lastScrollTop = scrollTop;
+  });
+</script>
+
+</body>
+</html>
