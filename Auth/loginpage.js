@@ -148,7 +148,7 @@
         localStorage.setItem('token', 'logged_in'); // Simple token for demo
       }
       
-      setTimeout(()=>{ window.location.href = '../pages/homepage.html'; }, 800);
+      setTimeout(()=>{ window.location.href = '../Product/product.html'; }, 800);
     } catch(err){ setText(globalErr,err.message); }
     finally{ loginBtn.disabled=false; }
   });

@@ -484,27 +484,185 @@
             </svg>
           </div>
 
-          <!-- Wishlist Icon -->
-          <button class="relative hover:text-refbrown transition">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
+         <!-- Wishlist Icon -->
+      <button id="wishlist-btn" class="relative hover:text-[#8B4513] transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21.8 8.26a5.38 5.38 0 00-9.8-2.83A5.38 5.38 0 002.2 8.26c0 6.22 9.8 11.47 9.8 11.47s9.8-5.25 9.8-11.47z" />
+      </svg>
+      <span class="absolute -top-1 -right-2 bg-[#8B4513] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">1</span>
+    </button>
+
+    <!--Wishlist modal-->
+   <div
+      id="wishlist-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-white w-11/12 max-w-5xl rounded-2xl shadow-2xl p-6 relative"
+      >
+        <!-- Close Button -->
+        <button
+          id="close-wishlist"
+          class="absolute top-4 right-4 text-gray-700 hover:text-black text-2xl font-bold"
+        >
+          ×
+        </button>
+
+        <!-- Header -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Wishlist</h2>
+        <p class="text-gray-600 mb-5">You have 3 items in your cart</p>
+
+        <!-- Wishlist Items Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[450px] overflow-y-auto scrollbar-hide"
+        >
+          <!-- Wishlist Item -->
+          <div
+            class="border border-gray-300 rounded-xl p-4 relative shadow-sm flex gap-4"
+          >
+            <!-- Heart -->
+           <button
+              class="absolute top-3 right-3 text-[#8B4513] hover:scale-110 transition"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.8 8.26a5.38 5.38 0 00-9.8-2.83A5.38 5.38 0 002.2 8.26c0 6.22 9.8 11.47 9.8 11.47s9.8-5.25 9.8-11.47z"
-              />
-            </svg>
-            <span
-              class="absolute -top-1 -right-2 bg-refbrown text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-              >1</span
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#8B4513"
+                stroke="#8B4513"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.8 8.26a5.38 5.38 0 00-9.8-2.83A5.38 5.38 0 002.2 8.26c0 6.22 9.8 11.47 9.8 11.47s9.8-5.25 9.8-11.47z"
+                />
+              </svg>
+            </button>
+
+            <!-- Product Image -->
+            <img
+              src="./Images/honey.png"
+              alt="Product"
+              class="w-20 h-24 object-contain"
+            />
+
+            <!-- Details -->
+            <div>
+              <h4 class="font-semibold text-gray-800 text-lg">Malai Thean</h4>
+              <p class="text-[#8B4513] text-base font-semibold">
+                Rs: 325.00
+                <span
+                  class="text-gray-500 line-through text-sm font-normal ml-1"
+                  >Rs: 496.00</span
+                >
+              </p>
+              <p class="text-gray-600 text-sm mb-2">1/2 Kg</p>
+
+              <!-- Quantity -->
+              <div class="flex items-center border border-gray-300 rounded-md w-24 mb-3">
+                <button
+                  class="px-2 py-1 text-gray-700 hover:bg-gray-100 text-sm"
+                >
+                  −
+                </button>
+                <span class="px-2 text-gray-800 text-sm">1</span>
+                <button
+                  class="px-2 py-1 text-gray-700 hover:bg-gray-100 text-sm"
+                >
+                  +
+                </button>
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex gap-2">
+                <button
+                  class="border border-[#8B4513] text-[#8B4513] px-3 py-1 rounded-md text-sm font-medium hover:bg-[#8B4513] hover:text-white transition"
+                >
+                  Add to cart
+                </button>
+                <button
+                  class="bg-[#8B4513] text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-[#6F3410] transition"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate this div for more items -->
+          <div
+            class="border border-gray-300 rounded-xl p-4 relative shadow-sm flex gap-4"
+          >
+         <button
+              class="absolute top-3 right-3 text-[#8B4513] hover:scale-110 transition"
             >
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#8B4513"
+                stroke="#8B4513"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.8 8.26a5.38 5.38 0 00-9.8-2.83A5.38 5.38 0 002.2 8.26c0 6.22 9.8 11.47 9.8 11.47s9.8-5.25 9.8-11.47z"
+                />
+              </svg>
+            </button>
+
+            <img
+              src="./Images/honey.png"
+              alt="Product"
+              class="w-20 h-24 object-contain"
+            />
+
+            <div>
+              <h4 class="font-semibold text-gray-800 text-lg">Malai Thean</h4>
+              <p class="text-[#8B4513] text-base font-semibold">
+                Rs: 325.00
+                <span
+                  class="text-gray-500 line-through text-sm font-normal ml-1"
+                  >Rs: 496.00</span
+                >
+              </p>
+              <p class="text-gray-600 text-sm mb-2">1/2 Kg</p>
+
+              <div class="flex items-center border border-gray-300 rounded-md w-24 mb-3">
+                <button
+                  class="px-2 py-1 text-gray-700 hover:bg-gray-100 text-sm"
+                >
+                  −
+                </button>
+                <span class="px-2 text-gray-800 text-sm">1</span>
+                <button
+                  class="px-2 py-1 text-gray-700 hover:bg-gray-100 text-sm"
+                >
+                  +
+                </button>
+              </div>
+
+              <div class="flex gap-2">
+                <button
+                  class="border border-[#8B4513] text-[#8B4513] px-3 py-1 rounded-md text-sm font-medium hover:bg-[#8B4513] hover:text-white transition"
+                >
+                  Add to cart
+                </button>
+                <button
+                  class="bg-[#8B4513] text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-[#6F3410] transition"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
           <!-- Cart Icon -->
 
@@ -2363,6 +2521,23 @@
   orderOverlay.addEventListener("click", () => {
     orderWrapper.classList.add("hidden");
   });
+
+  //Wishlist script
+       const wishlistBtn = document.getElementById("wishlist-btn");
+      const wishlistModal = document.getElementById("wishlist-modal");
+      const closeWishlist = document.getElementById("close-wishlist");
+
+      wishlistBtn.addEventListener("click", () => {
+        wishlistModal.classList.remove("hidden");
+      });
+
+      closeWishlist.addEventListener("click", () => {
+        wishlistModal.classList.add("hidden");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === wishlistModal) wishlistModal.classList.add("hidden");
+      });
 </script>
 
 
