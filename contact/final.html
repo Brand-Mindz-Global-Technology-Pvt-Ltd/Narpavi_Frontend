@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Narpavi Honey – Contact Us</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata:wght@400;500&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              alata: ["Alata", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+            backgroundImage: {
+              "contact-hero": "url('./figma_contact/pic1.png')",
+              "contact-form": "url('./figma_contact/contactfinalbghoney.png')",
+              "quote-bg": "url('./figma_contact/pic3.png')",
+            },
+            colors: {
+              honey: "#9c4b11",
+              honeylight: "#b55a14",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-[#fff8e5] font-alata overflow-x-hidden">
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    <br><br><br>
+
+    <!-- HERO -->
+    <section class="relative w-full h-[32vh] md:h-[45vh] lg:h-[50vh] bg-contact-hero bg-cover bg-no-repeat flex items-center justify-center"
+      style="background-position:center bottom; background-color:#000;">
+      
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
+
+      <div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
+        <h1 class="text-[36px] sm:text-[46px] md:text-[58px] font-normal leading-tight">Contact Us</h1>
+
+        <p class="text-base sm:text-lg md:text-xl mt-4 mb-6">
+          From hive to home, we care about every drop of honey we deliver. Feel free to reach us anytime.
+        </p>
+
+        <div class="flex items-center justify-center gap-3 sm:gap-5 text-lg font-medium">
+          <a href="index.html" class="flex items-center gap-2 hover:text-amber-300 transition">
+            <i class="fa-solid fa-house text-[18px]"></i> Home
+          </a>
+          <img src="./figma_contact/contact_arrow.png" class="w-3 opacity-80" />
+          <span class="border-b border-white pb-[2px]">Contact Us</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==============================
+       SWEET EXPERIENCE — WITH 1000–1495px SMOOTH SCALE
+    =============================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative pt-10 md:pt-16 pb-0
+      scale-[0.92] origin-top
+      [@media(min-width:1500px)]:scale-100">
+
+      <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-6 relative">
+
+        <!-- Jar -->
+        <div class="w-[90%] sm:w-[70%] lg:w-[45%] flex justify-center lg:justify-start">
+          <img src="./figma_contact/honeyjars.png"
+            class="w-[82%] sm:w-[65%] md:w-[68%] lg:w-[72%] object-contain" />
+        </div>
+
+        <!-- Text -->
+        <div class="w-full lg:w-[55%] lg:-ml-[125px] text-center lg:text-left mt-6 lg:mt-0">
+          <h1 class="text-[#1f1f1f] leading-[1.15] tracking-[1.3px]
+            text-[30px] sm:text-[42px] md:text-[56px] lg:text-[70px]">
+            <span>Your</span><br>
+            <span class="text-[#e76f23]">Sweet</span><br>
+            <span class="text-[#e76f23]">Experience</span><br>
+            <span class="text-[#000]">Start Here</span>
+          </h1>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ==============================
+       CONNECT BOX — Perfect alignment
+    =============================== -->
+    <aside class="relative z-20 bg-white rounded-[14px] shadow-xl 
+      px-6 py-6 min-h-[300px]
+      w-[95%] sm:w-[90%] md:w-[80%] max-w-[380px]
+      mx-auto md:ml-[80px] lg:ml-[300px]
+      mt-10 md:-mt-[70px] lg:-mt-[100px]
+      scale-[0.92] origin-top
+      [@media(min-width:1500px)]:scale-100">
+
+      <img src="./figma_contact/flowerhoney.png"
+        class="absolute -top-[40px] -left-[70px] w-[150px] opacity-95 select-none">
+
+      <h2 class="text-[32px] md:text-[38px] lg:text-[40px] text-center mb-3">Connect</h2>
+      <hr class="border-gray-300 w-[80%] mx-auto mb-4"/>
+
+      <ul class="space-y-5 pl-3 sm:pl-0">
+
+        <li class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-honey flex items-center justify-center">
+            <i class="fa-solid fa-phone text-white"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-[17px]">Call Us</p>
+            <a href="tel:+91" class="text-[15px]">+91 12345 67890</a>
+          </div>
+        </li>
+
+        <li class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-honey flex items-center justify-center">
+            <i class="fa-solid fa-envelope text-white"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-[17px]">Email</p>
+            <a href="mailto:narpavihoney@gmail.com" class="text-[15px]">
+              narpavihoney@gmail.com
+            </a>
+          </div>
+        </li>
+
+        <li class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-honey flex items-center justify-center">
+            <i class="fa-solid fa-location-dot text-white"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-[17px]">Location</p>
+            <p class="text-[15px] leading-tight">Tirunelveli, Tamil Nadu</p>
+          </div>
+        </li>
+
+      </ul>
+    </aside>
+
+
+    <!-- ==============================
+        CONTACT FORM — Perfect scaling
+    =============================== -->
+    <div class="relative bg-contact-form bg-cover bg-center rounded-2xl shadow-xl 
+      w-[90%] sm:w-[95%] md:w-[85%] max-w-[800px]
+      mx-auto md:mr-[100px] lg:mr-[220px]
+      mt-10 sm:-mt-[200px] md:-mt-[250px] lg:-mt-[360px]
+      py-10
+      scale-[0.92] origin-top
+      [@media(min-width:1500px)]:scale-100">
+
+      <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
+
+      <form class="relative z-10 w-[85%] max-w-sm mx-auto space-y-4">
+        <input type="text" placeholder="Name" class="w-full px-4 py-2 rounded-md bg-white">
+        <input type="email" placeholder="Email" class="w-full px-4 py-2 rounded-md bg-white">
+        <input type="tel" placeholder="Phone Number" class="w-full px-4 py-2 rounded-md bg-white">
+        <textarea rows="3" placeholder="Your Message" class="w-full px-4 py-2 rounded-md bg-white"></textarea>
+
+        <div class="flex justify-center pt-2">
+          <button class="w-[60%] bg-honey text-white py-2 rounded-full hover:bg-honeylight">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- MAP -->
+    <section class="bg-[#f5ecd3] w-full mt-20">
+      <div class="relative h-[250px] sm:h-[320px] bg-quote-bg bg-cover bg-center flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 text-white text-center">
+          <p class="text-[16px]">If you want to gather honey, don’t kick over the beehive.</p>
+          <button class="mt-4 bg-honey py-2 px-6 rounded-md">Dale Carnegie</button>
+        </div>
+      </div>
+
+      <div class="w-[90%] sm:w-[90%] md:w-[85%] lg:w-[80%] mx-auto -mt-10 rounded-xl overflow-hidden shadow-xl">
+        <iframe class="w-full h-[350px]" src="https://www.google.com/maps"></iframe>
+      </div>
+    </section>
+
+    <script>
+      fetch("../components/navbar.html")
+        .then(r => r.text())
+        .then(d => document.getElementById("navbar-container").innerHTML = d);
+    </script>
+
+  </body>
+</html>

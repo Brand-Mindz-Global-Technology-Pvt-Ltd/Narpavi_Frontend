@@ -1,0 +1,245 @@
+body {
+    font-family: "Alata", sans-serif;
+    background-color: #fff8e5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* SPIN SLOW */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 18s linear infinite;
+  }
+  
+  /* DRIP */
+  @keyframes dripFlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(5px); }
+  }
+  .animate-drip {
+    animation: dripFlow 3s ease-in-out infinite;
+  }
+  
+  /* FLOWER DECOR */
+  .flower-decoration {
+    position: absolute;
+    top: 7%;
+    left: 66%;
+    transform: translateX(-50%);
+    z-index: 20;
+    pointer-events: none;
+  }
+  .flower-decoration img {
+    width: 115px;
+    height: auto;
+    opacity: 0.95;
+  }
+  
+  /* BEE DECOR */
+  .bee-decoration {
+    position: absolute;
+    top: 6%;
+    left: 62%;
+    transform-origin: center;
+    z-index: 30;
+    filter: drop-shadow(0 0 8px rgba(255,200,60,0.45));
+    pointer-events: none;
+  }
+  .bee-decoration img {
+    width: 75px;
+    height: auto;
+  }
+  
+  /* CARD HOVER */
+  .card-hover {
+    transition: transform 0.25s ease-in-out, box-shadow 0.3s ease;
+  }
+  .group:hover .card-hover {
+    transform: scale(1.12);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.25);
+    z-index: 20;
+  }
+  
+  /* PLINTH SHADOW */
+  .plinth-shadow {
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    height: 2.25rem;
+    bottom: -2.25rem;
+    background: rgba(0,0,0,0.18);
+    filter: blur(24px);
+    opacity: 0.4;
+    transition: all 0.4s ease;
+  }
+  .group:hover .plinth-shadow {
+    transform: scale(0.95) translateY(4px);
+    opacity: 0.55;
+  }
+  
+  /* SWIPER ARROWS */
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    color: #2b2b2b;
+    background: #fff;
+    border-radius: 9999px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .mySwiper .swiper-button-next:hover,
+  .mySwiper .swiper-button-prev:hover {
+    background: #f6b800;
+    color: #fff;
+    transform: scale(1.1) translateY(-50%);
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #7b3f00;
+    transition: all 0.3s ease;
+    z-index: 20;
+  }
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    color: #c8932a;
+    transform: scale(1.1);
+  }
+  
+  .honeySwiper {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 60px;
+  }
+  
+  /* RESPONSIVE SWIPER */
+  @media (max-width: 1023px) {
+    .tab-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .tab-promo { order: 1 !important; }
+    .tab-products { order: 2 !important; }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      bottom: 10px;
+      top: auto !important;
+      width: 36px;
+      height: 36px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transform: translateY(0);
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 16px;
+    }
+    .swiper-button-next { right: calc(50% - 45px); }
+    .swiper-button-prev { left: calc(50% - 45px); }
+  }
+  
+  /* SELECT DROPDOWN */
+  select.custom-select {
+    appearance: none;
+    background-color: white;
+    background-image: url("./figma/Arrow.png");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  /* PRODUCT GRID TABLET */
+  @media (min-width: 600px) and (max-width: 800px) {
+    .product-grid { grid-template-columns: repeat(2,1fr) !important; gap: 30px !important; }
+    article { max-width: 300px !important; min-height: 410px !important; }
+    article img { max-height: 130px !important; }
+    article h3 { font-size: 17px !important; }
+    .add-btn { width: 120px !important; height: 34px !important; }
+    .custom-select { width: 55px !important; height: 28px !important; }
+  }
+  
+  /* PRODUCT GRID MOBILE */
+  @media (max-width: 600px) {
+    section.section-6-product-list { padding-top: 60px !important; padding-bottom: 60px !important; }
+    .product-grid { grid-template-columns: 1fr !important; gap: 22px !important; }
+    article { max-width: 285px; min-height: 400px; margin: auto; }
+    article img { max-height: 120px !important; }
+    .add-btn { width: 118px !important; height: 32px !important; }
+    .custom-select { width: 50px !important; height: 26px !important; }
+  }
+  
+  /* HONEY BACKGROUND */
+  :root {
+    --hex-size-sm: 380px;
+    --hex-size-lg: 395px;
+    --wash: 0.88;
+  }
+  .honey-bg {
+    position: relative;
+    background: url("./figma/bgimage2.png") repeat left top;
+    background-size: var(--hex-size-sm) auto;
+    isolation: isolate;
+  }
+  .honey-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,247,230,var(--wash));
+  }
+  .honey-bg::after {
+    content: "";
+    position: absolute;
+    inset: -2vw;
+    background: radial-gradient(80% 70% at 50% 45%, rgba(0,0,0,0.06), rgba(0,0,0,0));
+    mix-blend-mode: multiply;
+  }
+  
+  /* FLOATING DECOR */
+  .decor { pointer-events: none; user-select: none; }
+  
+  .drip-img { transform: translate(-18px,-45px) scale(1.35) rotate(8deg); }
+  .jar-img { transform: translateY(-60px); }
+  
+  /* WHY CHOOSE US — TABLET */
+  @media (min-width:600px) and (max-width:800px) {
+    .honey-bg { background-size:380px auto !important; }
+  }
+  
+  /* WHY CHOOSE US — MOBILE */
+  @media (max-width:599px) {
+    .honey-bg { background-size:280px auto !important; }
+  }
+  
+  /* FAQ */
+  .faq-answer { transition: 0.3s ease-in-out; }
+  .faq-item:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.15); transform: translateY(-2px); }
+  
+  /* ACHIEVEMENTS */
+  .achievementsSwiper { width:100vw; overflow:visible !important; }
+  
+  .zoom-box {
+    transform: perspective(900px) translateZ(0) scale(1);
+    transition: all 0.55s cubic-bezier(0.25,1,0.3,1);
+    border-radius: 16px;
+    background: white;
+  }
+  .zoom-box:hover {
+    transform: perspective(900px) translateZ(40px) scale(1.12);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  }
+  .zoom-box img { transition: transform 0.55s cubic-bezier(0.25,1,0.3,1); }
+  .zoom-box:hover img { transform: scale(1.12); }
+  
