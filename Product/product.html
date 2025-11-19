@@ -7,6 +7,10 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Auth Utils -->
+    <script src="../Auth/auth-utils.js"></script>
+    
     <script>
       tailwind.config = {
         theme: {
@@ -1573,6 +1577,12 @@
       </div>
     <!-- JavaScript -->
     <script>
+      // ======== AUTH PROTECTION ======== //
+      // Protect this page - redirect if not logged in
+      if (!AuthUtils.initPageProtection()) {
+        throw new Error('Authentication required');
+      }
+
       // --- CATEGORY COLLAPSE ---
       const cats = document.querySelectorAll(".main-cat");
       const indicator = document.getElementById("indicator");

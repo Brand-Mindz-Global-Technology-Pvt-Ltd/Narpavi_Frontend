@@ -1187,7 +1187,7 @@ async function deleteCategory(categoryId) {
         formData.append("delete", "1");
         formData.append("id", categoryId);
 
-        const response = await fetch(`${API_BASE}/add_category`, {
+        const response = await fetch(`${API_BASE}/add_category.php`, {
           method: "POST",
           body: formData,
         });
@@ -1229,7 +1229,7 @@ async function deleteBlog(blogId) {
         formData.append("delete", "1");
         formData.append("id", blogId);
 
-        const response = await fetch(`${API_BASE}/add_blog`, {
+        const response = await fetch(`${API_BASE}/add_blog.php`, {
           method: "POST",
           body: formData,
         });

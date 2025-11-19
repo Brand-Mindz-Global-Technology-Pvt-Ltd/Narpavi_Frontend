@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Narpavai Honey – Taste the Purity of Nature</title>
+
+    <!-- ✅ Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- ✅ Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Tailwind Combined Config (from all sections + animations) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              honey: {
+                300: "#FFD066",
+                400: "#F6B800",
+                500: "#E0A600",
+              },
+              cocoa: "#1f1f1f",
+              cream: "#FFF8E5",
+              brown: {
+                400: "#7B3F00",
+                500: "#693600",
+              },
+            },
+            fontFamily: {
+              alata: ["Alata", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 25px rgba(0,0,0,0.08)",
+              glow: "0 10px 25px rgba(246,184,0,0.4)",
+              card: "0 6px 18px rgba(0,0,0,0.12)",
+              cardHover: "0 10px 25px rgba(0,0,0,0.18)",
+            },
+            backgroundImage: {
+              "category-bg": "url('./figma/home_3_bg.png')",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(8px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              liftUp: {
+                "0%": { opacity: "0", transform: "translateY(40px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 4.5s ease-out forwards",
+              liftUp: "liftUp 1.6s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Alata", sans-serif;
+        background-color: #fff8e5;
+      }
+      /* ===========================================================
+   🔥 FULL WEBSITE OVERFLOW FIX (SAFE — NO DESIGN CHANGE)
+   =========================================================== */
+
+/* Global overflow lock */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* Stop any element from exceeding screen width */
+
+
+/* -------------------------------
+   SECTION 1 – HERO FIXES
+--------------------------------*/
+#hero {
+  position: relative;
+  overflow-x: hidden !important;
+}
+
+#hero img,
+#hero .absolute {
+  max-width: 100% !important;
+}
+
+/* Honey jar — prevent wide overflow */
+#hero img[alt="Narpavai Honey Jar"] {
+  max-width: 460px !important;   /* hero responsive size */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  /* ⭐ Move jar slightly DOWN */
+  bottom: -8px !important;
+}
+
+/* Bee position fix */
+#hero img[alt="Bee"] {
+  right: 12% !important;
+}
+
+/* Wooden plate & shadow limiting */
+#hero img[alt="Wood pedestal"],
+#hero .absolute.left-1\/2 {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Drip decoration fix */
+#hero img[alt="Honey drip"] {
+  width: 100% !important;
+  left: 0 !important;
+}
+
+/* ============================================
+   SECTION 2 — FIX SWIPER ARROW POSITION
+   ============================================ */
+
+
+
+
+/* CARD WRAPPER */
+/* PREVENT CONTENT BOX FROM MOVING ON HOVER */
+.promise-card {
+  width: 100%;
+  max-width: 350px;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  /* 🔥 This locks layout so hover won't push anything */
+  position: relative;
+}
+
+/* CARD HOVER (only lift, but inner elements do NOT shift) */
+.promise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* IMAGE — zoom safely inside, no pushing */
+.promise-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  transition: transform 0.45s ease;
+
+  /* 🔥 Important: image zoom won't push content */
+  transform-origin: center center;
+}
+
+/* Hover zoom */
+.promise-card:hover .promise-img {
+  transform: scale(1.08);
+}
+
+/* CONTENT BOX — fully locked, never moves */
+.promise-textbox {
+  background: #FFF9E9;
+  padding: 18px 14px 20px;
+  text-align: center;
+  border-radius: 0 0 16px 16px;
+
+  /* 🔥 These 3 lines prevent ANY up movement */
+  position: relative;
+  top: 0 !important;
+  margin-top: 0 !important;
+
+  transition: background 0.35s ease;
+}
+
+.promise-textbox {
+  position: relative;
+  top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 30px;  /* lock top padding */
+  padding-bottom: 30px;
+  transition: background 0.35s ease; /* only bg changes */
+}
+
+/* On hover: change background only — NO MOVEMENT */
+.promise-card:hover .promise-textbox {
+  
+  top: 0 !important;         /* lock position */
+  margin-top: 0 !important;  /* lock position */
+}
+
+
+/* =============================
+   SWIPER ARROWS — EXACT
+============================= */
+
+/* ===========================================================
+   SECTION 2 — PROMISE SWIPER ARROWS (FINAL FIXED VERSION)
+=========================================================== */
+
+/* REMOVE all old arrow CSS from Section 2 before adding this */
+
+/* Common Arrow Styles */
+
+
+
+/* Hover effect */
+.promise-next:hover,
+.promise-prev:hover {
+ 
+  transform: scale(1.12) translateY(-50%) !important;
+}
+
+.promise-next,
+.promise-prev {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  /* remove circle box */
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+
+  /* bigger touch area but invisible */
+  width: 20px !important;
+  height:20px !important;
+
+  color: #2b2b2b !important; /* arrow color */
+  font-size: 40px !important; /* 🔥 bigger arrow */
+  font-weight: bold !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+
+  transition: transform 0.2s ease-out !important;
+}
+
+/* Hover – small scale only */
+.promise-next:hover,
+.promise-prev:hover {
+  transform: translateY(-50%) scale(1.15) !important;
+}
+
+/* Arrow positions */
+.promise-prev { left: -10px !important; }
+.promise-next { right: -10px !important; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .promise-next,
+  .promise-prev {
+    top: auto !important;
+    bottom: -12px !important;
+    transform: none !important;
+    font-size: 34px !important;
+  }
+
+  .promise-prev { left: calc(50% - 70px) !important; }
+  .promise-next { right: calc(50% - 70px) !important; }
+}
+
+
+
+
+
+/* FIX Honey Drip Gap for 300px–800px */
+#hero .honey-drip-fix {
+  margin-top: -12px !important;   /* remove gap */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  #hero .honey-drip-fix {
+    margin-top: -18px !important; /* extra fix for 600–800 */
+  }
+}
+
+@media (max-width: 500px) {
+  #hero .honey-drip-fix {
+    margin-top: -22px !important; /* extra fix for 300–500 */
+  }
+}
+
+/* Mobile Fix: Arrows move bottom */
+
+
+ 
+
+
+/* -------------------------------
+   SECTION 3 – CATEGORY
+--------------------------------*/
+section.bg-category-bg {
+  overflow-x: hidden !important;
+}
+
+section.bg-category-bg .bg-white {
+  max-width: 100% !important;
+}
+
+section.bg-category-bg .bg-white {
+  transition: all 0.3s ease !important;
+}
+
+section.bg-category-bg .bg-white:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.15) !important;
+}
+
+/* -------------------------------
+   SECTION 4 – PRODUCT LIST
+--------------------------------*/
+.honeySwiper {
+  overflow: hidden !important;
+}
+
+.honeySwiper .swiper-slide > div {
+  max-width: 100% !important;
+}
+
+.promise-next,
+.promise-prev {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  
+  color: #2b2b2b !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+  z-index: 5000 !important;
+  pointer-events: auto !important;
+}
+
+.promise-prev { left: -12px !important; }
+.promise-next { right: -12px !important; }
+
+/* scale shadow fix */
+.honeySwiper .swiper-slide:hover {
+  overflow: hidden !important;
+}
+
+/* -------------------------------
+   SECTION 5 – GET OFFER SECTION
+--------------------------------*/
+section[style*="sec5_bgimage"] {
+  overflow-x: hidden !important;
+}
+
+section[style*="sec5_bgimage"] img {
+  max-width: 100% !important;
+}
+
+section[style*="sec5_bgimage"] .absolute {
+  overflow: hidden !important;
+}
+
+/* -------------------------------
+   SECTION 7 – TESTIMONIALS
+--------------------------------*/
+section[style*="sec7_bg_mirrored"] {
+  overflow-x: hidden !important;
+}
+
+section[style*="sec7_bg_mirrored"] .zoom-box {
+  max-width: 100% !important;
+}
+
+section[style*="sec7_bg_mirrored"] .zoom-box:hover {
+  transform: scale(1.06) !important; /* safe scale */
+}
+
+/* -------------------------------
+   SECTION 8 – WHY CHOOSE US
+--------------------------------*/
+.section-8-why {
+  overflow-x: hidden !important;
+}
+
+.section-8-why img {
+  max-width: 100% !important;
+}
+
+/* -------------------------------
+   SECTION 9 – FAQ
+--------------------------------*/
+section.bg-\[\#FFF6DB\] {
+  overflow-x: hidden !important;
+}
+
+/* -------------------------------
+   SECTION 10 – ACHIEVEMENTS CAROUSEL
+--------------------------------*/
+.mySwiper,
+.swiper {
+  overflow: hidden !important;
+}
+
+.swiper-slide img {
+  max-width: 100% !important;
+}
+
+
+      /* =====================
+         GLOBAL ANIMATIONS
+      ====================== */
+
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-spin-slow {
+        animation: spin-slow 18s linear infinite;
+      }
+
+      @keyframes dripFlow {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      .animate-drip {
+        animation: dripFlow 3s ease-in-out infinite;
+      }
+
+      /* ===============================
+   FIX: 414px layout same until 500px
+   =============================== */
+
+   /* =======================================================
+   ⭐ FIX FOR 300px–550px  
+   Move Bottom Feature Card DOWN (more top & bottom gap)
+   ======================================================= */
+@media (min-width: 300px) and (max-width: 550px) {
+
+/* Move the bottom bar slightly DOWN */
+#hero .relative.flex.justify-center.-mt-16,
+#hero .relative.flex.justify-center.-mt-20 {
+  margin-top: 0px !important;   /* 🔥 increase top gap */
+  margin-bottom: 55px !important;  /* 🔥 increase bottom gap */
+}
+
+/* Main white feature bar card spacing */
+#hero .relative.flex.justify-between.items-center {
+  margin-top: 25px !important;     /* extra spacing above */
+  margin-bottom: 25px !important;  /* extra spacing below */
+}
+
+/* Bottom shadow alignment fix */
+#hero .absolute.left-1\/2.-translate-x-1\/2.bottom-\[-6px\] {
+  bottom: -12px !important;     /* shift shadow slightly down */
+}
+}
+
+
+/* =======================================================
+   FIX: Force 350px–500px to behave EXACTLY like 414px layout
+   ======================================================= */
+   @media (min-width: 350px) and (max-width: 500px) {
+
+body {
+  zoom: 0.86 !important;
+  transform-origin: top center !important;
+}
+
+/* HERO SECTION */
+#hero h1 {
+  font-size: 46px !important;
+  line-height: 1.05 !important;
+}
+
+#hero .font-poppins {
+  font-size: 16px !important;
+  line-height: 28px !important;
+}
+
+#hero .happy-customer,
+#hero .absolute.z-30 {
+  left: 14px !important;
+  top: 6px !important;
+}
+
+/* =======================================================
+   🍯 PERFECT FIX – HONEY JAR (350px–500px SAME AS 414px)
+   ======================================================= */
+#hero img[alt="Narpavai Honey Jar"] {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  /* 🔥 exact 414px match → slightly smaller */
+  width: 248px !important;
+
+  /* 🔥 prevent floating up at 430px–500px */
+  bottom: -10px !important;
+}
+
+/* Wood Plate Lock */
+#hero img[alt="Wood pedestal"] {
+  bottom: -120px !important;
+  width: 100% !important;
+}
+
+/* Jar Shadow Fix */
+#hero .absolute.left-1\/2.-translate-x-1\/2.z-\[15\] {
+  bottom: 19.5% !important;
+  width: 145px !important;
+  height: 16px !important;
+}
+/* ======================================================= */
+
+#hero .w-\[680px\] {
+  width: 90% !important;
+}
+
+/* SECTION 2 – PROMISE SWIPER */
+.mySwiper .swiper-slide article {
+  width: 12% !important;
+}
+
+.mySwiper img {
+  height: 250px !important;
+}
+
+/* SECTION 3 – CATEGORY */
+section.bg-category-bg .bg-white {
+  width: 90% !important;
+  height: 330px !important;
+}
+
+/* SECTION 4 – PRODUCT LIST */
+.tab-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.honeySwiper .swiper-slide > div {
+  width: 260px !important;
+  padding: 20px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  bottom: 10px !important;
+  width: 34px !important;
+  height: 34px !important;
+}
+
+/* SECTION 5 */
+section[style*="sec5_bgimage"] .bg-\[\#FFF4E6\] {
+  width: 92% !important;
+  padding: 25px !important;
+}
+
+}
+
+
+/* =======================================================
+   ⭐ FIX FOR 900px–1300px  
+   Move Left Side Content Slightly Right (prevent hiding)
+   ======================================================= */
+   @media (min-width: 900px) and (max-width: 1300px) {
+
+/* Move LEFT HERO CONTENT slightly right */
+#hero .grid > div:first-child {
+  margin-left: 40px !important;   /* 🔥 shift right */
+}
+
+/* Optional: Adjust text container alignment */
+#hero h1 {
+  margin-left: 10px !important;
+}
+
+/* Keep honey jar centered — do not move */
+#hero img[alt="Narpavai Honey Jar"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+}
+
+
+/* =======================================================
+   ⭐ 500px–600px RANGE = EXACT SAME AS 414px (HERO SECTION)
+   ======================================================= */
+   @media (min-width: 500px) and (max-width: 600px) {
+
+body {
+  zoom: 0.92 !important;
+  transform-origin: top center !important;
+}
+
+/* HERO TITLE */
+#hero h1 {
+  font-size: 48px !important;
+  line-height: 1.05 !important;
+}
+
+#hero .font-poppins {
+  font-size: 17px !important;
+  line-height: 28px !important;
+}
+
+/* Happy customer */
+#hero .happy-customer,
+#hero .absolute.z-30 {
+  left: 18px !important;
+  top: 8px !important;
+}
+
+/* 🍯 Honey Jar — MOVE UP (fix drop at 530px–600px) */
+#hero img[alt="Narpavai Honey Jar"] {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  width: 260px !important;
+  bottom: -1px !important;     /* 🔥 moved UP (fixed) */
+}
+
+/* Wood Plate */
+#hero img[alt="Wood pedestal"] {
+  bottom: -118px !important;
+  width: 100% !important;
+}
+
+/* 🔆 Shadow aligned with jar up movement */
+#hero .absolute.left-1\/2.-translate-x-1\/2.z-\[15\] {
+  bottom: 30.5% !important;     /* 🔥 shadow moved UP too */
+  width: 148px !important;
+  height: 16px !important;
+}
+
+/* Bottom bar */
+#hero .w-\[680px\] {
+  width: 88% !important;
+}
+
+}
+
+
+
+
+
+
+
+      /* =====================
+         SECTION 2 – PROMISE
+      ====================== */
+
+      /* 🌸 Flower (Static) */
+      .flower-decoration {
+        position: absolute;
+        top: 10%;
+        left: 64%;
+        transform: translateX(-50%);
+        z-index: 20;
+        pointer-events: none;
+      }
+      .flower-decoration img {
+        width: 215px;
+        height: auto;
+        opacity: 0.95;
+      }
+
+      /* 🐝 Bee Orbit */
+      .bee-decoration {
+        position: absolute;
+        top: 20%;
+        left: 62%;
+        transform-origin: center;
+        z-index: 30;
+        filter: drop-shadow(0 0 8px rgba(255, 200, 60, 0.45));
+        pointer-events: none;
+      }
+      .bee-decoration img {
+        width: 85px;
+        height: auto;
+      }
+
+      @keyframes beeOrbit {
+        0% {
+          transform: translate(-50%, 0) rotate(-6deg);
+        }
+        25% {
+          transform: translate(-48%, -8px) rotate(-2deg);
+        }
+        50% {
+          transform: translate(-45%, -12px) rotate(3deg);
+        }
+        75% {
+          transform: translate(-47%, -5px) rotate(-1deg);
+        }
+        100% {
+          transform: translate(-50%, 0) rotate(-6deg);
+        }
+      }
+
+
+      /* =====================
+         SECTION 4 – PRODUCT LIST
+      ====================== */
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #7b3f00;
+        transition: all 0.3s ease;
+        z-index: 20;
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        color: #c8932a;
+        transform: scale(1.1);
+      }
+
+      .honeySwiper {
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 60px;
+      }
+
+      @media (max-width: 1023px) {
+        .tab-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .tab-promo {
+          order: 1 !important;
+        }
+
+        .tab-products {
+          order: 2 !important;
+        }
+
+        /* Arrow positioning for mobile/tablet (global for both sliders) */
+        .swiper-button-next,
+        .swiper-button-prev {
+          position: absolute;
+          bottom: 10px;
+          top: auto !important;
+          transform: translateY(0);
+          width: 36px;
+          height: 36px;
+          background-color: white;
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 16px;
+        }
+
+        .swiper-button-next {
+          right: calc(50% - 45px);
+        }
+
+        .swiper-button-prev {
+          left: calc(50% - 45px);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-cream text-cocoa overflow-x-hidden antialiased">
+
+    <!-- =========================
+         SECTION 1: HERO
+    ========================== -->
+    <section id="hero" class="relative overflow-hidden bg-white">
+      <!-- 🟡 Honey Drip Top Decoration -->
+      <div class="relative w-full overflow-hidden -mt-6">
+        <img
+  src="./figma/home_decoration.png"
+  alt="Honey drip"
+  class="honey-drip-fix"
+/>
+      </div>
+
+      <!-- 🧾 CONTENT AREA -->
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 md:pt-6 lg:pt-1 pb-16 lg:pb-20"
+      >
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <!-- LEFT SIDE -->
+          <div class="-ml-2 sm:-ml-3 md:-ml-4 lg:-ml-12 -mt-3 lg:-mt-5">
+            <p
+              class="text-[16px] font-normal text-cocoa tracking-wide -mt-7 mb-2"
+            >
+              The Best Online Honey Store
+            </p>
+
+            <h1
+              class="font-alata font-normal text-[45px] leading-[1] tracking-[0] text-cocoa mt-2"
+            >
+              <span class="block">Welcome to Narpavai Honey</span>
+              <span class="block text-cocoa mt-2"
+                >Taste the Purity of Nature</span
+              >
+            </h1>
+
+            <p
+              class="mt-4 font-poppins font-normal text-[18px] text-gray-700 max-w-lg leading-[34px] text-justify"
+            >
+              Experience the pure essence of honey with Narpavai — raw,
+              unprocessed, and ethically harvested. Packed with natural flavor
+              and nutrients, every drop delivers health, trust, and tradition.
+            </p>
+
+            <!-- CTA BUTTONS -->
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 bg-[#F6B800] hover:bg-[#E0A600]
+                    text-black font-semibold text-[16px] sm:text-[17px]
+                    px-8 sm:px-9 py-3 sm:py-3.5 rounded-full
+                    shadow-[0_6px_16px_rgba(246,184,0,0.4)]
+                    transition-all duration-300 ease-in-out transform hover:-translate-y-[2px]"
+              >
+                Order Now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 36 24"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M2 12h24M18 6l8 6-8 6"
+                    stroke="black"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 px-4 py-2 sm:px-5 sm:py-2.5
+                    bg-transparent text-[#222] font-semibold text-[16px]
+                    transition-all duration-300 hover:opacity-80"
+              >
+                <span
+                  class="inline-flex items-center justify-center w-8 h-8 rounded-full
+                       bg-[#FF4D4D] text-white text-[14px] font-bold shadow-md"
+                  >▶</span
+                >
+                <span class="tracking-wide">Order Process</span>
+              </a>
+            </div>
+
+            <!-- TRUST ROW -->
+            <div
+              class="mt-6 flex flex-wrap items-center justify-start text-center text-gray-800 text-sm font-normal"
+            >
+            <div class="px-0 sm:px-0 ">
+              <p class="font-semibold text-[16px] text-black">100%</p>
+              <p class="text-[13px] text-gray-500">Raw & Unprocessed</p>
+            </div>
+              <div class="hidden sm:block w-[1px] h-6 bg-gray-300 mx-3"></div>
+              <div class="px-0 sm:px-0">
+                <p class="font-semibold text-[16px] text-black">Tested</p>
+                <p class="text-[13px] text-gray-500">Lab Tested for Purity</p>
+              </div>
+              <div class="hidden sm:block w-[1px] h-6 bg-gray-300 mx-3"></div>
+              <div class="px-0 sm:px-0">
+                <p class="font-semibold text-[16px] text-black">Trusted</p>
+                <p class="text-[13px] text-gray-500">Beekeepers</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE -->
+          <div
+            class="order-2 relative flex justify-center items-end mt-10 lg:mt-0"
+          >
+            <div
+              class="relative w-[300px] sm:w-[350px] md:w-[400px] lg:w-[440px] aspect-[1/1.05] overflow-visible"
+            >
+              <!-- 🟡 Background Circles -->
+              <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+              >
+                <div
+                  class="absolute rounded-full bg-[#FFB300]"
+                  style="
+                     width: 88%;
+                     aspect-ratio: 1/1;
+                     top: -6%;
+                     left: 54%;
+                     transform: translateX(-50%);
+                     opacity: 0.9;
+                     box-shadow: 0 0 50px rgba(255, 179, 0, 0.25);
+                   "
+                ></div>
+
+                <svg
+                  class="absolute z-[10] pointer-events-none"
+                  style="
+                     width: 100%;
+                     aspect-ratio: 1/1;
+                     top: -12%;
+                     left: 54%;
+                     transform: translateX(-50%);
+                     opacity: 0.9;
+                   "
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="47"
+                    stroke="#FFB300"
+                    stroke-width="1"
+                    stroke-dasharray="7 6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- 🧊 Happy Customer -->
+            <div
+              class="absolute z-30 -top-3 sm:-top-5 left-2 sm:left-5
+                     rounded-2xl border border-white/20
+                     backdrop-blur-[14px]
+                     shadow-[0_6px_20px_rgba(0,0,0,0.04)]
+                     bg-gradient-to-tr from-white/10 via-white/4 to-transparent
+                     px-3 py-2 flex flex-col items-start gap-1 select-none
+                     opacity-0 animate-[fadeIn_4.5s_ease-out_forwards]"
+            >
+              <span
+                class="text-[12px] sm:text-[13px] font-semibold text-[#222] leading-none"
+              >
+                Happy Customer
+              </span>
+
+              <div class="mt-1">
+                <img
+                  src="./figma/customers.png"
+                  alt="Happy Customers"
+                  class="h-10 sm:h-11 w-auto object-contain pointer-events-none select-none"
+                />
+              </div>
+
+              <div class="flex items-center gap-1 mt-1">
+                <span class="text-[#FF6B00] text-[13px]">★</span>
+                <span class="text-[12px] text-gray-800 font-semibold">4.5</span>
+                <span class="text-[11px] text-gray-600">10K+ Reviews</span>
+              </div>
+            </div>
+
+            <!-- 🪵 Wooden Pedestal -->
+            <img
+              src="./figma/home_plate.png"
+              alt="Wood pedestal"
+              class="absolute inset-x-0 bottom-[-120px] w-full h-auto z-[5]
+                     select-none pointer-events-none"
+            />
+
+            <!-- 🔆 Honey Jar Shadow -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 z-[15]
+                     w-[57%] h-[8%] bottom-[20.8%]
+                     rounded-full opacity-90 blur-[6px]
+                     bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.3)_60%,rgba(0,0,0,0)_100%)]"
+            ></div>
+
+            <!-- 🍯 Honey Jar -->
+            <img
+              src="./figma/honey jar.png"
+              alt="Narpavai Honey Jar"
+              class="absolute z-[20] drop-shadow-2xl select-none pointer-events-none
+                     w-[74%] sm:w-[72%] md:w-[70%] lg:w-[68%]"
+              style="bottom: 20%; left: 52%; transform: translateX(-50%);"
+            />
+
+            <!-- 🐝 Bee -->
+            <img
+              src="./figma/promise_bee.png"
+              alt="Bee"
+              class="absolute z-[35] select-none pointer-events-none"
+              style="
+                 right: 30%;
+                 bottom: 2%;
+                 width: 130px;
+                 transform: rotate(-1deg);
+                 filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+               "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔶 Bottom Feature Bar -->
+      <div
+        class="relative flex justify-center -mt-16 lg:-mt-20 z-[50] opacity-0 translate-y-8 animate-[liftUp_1.6s_ease-out_forwards]"
+      >
+        <!-- Under-Shadow -->
+        <div
+          class="absolute left-1/2 -translate-x-1/2 bottom-[-6px]
+                 w-[76%] h-[14px] rounded-full blur-[10px] opacity-60
+                 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.15)_45%,rgba(0,0,0,0)_100%)]"
+        ></div>
+
+        <!-- Main Card -->
+        <div
+          class="relative flex justify-between items-center
+                 bg-white border border-gray-100
+                 rounded-[9999px]
+                 shadow-[0_8px_22px_rgba(0,0,0,0.08)]
+                 w-[680px] h-[60px] px-10 py-3
+                 transition-all duration-500 ease-in-out hover:shadow-[0_10px_26px_rgba(0,0,0,0.12)]"
+        >
+          <!-- 100+ Customer -->
+          <div class="flex items-center gap-3">
+            <div
+              class="grid place-items-center h-11 w-11 rounded-full bg-[#EFFFF9]"
+            >
+              <img
+                src="./figma/home_1_bottom_logo_1.png"
+                alt="Customers"
+                class="h-6 w-6 object-contain"
+              />
+            </div>
+            <div class="leading-tight">
+              <p class="text-[15px] font-semibold text-[#111] tracking-tight">
+                100+ Customer
+              </p>
+              <p class="text-[12px] text-gray-400">100% Happy Customer</p>
+            </div>
+          </div>
+
+          <!-- Fresh Honey -->
+          <div class="flex items-center gap-3">
+            <div
+              class="grid place-items-center h-11 w-11 rounded-full bg-[#FFF4E1]"
+            >
+              <img
+                src="./figma/home_1_bottom_logo_2.png"
+                alt="Fresh Honey"
+                class="h-6 w-6 object-contain"
+              />
+            </div>
+            <div class="leading-tight">
+              <p class="text-[15px] font-semibold text-[#111] tracking-tight">
+                Fresh Honey
+              </p>
+              <p class="text-[12px] text-gray-400">Fresh Honey for you</p>
+            </div>
+          </div>
+
+          <!-- Secure Payment -->
+          <div class="flex items-center gap-3">
+            <div
+              class="grid place-items-center h-11 w-11 rounded-full bg-[#E9FBEF]"
+            >
+              <img
+                src="./figma/home_1_bottom_logo_3.png"
+                alt="Secure Payment"
+                class="h-6 w-6 object-contain"
+              />
+            </div>
+            <div class="leading-tight">
+              <p class="text-[15px] font-semibold text-[#111] tracking-tight">
+                100% Secure Payment
+              </p>
+              <p class="text-[12px] text-gray-400">
+                We ensure your money is safe
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+<!-- =========================
+     SECTION 2: NARPAVAI PROMISE (FULL WIDTH + ORIGINAL BG)
+========================= -->
+<!-- =========================
+     SECTION 2: NARPAVAI PROMISE
+========================= -->
+<section class="relative overflow-visible py-12 md:py-16 bg-[#FFF7E6] w-full">
+
+  <!-- LEFT BG -->
+  <div class="pointer-events-none absolute z-0 top-[-20px] left-[-20px]
+    w-[550px] h-[550px] opacity-[0.08] bg-no-repeat bg-left-top"
+    style="background-image:url('./figma/bgimage2.png'); background-size:contain;">
+  </div>
+
+  <!-- RIGHT BG -->
+  <div class="pointer-events-none absolute z-0 bottom-[-25px] right-[-25px]
+    w-[550px] h-[550px] opacity-[0.08] bg-no-repeat bg-right-bottom"
+    style="background-image:url('./figma/bgimage2.png'); background-size:contain;">
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-0">
+
+    <h2 class="font-alata text-[34px] sm:text-[42px] md:text-[48px]
+      text-[#7B3F00] mb-12 text-center md:text-left">
+      The Narpavai Promise
+    </h2>
+
+    <!-- FLOWER -->
+    <div class="flower-decoration pointer-events-none">
+      <img src="./figma/promise_flower.png" alt="Flower Decoration" />
+    </div>
+
+    <!-- BEE -->
+    <div class="bee-decoration pointer-events-none">
+      <img src="./figma/promise_bee.png" alt="Bee Decoration" />
+    </div>
+
+    <!-- SWIPER -->
+    <div class="swiper mySwiper relative z-20">
+
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_1.png" class="promise-img" />
+            <div class="promise-textbox"><p>100% Raw & Unprocessed</p></div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_2.png" class="promise-img" />
+            <div class="promise-textbox"><p>Ethically Sourced from Trusted Beekeepers</p></div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_3.png" class="promise-img" />
+            <div class="promise-textbox"><p>Lab-Tested for Purity</p></div>
+          </div>
+        </div>
+
+        <!-- Slide 4 (Repeat) -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_1.png" class="promise-img" />
+            <div class="promise-textbox"><p>100% Raw & Unprocessed</p></div>
+          </div>
+        </div>
+
+        <!-- Slide 5 (Repeat) -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_2.png" class="promise-img" />
+            <div class="promise-textbox"><p>Ethically Sourced from Trusted Beekeepers</p></div>
+          </div>
+        </div>
+
+        <!-- Slide 6 (Repeat) -->
+        <div class="swiper-slide flex justify-center">
+          <div class="promise-card">
+            <img src="./figma/promise_img_3.png" class="promise-img" />
+            <div class="promise-textbox"><p>Lab-Tested for Purity</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CUSTOM ARROWS -->
+      <div class="promise-prev">&#10094;</div>
+      <div class="promise-next">&#10095;</div>
+
+    </div>
+
+  </div>
+</section>
+
+ 
+
+
+    <!-- =========================
+         SECTION 3: SHOP BY CATEGORY
+    ========================== -->
+    <section
+      class="relative w-full overflow-hidden bg-category-bg bg-cover bg-center bg-no-repeat py-20"
+    >
+      <!-- Overlay (transparent for now) -->
+      <div class="absolute inset-0 bg-black/0"></div>
+
+      <div class="relative w-full px-6 sm:px-10 lg:px-16">
+        <!-- Heading -->
+        <div class="text-left mb-16">
+          <h2
+            class="text-white text-[32px] sm:text-[38px] md:text-[44px] leading-none font-normal"
+          >
+            Shop By Category
+          </h2>
+          <p
+            class="text-white/90 font-poppins text-[18px] sm:text-[22px] font-normal mt-3"
+          >
+            Ethically Sourced from Trusted Beekeepers
+          </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-2xl shadow-card hover:shadow-cardHover hover:scale-[1.02] transition-all duration-300 w-[90%] sm:w-[320px] h-[350px] flex flex-col justify-between p-6"
+          >
+            <div class="flex justify-center items-center h-[160px]">
+              <img
+                src="./figma/home_3_card_1.png"
+                alt="Pure Honey"
+                class="h-[130px] object-contain drop-shadow-md"
+              />
+            </div>
+            <div>
+              <h3 class="font-poppins text-[17px] font-medium text-cocoa">
+                Pure Honey
+              </h3>
+              <p
+                class="text-[#8A8A8A] text-[13px] font-poppins mt-2 leading-relaxed"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            <button
+              class="bg-brown-400 hover:bg-brown-500 text-white text-[17px] font-medium font-poppins py-3 rounded-md transition-all duration-300 mt-3"
+            >
+              View Collection
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-2xl shadow-card hover:shadow-cardHover hover:scale-[1.02] transition-all duration-300 w-[90%] sm:w-[320px] h-[350px] flex flex-col justify-between p-6"
+          >
+            <div class="flex justify-center items-center h-[160px]">
+              <img
+                src="./figma/home_3_card_2.png"
+                alt="Value Added Product"
+                class="h-[130px] object-contain drop-shadow-md"
+              />
+            </div>
+            <div>
+              <h3 class="font-poppins text-[17px] font-medium text-cocoa">
+                Value Added Product
+              </h3>
+              <p
+                class="text-[#8A8A8A] text-[13px] font-poppins mt-2 leading-relaxed"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            <button
+              class="bg-brown-400 hover:bg-brown-500 text-white text-[17px] font-medium font-poppins py-3 rounded-md transition-all duration-300 mt-3"
+            >
+              View Collection
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-2xl shadow-card hover:shadow-cardHover hover:scale-[1.02] transition-all duration-300 w-[90%] sm:w-[320px] h-[350px] flex flex-col justify-between p-6"
+          >
+            <div class="flex justify-center items-center h-[160px]">
+              <img
+                src="./figma/home_3_card_3.png"
+                alt="Naturally Processed"
+                class="h-[130px] object-contain drop-shadow-md"
+              />
+            </div>
+            <div>
+              <h3 class="font-poppins text-[17px] font-medium text-cocoa">
+                Naturally Processed
+              </h3>
+              <p
+                class="text-[#8A8A8A] text-[13px] font-poppins mt-2 leading-relaxed"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            <button
+              class="bg-brown-400 hover:bg-brown-500 text-white text-[17px] font-medium font-poppins py-3 rounded-md transition-all duration-300 mt-3"
+            >
+              View Collection
+            </button>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white rounded-2xl shadow-card hover:shadow-cardHover hover:scale-[1.02] transition-all duration-300 w-[90%] sm:w-[320px] h-[350px] flex flex-col justify-between p-6"
+          >
+            <div class="flex justify-center items-center h-[160px]">
+              <img
+                src="./figma/home_3_card_4.png"
+                alt="Premium Quality"
+                class="h-[130px] object-contain drop-shadow-md"
+              />
+            </div>
+            <div>
+              <h3 class="font-poppins text-[17px] font-medium text-cocoa">
+                Premium Quality
+              </h3>
+              <p
+                class="text-[#8A8A8A] text-[13px] font-poppins mt-2 leading-relaxed"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            <button
+              class="bg-brown-400 hover:bg-brown-500 text-white text-[17px] font-medium font-poppins py-3 rounded-md transition-all duration-300 mt-3"
+            >
+              View Collection
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SECTION 4: PRODUCT LIST
+    ========================== -->
+    <section class="relative overflow-hidden py-12 bg-[#FFF7E6]">
+      <div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+        <h3
+          class="text-[#7B3F00] font-alata font-normal text-[35px] leading-[100%] mb-8 -ml-4"
+        >
+          Product List
+        </h3>
+
+        <!-- Background Honeycomb -->
+        <div
+          class="pointer-events-none absolute top-0 left-0 w-[45%] h-[70%] opacity-15 z-0"
+        >
+          <div
+            class="w-full h-full bg-[url('./figma/bgimage2.png')] bg-[length:500px_auto] bg-no-repeat bg-left-top"
+            style="
+              transform: scale(1.4);
+              filter: brightness(1.9) contrast(0.8);
+              mask-image: linear-gradient(
+                to bottom right,
+                black 65%,
+                transparent 100%
+              );
+              -webkit-mask-image: linear-gradient(
+                to bottom right,
+                black 65%,
+                transparent 100%
+              );
+            "
+          ></div>
+        </div>
+
+        <div
+          class="pointer-events-none absolute bottom-[-80px] right-0 w-[50%] h-[75%] opacity-15 z-0"
+        >
+          <div
+            class="w-full h-full bg-[url('./figma/bgimage2.png')] bg-[length:500px_auto] bg-no-repeat bg-right-bottom"
+            style="
+              transform: scale(1.4);
+              filter: brightness(1.9) contrast(0.8);
+              mask-image: linear-gradient(
+                to top left,
+                black 65%,
+                transparent 100%
+              );
+              -webkit-mask-image: linear-gradient(
+                to top left,
+                black 65%,
+                transparent 100%
+              );
+            "
+          ></div>
+        </div>
+
+        <!-- GRID (Promo + Swiper) -->
+        <div
+          class="grid gap-x-10 gap-y-10 items-stretch tab-grid [grid-template-columns:1.1fr_1.4fr]"
+        >
+          <!-- Promo Card -->
+          <div
+            class="relative rounded-[28px] overflow-hidden min-h-[520px] shadow-[0_8px_22px_rgba(0,0,0,0.1)] tab-promo"
+          >
+            <img
+              src="./figma/home_sec_4_promo.png"
+              alt="Promo"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div
+              class="relative h-full flex flex-col justify-center px-10 py-8 sm:py-12 md:py-16"
+            >
+              <div class="text-center text-white drop-shadow-sm">
+                <div class="text-[68px] font-extrabold leading-none">50%</div>
+                <div
+                  class="text-[33px] font-bold mt-2 font-poppins leading-[100%]"
+                >
+                  Deal End Soon
+                </div>
+              </div>
+              <p
+                class="text-white font-poppins font-normal text-[18px] sm:text-[20px] md:text-[22px] leading-[30px] mt-6 md:mt-8 max-w-[520px] mx-auto text-center"
+              >
+                Experience the pure essence of honey with Narpavai — raw,
+                unprocessed, and ethically harvested.
+              </p>
+              <div class="text-center">
+                <button
+                  class="border border-[#7B3F00] text-[#7B3F00]
+                         px-5 py-1.5 rounded-full
+                         font-poppins text-[14px] font-semibold
+                         bg-white
+                         hover:bg-[#7B3F00]/10
+                         transition-all duration-200">
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper Product Slider -->
+          <div class="swiper honeySwiper tab-products">
+            <div class="swiper-wrapper">
+              <!-- Murungai -->
+              <div class="swiper-slide flex justify-center">
+                <div
+                  class="bg-white rounded-[24px] p-8 w-[280px] flex flex-col justify-between items-center text-center 
+                         shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-all 
+                         hover:shadow-[0_12px_25px_rgba(123,63,0,0.25)]"
+                >
+                  <img
+                    src="./figma/home_sec_4_product_1.png"
+                    class="h-[150px] object-contain mb-6"
+                    alt="Murungai Honey"
+                  />
+                  <hr
+                    class="w-[100px] h-[1px] bg-[#3B2F20] border-0 mb-6"
+                  />
+                  <h4
+                    class="font-poppins text-[22px] text-[#1f1f1f] mb-2 leading-tight"
+                  >
+                    Murungai Honey
+                  </h4>
+                  <div
+                    class="font-poppins font-extrabold text-[20px] text-[#1f1f1f] mb-6"
+                  >
+                    Rs. 300/-
+                  </div>
+                  <button
+                  class="border border-[#7B3F00] text-[#7B3F00]
+                         px-5 py-1.5 rounded-full
+                         font-poppins text-[14px] font-semibold
+                         bg-white
+                         hover:bg-[#7B3F00]/10
+                         transition-all duration-200">
+                  Add to cart
+                </button>
+                </div>
+              </div>
+
+              <!-- Malai -->
+              <div class="swiper-slide flex justify-center">
+                <div
+                  class="bg-white rounded-[24px] p-8 w-[280px] flex flex-col justify-between items-center text-center 
+                         shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-all 
+                         hover:shadow-[0_12px_25px_rgba(123,63,0,0.25)]"
+                >
+                  <img
+                    src="./figma/home_sec_4_product_2.png"
+                    class="h-[150px] object-contain mb-6"
+                    alt="Malai Thaen"
+                  />
+                  <hr
+                    class="w-[100px] h-[1px] bg-[#3B2F20] border-0 mb-6"
+                  />
+                  <h4
+                    class="font-poppins text-[22px] text-[#1f1f1f] mb-2 leading-tight"
+                  >
+                    Malai Thaen
+                  </h4>
+                  <div
+                    class="font-poppins font-extrabold text-[20px] text-[#1f1f1f] mb-6"
+                  >
+                    Rs. 670/-
+                  </div>
+                  <button
+                  class="border border-[#7B3F00] text-[#7B3F00]
+                         px-4 py-1.5 rounded-full
+                         font-poppins text-[15px] font-medium 
+                         hover:bg-[#7B3F00] hover:text-white
+                         transition-all duration-300">
+                  Add to cart
+                </button>
+                
+                </div>
+              </div>
+
+              <!-- Repeat Murungai -->
+              <div class="swiper-slide flex justify-center">
+                <div
+                  class="bg-white rounded-[24px] p-8 w-[280px] flex flex-col justify-between items-center text-center 
+                         shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-all 
+                         hover:shadow-[0_12px_25px_rgba(123,63,0,0.25)]"
+                >
+                  <img
+                    src="./figma/home_sec_4_product_1.png"
+                    class="h-[150px] object-contain mb-6"
+                    alt="Murungai Honey"
+                  />
+                  <hr
+                    class="w-[100px] h-[1px] bg-[#3B2F20] border-0 mb-6"
+                  />
+                  <h4
+                    class="font-poppins text-[22px] text-[#1f1f1f] mb-2 leading-tight"
+                  >
+                    Murungai Honey
+                  </h4>
+                  <div
+                    class="font-poppins font-extrabold text-[20px] text-[#1f1f1f] mb-6"
+                  >
+                    Rs. 300/-
+                  </div>
+                  <button
+                  class="border border-[#7B3F00] text-[#7B3F00]
+                         px-5 py-1.5 rounded-full
+                         font-poppins text-[14px] font-semibold
+                         bg-white
+                         hover:bg-[#7B3F00]/10
+                         transition-all duration-200">
+                  Add to cart
+                </button>
+                 
+                </div>
+              </div>
+
+              <!-- Repeat Malai -->
+              <div class="swiper-slide flex justify-center">
+                <div
+                  class="bg-white rounded-[24px] p-8 w-[280px] flex flex-col justify-between items-center text-center 
+                         shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-all 
+                         hover:shadow-[0_12px_25px_rgba(123,63,0,0.25)]"
+                >
+                  <img
+                    src="./figma/home_sec_4_product_2.png"
+                    class="h-[150px] object-contain mb-6"
+                    alt="Malai Thaen"
+                  />
+                  <hr
+                    class="w-[100px] h-[1px] bg-[#3B2F20] border-0 mb-6"
+                  />
+                  <h4
+                    class="font-poppins text-[22px] text-[#1f1f1f] mb-2 leading-tight"
+                  >
+                    Malai Thaen
+                  </h4>
+                  <div
+                    class="font-poppins font-extrabold text-[20px] text-[#1f1f1f] mb-6"
+                  >
+                    Rs. 670/-
+                  </div>
+                  <button
+                    class="w-[150px] border-2 border-[#7B3F00] text-[#7B3F00] px-6 py-[8px] rounded-full 
+                           font-poppins text-[18px] font-medium transition-all duration-300 ease-out 
+                           hover:bg-[#7B3F00] hover:text-white hover:scale-[1.05] hover:-translate-y-[3px] active:scale-[0.97]"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SECTION 5: GET OFFER
+    ========================== -->
+    <section
+      class="relative w-full overflow-hidden bg-cover bg-[center_bottom]"
+      style="
+        background-image: url('./figma/sec5_bgimage.jpg');
+        background-size: cover;
+      "
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-[rgba(0,0,0,0.35)]"></div>
+
+      <!-- Container -->
+      <div
+        class="relative max-w-[1280px] mx-auto px-6 py-16 flex justify-center flex-wrap md:flex-nowrap"
+      >
+        <!-- Cream Offer Box -->
+        <div
+          class="relative bg-[#FFF4E6]
+                 md:w-[540px] md:h-[260px]
+                 sm:w-[480px] sm:h-[240px]
+                 w-[90%] h-auto
+                 rounded-tr-[32px] md:rounded-br-none
+                 shadow-[0_15px_35px_rgba(0,0,0,0.15)]
+                 flex flex-col justify-center items-center text-center
+                 overflow-visible p-6 md:p-0"
+        >
+          <!-- Outline Frame -->
+          <img
+            src="./figma/sec5_border.png"
+            alt="Offer Outline Frame"
+            class="absolute md:-right-[20px] md:bottom-[40px] md:w-[620px] md:h-[260px]
+                   sm:-right-[12px] sm:bottom-[30px] sm:w-[500px] sm:h-[240px]
+                   -right-[10px] bottom-[75px] w-[95%] h-auto
+                   object-contain pointer-events-none select-none"
+          />
+
+          <!-- Get Offer Pill -->
+          <div
+            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#A14E02]
+                   md:px-10 px-8 md:py-3 py-2.5
+                   rounded-[44px] text-white
+                   md:text-[28px] sm:text-[24px] text-[20px]
+                   font-alata font-normal leading-[100%]
+                   shadow-[0_8px_20px_rgba(123,63,0,0.3)]
+                   tracking-[0]"
+          >
+            Get Offer
+          </div>
+
+          <!-- Text Content -->
+          <p
+            class="text-[#7B3F00]
+                   md:text-[30px] sm:text-[24px] text-[20px]
+                   font-poppins font-medium
+                   leading-[100%] tracking-[0] mt-6"
+          >
+            Save upto <span class="font-semibold">20%</span> on
+          </p>
+
+          <h2
+            class="text-[#7B3F00]
+                   md:text-[32px] sm:text-[26px] text-[24px]
+                   font-poppins font-normal leading-[100%] tracking-[0] mt-4"
+          >
+            Fresh Honey
+          </h2>
+
+          <!-- Add to cart -->
+          <button
+            class="mt-5
+                   md:w-[170px] md:h-[50px]
+                   sm:w-[160px] sm:h-[48px]
+                   w-[150px] h-[45px]
+                   bg-[#A14E02] text-white
+                   text-[20px] sm:text-[21px] md:text-[22px]
+                   font-poppins font-medium leading-[100%] tracking-[0]
+                   rounded-[20px]
+                   shadow-[0_6px_18px_rgba(161,78,2,0.25)]
+                   hover:brightness-110 active:scale-95 transition-all"
+          >
+            Add to cart
+          </button>
+        </div>
+
+        <!-- Honey Jar -->
+        <img
+          src="./figma/home_sec_4_product_2.png"
+          alt="Honey Jar"
+          class="absolute
+                 md:left-[350px] md:bottom-[40px] md:w-[160px]
+                 sm:left-[110px] sm:bottom-[20px] sm:w-[130px]
+                 left-[10%] bottom-[5px] w-[100px]
+                 -translate-x-1/2
+                 drop-shadow-[0_12px_25px_rgba(0,0,0,0.45)]
+                 select-none pointer-events-none"
+        />
+      </div>
+    </section>
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      // SECTION 2 Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          centeredSlides: true,
+          speed: 600,
+          navigation: {
+            nextEl: ".promise-next",
+  prevEl: ".promise-prev",
+          },
+          breakpoints: {
+            0: { slidesPerView: 1, centeredSlides: true },
+            768: { slidesPerView: 2, spaceBetween: 30, centeredSlides: false },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+              centeredSlides: false,
+            },
+          },
+        });
+
+        // SECTION 4 Swiper
+        new Swiper(".honeySwiper", {
+          loop: true,
+          spaceBetween: 30,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            0: { slidesPerView: 1 },
+            600: { slidesPerView: 2 },
+            1024: { slidesPerView: 2 },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
