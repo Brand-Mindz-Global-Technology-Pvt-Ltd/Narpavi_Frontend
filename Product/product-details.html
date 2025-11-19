@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Murukai Honey | Narpavai Honey</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Auth Utils -->
+    <script src="../Auth/auth-utils.js"></script>
+    
     <style>
       body {
         font-family: "Inter", sans-serif;
@@ -945,6 +949,11 @@
 
     <!-- JS for Share Tooltip -->
     <script>
+      // ======== AUTH PROTECTION ======== //
+      if (!AuthUtils.initPageProtection()) {
+        throw new Error('Authentication required');
+      }
+
       const shareBtn = document.getElementById("shareBtn");
       const tooltip = document.getElementById("shareTooltip");
       const copyLink = document.getElementById("copyLink");

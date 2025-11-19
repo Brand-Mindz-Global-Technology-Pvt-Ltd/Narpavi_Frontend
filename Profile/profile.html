@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | Honey Store</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Auth Utils -->
+    <script src="../Auth/auth-utils.js"></script>
+
+    <style>
+      body {
+        font-family: "Alata", sans-serif;
+        background-color: #fffaf3;
+      }
+      .shadow-soft {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+      .active-tab {
+        background-color: #8b4513;
+        color: #fff !important;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col items-center p-6">
+    <!-- Header -->
+    <header class="w-full max-w-6xl flex justify-between items-center mb-10">
+      <h1 class="text-3xl font-bold text-[#8B4513]">My Profile</h1>
+
+      <div class="flex items-center gap-4">
+        <!-- Wishlist -->
+        <button class="relative hover:text-[#8B4513] transition">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#8B4513"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#8B4513"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.8 8.26a5.38 5.38 0 00-9.8-2.83A5.38 5.38 0 002.2 8.26c0 6.22 9.8 11.47 9.8 11.47s9.8-5.25 9.8-11.47z"
+            />
+          </svg>
+        </button>
+
+        <!-- Cart -->
+        <button class="relative hover:text-[#8B4513] transition">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 2.25h1.5l1.664 9.975a2.25 2.25 0 002.228 1.875h9.536a2.25 2.25 0 002.228-1.875L21.75 6.75H6.093M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm8.25 0a.75.75 0 100-1.5.75.75 0 000 1.5z"
+            />
+          </svg>
+          <span
+            class="absolute -top-1 -right-2 bg-[#8B4513] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
+            >3</span
+          >
+        </button>
+
+        <!-- Profile Icon -->
+        <img
+  id="sidebar-profile-img"
+  src="./Images/default-user.png"
+  class="w-10 h-10 rounded-full border-2 border-[#8B4513] object-cover"
+/>
+
+      </div>
+    </header>
+
+    <!-- Profile Container -->
+    <main
+
+      class="bg-white rounded-2xl shadow-soft w-full max-w-6xl p-8 flex flex-col lg:flex-row gap-8"
+    >
+      <!-- LEFT: Menu -->
+      <section class="lg:w-1/3 border-r border-gray-200 pr-8">
+        <div class="flex flex-col items-center text-center">
+          <div class="relative w-28 h-28 mb-3">
+
+            <!-- IMAGE -->
+            <img
+              id="profile-image"
+              src="./Images/default-user.png"
+              class="w-28 h-28 rounded-full border-4 border-[#8B4513] object-cover"
+            />
+          
+            <!-- LOADER -->
+            <div id="image-loader"
+                 class="hidden absolute inset-0 bg-white/80 rounded-full flex items-center justify-center">
+                <div class="loader border-4 border-[#8B4513] border-t-transparent rounded-full w-10 h-10 animate-spin"></div>
+            </div>
+          
+            <!-- EDIT BUTTON -->
+            <label
+              for="profile-upload"
+              class="absolute bottom-0 right-0 bg-[#8B4513] text-white px-2 py-1 text-xs rounded cursor-pointer"
+            >
+              Edit
+            </label>
+          
+            <!-- FILE INPUT -->
+            <input id="profile-upload" type="file" accept="image/*" class="hidden" />
+          </div>
+
+          <style>
+            .loader {
+  border-radius: 50%;
+  border-width: 4px;
+}
+
+          </style>
+          
+          <h2 id="sidebar-name" class="text-xl font-semibold text-gray-900">
+            John Doe
+          </h2>
+          <p id="sidebar-email" class="text-gray-600 text-sm mb-4">
+            john.doe@email.com
+          </p>
+        </div>
+
+        <div class="mt-8 space-y-3">
+          <button
+            class="tab-btn w-full text-left px-4 py-2 rounded-md hover:bg-[#FFF2E0] text-[#8B4513] font-medium active-tab"
+            data-target="personal"
+          >
+            Personal Info
+          </button>
+          <button
+            class="tab-btn w-full text-left px-4 py-2 rounded-md hover:bg-[#FFF2E0] text-[#8B4513] font-medium"
+            data-target="address"
+          >
+            Address Book
+          </button>
+          <button
+            class="tab-btn w-full text-left px-4 py-2 rounded-md hover:bg-[#FFF2E0] text-[#8B4513] font-medium"
+            data-target="orders"
+          >
+            My Orders
+          </button>
+          <button
+            class="tab-btn w-full text-left px-4 py-2 rounded-md hover:bg-[#FFF2E0] text-[#8B4513] font-medium"
+            data-target="wishlist"
+          >
+            Wishlist
+          </button>
+          <button
+            id="logout-btn"
+            class="tab-btn w-full text-left px-4 py-2 rounded-md hover:bg-[#FFF2E0] text-[#8B4513] font-medium"
+          >
+            Logout
+          </button>
+        </div>
+      </section>
+
+      <!-- RIGHT: Dynamic Content -->
+      <section class="flex-1 space-y-6">
+        <!-- Personal Info -->
+        <div id="personal" class="tab-content block">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">Personal Info</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-700 text-sm mb-1" for="full-name"
+                >Full Name</label
+              >
+              <input
+                id="full-name"
+                type="text"
+                value=""
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-[#8B4513]"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 text-sm mb-1" for="email"
+                >Email</label
+              >
+              <input
+                id="email"
+                type="email"
+                value=""
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-[#8B4513]"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 text-sm mb-1" for="phone"
+                >Phone</label
+              >
+              <input
+                id="phone"
+                type="text"
+                value=""
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-[#8B4513]"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 text-sm mb-1" for="dob"
+                >Date of Birth</label
+              >
+              <input
+                id="dob"
+                type="date"
+                value=""
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-[#8B4513]"
+              />
+            </div>
+          </div>
+          <button
+            id="save-profile-btn"
+            class="mt-6 bg-[#8B4513] text-white px-5 py-2 rounded-lg hover:bg-[#6F3410] transition"
+          >
+            Save Changes
+          </button>
+        </div>
+
+          <!-- Address Book -->
+          <!-- Address Book -->
+<div id="address" class="tab-content hidden">
+  <h3 class="text-xl font-semibold text-gray-800 mb-4">Address Book</h3>
+
+  <!-- Add New Address Button -->
+  <button
+    id="add-address-btn"
+    class="mb-4 bg-[#8B4513] text-white px-4 py-2 rounded-lg hover:bg-[#6F3410] transition"
+  >
+    + Add New Address
+  </button>
+
+  <!-- Address List (Stacked Cards) -->
+  <div id="address-list" class="space-y-4"></div>
+
+  <!-- Address Modal -->
+  <div id="address-modal"
+  class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50 p-4">
+
+
+  <div class="bg-white rounded-xl p-6 w-full max-w-xl max-h-[80vh] overflow-y-auto shadow-lg">
+
+    <button id="modal-close-btn"
+    class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl font-bold">
+    &times;
+</button>
+
+      <h3 id="modal-title" class="text-xl font-semibold mb-4">Add Address</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div>
+          <label class="block text-sm mb-1">Address Type</label>
+          <select
+            id="addr-type"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          >
+            <option>Home</option>
+            <option>Work</option>
+            <option>Office</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Full Name</label>
+          <input
+            id="addr-full-name"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Phone</label>
+          <input
+            id="addr-phone"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-sm mb-1">Address Line 1</label>
+          <input
+            id="addr-line1"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-sm mb-1">Address Line 2</label>
+          <input
+            id="addr-line2"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">City</label>
+          <input
+            id="addr-city"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">State</label>
+          <input
+            id="addr-state"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Pincode</label>
+          <input
+            id="addr-pincode"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Country</label>
+          <input
+            id="addr-country"
+            type="text"
+            value="India"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-sm mb-1">Landmark</label>
+          <input
+            id="addr-landmark"
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div class="flex items-center gap-2 sm:col-span-2 mt-2">
+          <input id="addr-default" type="checkbox" />
+          <label>Set as default address</label>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-4">
+        <button
+          id="modal-cancel"
+          class="px-4 py-2 border border-gray-400 rounded-lg"
+        >
+          Cancel
+        </button>
+        <button
+          id="modal-save"
+          class="px-6 py-2 rounded-lg bg-[#8B4513] text-white"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Orders -->
+        <div id="orders" class="tab-content hidden">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">My Orders</h3>
+          <div
+            class="border rounded-lg p-4 shadow-soft bg-[#fffefc] space-y-3 text-sm text-gray-700"
+          >
+            <div class="flex justify-between">
+              <span>Order #12345</span>
+              <span class="text-[#8B4513] font-medium">Delivered</span>
+            </div>
+            <p>Items: 2 | Total: Rs 650.00</p>
+            <p>Date: 02 Nov 2025</p>
+          </div>
+        </div>
+
+        <!-- Wishlist -->
+        <div id="wishlist" class="tab-content hidden">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">My Wishlist</h3>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <div
+              class="border rounded-lg p-4 shadow-soft bg-[#fffefc] flex flex-col items-center"
+            >
+              <img src="./Images/honey.png" alt="Honey" class="w-24 h-24 mb-2" />
+              <h4 class="font-semibold">Malai Thean</h4>
+              <p class="text-sm text-gray-700">Rs: 325.00</p>
+              <button
+                class="bg-[#8B4513] text-white px-4 py-1 rounded-md mt-2 text-sm hover:bg-[#6F3410]"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Success Popup Modal -->
+<div id="popupModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-xl p-6 w-72 text-center shadow-lg animate-fadeIn">
+    <div id="popupIcon" class="mx-auto mb-3"></div>
+    <h3 id="popupMessage" class="text-lg font-semibold text-gray-800"></h3>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: scale(1); } }
+  .animate-fadeIn { animation: fadeIn .25s ease-out; }
+</style>
+
+
+<script>
+  // Tab switching logic WITH PAGE REFRESH MEMORY
+  const tabs = document.querySelectorAll(".tab-btn");
+  const contents = document.querySelectorAll(".tab-content");
+  
+  // 1️⃣ Load saved active tab from localStorage
+  let savedTab = localStorage.getItem("activeProfileTab") || "personal";
+  setActiveTab(savedTab);
+  
+  // 2️⃣ Add click listeners
+  tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+          const target = tab.dataset.target;
+  
+          // Save clicked tab to localStorage
+          localStorage.setItem("activeProfileTab", target);
+  
+          setActiveTab(target);
+      });
+  });
+  
+  // 3️⃣ Function to activate correct tab + content
+  function setActiveTab(tabName) {
+      // Update active button styling
+      tabs.forEach((t) => {
+          if (t.dataset.target === tabName) {
+              t.classList.add("active-tab");
+          } else {
+              t.classList.remove("active-tab");
+          }
+      });
+  
+      // Show correct content
+      contents.forEach((content) => {
+          if (content.id === tabName) {
+              content.classList.remove("hidden");
+              content.classList.add("block");
+          } else {
+              content.classList.add("hidden");
+              content.classList.remove("block");
+          }
+      });
+  }
+  </script>
+  
+
+    <script src="./profile.js"></script>
+  </body>
+</html>

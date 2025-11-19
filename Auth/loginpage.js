@@ -1,4 +1,23 @@
 (function () {
+  // ======== CHECK IF ALREADY LOGGED IN ======== //
+  // If user is already logged in, redirect to product page
+  const checkExistingSession = () => {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    
+    if (token && user) {
+      // User is already logged in, redirect to product page
+      window.location.replace('../Product/product.html');
+      return true;
+    }
+    return false;
+  };
+
+  // Check on page load
+  if (checkExistingSession()) {
+    return; // Stop execution if redirecting
+  }
+
   // Forms
   const loginForm  = document.getElementById('login-form');
   const forgotForm = document.getElementById('forgot-password-form');
@@ -148,7 +167,14 @@
         localStorage.setItem('token', 'logged_in'); // Simple token for demo
       }
       
-      setTimeout(()=>{ window.location.href = '../Product/product.html'; }, 800);
+      // Check if there's a redirect URL stored
+      const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+      sessionStorage.removeItem('redirectAfterLogin');
+      
+      setTimeout(()=>{ 
+        // Use replace to prevent back button navigation to login page
+        window.location.replace(redirectUrl || '../Product/product.html'); 
+      }, 800);
     } catch(err){ setText(globalErr,err.message); }
     finally{ loginBtn.disabled=false; }
   });

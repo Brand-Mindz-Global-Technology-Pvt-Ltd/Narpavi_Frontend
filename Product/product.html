@@ -7,6 +7,10 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Auth Utils -->
+    <script src="../Auth/auth-utils.js"></script>
+    
     <script>
       tailwind.config = {
         theme: {
@@ -1222,22 +1226,25 @@
           </div>
 
           <!-- Profile Icon -->
-          <button class="hover:text-refbrown transition">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 9A3.75 3.75 0 1112 5.25 3.75 3.75 0 0115.75 9zm0 0c0 2.07-1.68 3.75-3.75 3.75S8.25 11.07 8.25 9m7.5 0a3.75 3.75 0 11-7.5 0m7.5 0v0M12 14.25c-3.728 0-6.75 3.022-6.75 6.75h13.5c0-3.728-3.022-6.75-6.75-6.75z"
-              />
-            </svg>
-          </button>
+          <a href="../Profile/profile.html">
+            <button class="hover:text-refbrown transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9A3.75 3.75 0 1112 5.25 3.75 3.75 0 0115.75 9zm0 0c0 2.07-1.68 3.75-3.75 3.75S8.25 11.07 8.25 9m7.5 0a3.75 3.75 0 11-7.5 0m7.5 0v0M12 14.25c-3.728 0-6.75 3.022-6.75 6.75h13.5c0-3.728-3.022-6.75-6.75-6.75z"
+                />
+              </svg>
+            </button>
+          </a>
+          
         </div>
       </div>
     </header>
@@ -2347,6 +2354,12 @@
     </div>
     <!-- JavaScript -->
     <script>
+      // ======== AUTH PROTECTION ======== //
+      // Protect this page - redirect if not logged in
+      if (!AuthUtils.initPageProtection()) {
+        throw new Error('Authentication required');
+      }
+
       // --- CATEGORY COLLAPSE ---
       const cats = document.querySelectorAll(".main-cat");
       const indicator = document.getElementById("indicator");
