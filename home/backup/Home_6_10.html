@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Narpavai Honey – Sections 6 to 10</title>
+
+    <!-- ✅ Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- ✅ Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Tailwind Config (merged from your sections) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#FFF7E6",
+              cocoa: "#9B4A00",
+              cocoa600: "#7A3700",
+              price: "#E53935",
+              muted: "#9CA3AF",
+              discount: "#2E7D32",
+              textdim: "#6B7280",
+              // extra from other sections
+              creamBg: "#FFF6DB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+              alata: ["Alata", "sans-serif"],
+            },
+            boxShadow: {
+              card: "0 10px 20px rgba(0,0,0,0.08)",
+              cardHover: "0 16px 28px rgba(0,0,0,0.12)",
+              jar: "0 20px 40px rgba(0,0,0,.20)",
+              glow: "0 30px 60px rgba(0,0,0,0.35)",
+            },
+            borderRadius: {
+              card: "22px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ✅ Custom CSS from all sections -->
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fffaf3;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      /* ==========================
+         SECTION 6 – PRODUCT LIST
+      =========================== */
+
+      select.custom-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: white;
+        background-image: url("./figma/Arrow.png");
+        background-repeat: no-repeat;
+        background-position: right 6px center;
+        background-size: 10px;
+        padding-right: 20px;
+        cursor: pointer;
+      }
+
+      /* ✅ TABLET VIEW (600–800px) */
+      @media (min-width: 600px) and (max-width: 800px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 30px !important;
+          justify-items: center !important;
+          align-items: start !important;
+        }
+
+        article {
+          width: 100%;
+          max-width: 300px !important;
+          min-height: 410px !important;
+        }
+
+        article img {
+          max-height: 130px !important;
+        }
+
+        article h3 {
+          font-size: 17px !important;
+        }
+
+        article p {
+          font-size: 10px !important;
+        }
+
+        .add-btn {
+          width: 120px !important;
+          height: 34px !important;
+          font-size: 11px !important;
+        }
+
+        .custom-select {
+          width: 55px !important;
+          height: 28px !important;
+        }
+      }
+
+      /* ✅ MOBILE STYLES (below 600px) */
+      @media (max-width: 600px) {
+        section.section-6-product-list {
+          padding-top: 60px !important;
+          padding-bottom: 60px !important;
+        }
+
+        section.section-6-product-list h2 {
+          font-size: 26px !important;
+        }
+
+        .tabs {
+          flex-direction: row !important;
+          justify-content: center !important;
+          align-items: center !important;
+          gap: 1.5rem !important;
+          text-align: center;
+        }
+
+        .tabs div {
+          font-size: 17px !important;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr !important;
+          gap: 22px !important;
+        }
+
+        article {
+          width: 100%;
+          max-width: 285px;
+          min-height: 400px;
+          margin: 0 auto;
+          padding-top: 4px;
+        }
+
+        article img {
+          max-height: 120px !important;
+        }
+
+        article h3 {
+          font-size: 15px !important;
+        }
+
+        article p {
+          font-size: 9px !important;
+        }
+
+        .add-btn {
+          width: 118px !important;
+          height: 32px !important;
+          font-size: 11px !important;
+        }
+
+        .custom-select {
+          height: 26px !important;
+          width: 50px !important;
+        }
+      }
+
+      /* ==========================
+         SECTION 8 – WHY CHOOSE US
+      =========================== */
+      :root {
+        --hex-size-sm: 380px;
+        --hex-size-lg: 395px;
+        --wash: 0.88;
+      }
+
+      .honey-bg {
+        position: relative;
+        isolation: isolate;
+        background: url("./figma/bgimage2.png") repeat left top;
+        background-size: var(--hex-size-sm) auto;
+      }
+
+      .honey-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 247, 230, var(--wash));
+        z-index: 0;
+      }
+
+      .honey-bg::after {
+        content: "";
+        position: absolute;
+        inset: -2vw;
+        background: radial-gradient(
+          80% 70% at 50% 45%,
+          rgba(0, 0, 0, 0.06) 0%,
+          rgba(0, 0, 0, 0.03) 45%,
+          rgba(0, 0, 0, 0) 75%
+        );
+        mix-blend-mode: multiply;
+        z-index: 0;
+      }
+
+      .jar-hotspot {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .jar-hotspot::before {
+        content: "";
+        width: min(65vw, 680px);
+        height: min(45vw, 480px);
+        border-radius: 9999px;
+        background: radial-gradient(
+          closest-side,
+          rgba(255, 223, 128, 0.3) 0%,
+          rgba(255, 223, 128, 0.16) 45%,
+          rgba(255, 223, 128, 0) 78%
+        );
+        filter: blur(6px);
+        transform: translateY(2rem);
+      }
+
+      .decor {
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .drip-img {
+        transform: translate(-18px, -45px) scale(1.35) rotate(8deg);
+        transform-origin: 60% 70%;
+      }
+
+      .jar-img {
+        transform: translateY(-60px);
+      }
+
+      @media (min-width: 768px) {
+        .drip-img {
+          transform: translate(-30px, -60px) scale(1.55) rotate(8deg);
+        }
+
+        .jar-img {
+          transform: translateY(-120px);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .drip-img {
+          transform: translate(-35px, -70px) scale(1.65) rotate(8deg);
+        }
+
+        .jar-img {
+          transform: translateY(-180px);
+        }
+
+        .honey-bg {
+          background-size: var(--hex-size-lg) auto;
+        }
+      }
+
+      /* ✅ Tablet View (600–800px) – bee animation removed */
+      @media (min-width: 600px) and (max-width: 800px) {
+        .honey-bg {
+          background-size: 380px auto !important;
+          background-position: center top !important;
+        }
+
+        section.section-8-why h2 {
+          text-align: center !important;
+          margin-top: -0.1rem !important;
+          margin-bottom: 1.4rem !important;
+        }
+
+        section.section-8-why .grid {
+          grid-template-columns: 1fr 1fr 1fr !important;
+          gap: 2.4rem !important;
+          align-items: center !important;
+          justify-items: center !important;
+        }
+
+        .jar-img {
+          width: 950px !important;
+          transform: translate(0px, 60px) !important;
+        }
+
+        .drip-img {
+          width: 600px !important;
+          transform: translate(0px, 90px) scale(2.2) rotate(7deg) !important;
+        }
+
+        .bee-float {
+          top: 1.5rem !important;
+          right: 6% !important;
+          width: 4rem !important;
+          animation: none !important;
+        }
+
+        img[src*="home_sec_8_bee.png"] {
+          display: block !important;
+        }
+
+        .flex.flex-col {
+          gap: 3rem !important;
+        }
+
+        .flex > div h3 {
+          font-size: 18px !important;
+        }
+
+        .flex > div p {
+          font-size: 13px !important;
+          line-height: 1.7 !important;
+        }
+
+        .translate-x-8,
+        .translate-x-10,
+        .translate-x-14,
+        .translate-x-20,
+        .translate-x-24,
+        .translate-x-28,
+        .translate-x-12,
+        .translate-x-16,
+        .-translate-x-2,
+        .-translate-x-4,
+        .-translate-x-10 {
+          transform: translateX(0) !important;
+        }
+      }
+
+      /* ✅ Mobile (bee above center image + animation removed) */
+      @media (max-width: 599px) {
+        .honey-bg {
+          background-size: 280px auto !important;
+          background-position: center top !important;
+          padding-top: 0.5rem !important;
+          padding-bottom: 1rem !important;
+        }
+
+        section.section-8-why h2 {
+          text-align: center !important;
+          font-size: 20px !important;
+          margin-top: 0 !important;
+          margin-bottom: 2.5rem !important;
+        }
+
+        section.section-8-why .grid {
+          grid-template-columns: 1fr !important;
+          gap: 0.5rem !important;
+          justify-items: center !important;
+        }
+
+        .jar-img {
+          width: 360px !important;
+          transform: translateY(-30px) !important;
+        }
+
+        .drip-img {
+          width: 430px !important;
+          transform: translate(-10px, 40px) scale(1.5) rotate(7deg) !important;
+        }
+
+        .bee-float {
+          display: block !important;
+          width: 5rem !important;
+          top: 17% !important;
+          right: 10% !important;
+          bottom: auto !important;
+          animation: none !important;
+        }
+
+        .flex.items-start {
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          text-align: left !important;
+          gap: 0.75rem !important;
+        }
+
+        .flex.items-start img {
+          width: 40px !important;
+          margin: 0 !important;
+        }
+
+        .flex.items-start div {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          justify-content: center !important;
+        }
+
+        .flex.items-start h3 {
+          font-size: 15px !important;
+          font-weight: 600 !important;
+          margin-bottom: 0.15rem !important;
+        }
+
+        .flex.items-start p {
+          font-size: 13px !important;
+          line-height: 1.45 !important;
+          max-width: 260px !important;
+        }
+
+        .translate-x-8,
+        .translate-x-10,
+        .translate-x-14,
+        .translate-x-20,
+        .translate-x-24,
+        .translate-x-28,
+        .translate-x-12,
+        .translate-x-16,
+        .-translate-x-2,
+        .-translate-x-4,
+        .-translate-x-10 {
+          transform: translateX(0) !important;
+        }
+      }
+
+      /* ✅ Bee Float Animation (desktop only) */
+      @keyframes beeHover {
+        0%,
+        100% {
+          transform: translateY(0) rotate(12deg);
+        }
+
+        50% {
+          transform: translateY(-8px) rotate(12deg);
+        }
+      }
+
+      /* ==========================
+         SECTION 9 – FAQ
+      =========================== */
+
+      .faq-answer {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+      }
+
+      /* ==========================
+         SECTION 10 – ACHIEVEMENTS
+      =========================== */
+
+      .swiper {
+        width: 100vw;
+        overflow: visible !important;
+      }
+
+      .zoom-box {
+        transform: perspective(900px) translateZ(0) scale(1);
+        transition: all 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+        will-change: transform, box-shadow;
+        border-radius: 16px;
+        background: white;
+      }
+
+      .zoom-box:hover {
+        transform: perspective(900px) translateZ(40px) scale(1.12);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        z-index: 30;
+      }
+
+      .zoom-box img {
+        transition: transform 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+      }
+
+      .zoom-box:hover img {
+        transform: scale(1.12);
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <!-- =====================================================
+           SECTION 6 – PRODUCT LIST
+    ====================================================== -->
+    <section
+      class="relative py-16 md:py-20 bg-cream overflow-hidden section-6-product-list"
+    >
+      <!-- 🟡 Honeycomb Backgrounds -->
+      <div
+        class="pointer-events-none absolute z-0 top-[-35px] left-[-35px] w-[700px] h-[700px] bg-no-repeat bg-left-top opacity-25"
+        style="background-image:url('./figma/bgimage2.png'); background-size:contain;
+          -webkit-mask-image:radial-gradient(700px 700px at 0% 0%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 36%,rgba(0,0,0,0) 70%);
+          mask-image:radial-gradient(700px 700px at 0% 0%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 36%,rgba(0,0,0,0) 70%);"
+      ></div>
+
+      <div
+        class="pointer-events-none absolute z-0 bottom-[-45px] right-[-45px] w-[700px] h-[700px] bg-no-repeat bg-right-bottom opacity-25"
+        style="background-image:url('./figma/bgimage2.png'); background-size:contain;
+          -webkit-mask-image:radial-gradient(700px 700px at 100% 100%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 36%,rgba(0,0,0,0) 70%);
+          mask-image:radial-gradient(700px 700px at 100% 100%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 36%,rgba(0,0,0,0) 70%);"
+      ></div>
+
+      <!-- 🧈 Content -->
+      <div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+        <h2
+          class="font-alata font-normal text-[38px] leading-[1.2] text-cocoa text-center"
+        >
+          Product List
+        </h2>
+
+        <!-- ✅ Tabs -->
+        <div
+          class="mt-6 flex items-start justify-center gap-24 text-cocoa font-medium tabs"
+        >
+          <div
+            class="relative font-poppins font-medium text-[22px] text-cocoa 
+                   after:content-[''] after:block after:w-[110px] after:h-[3px] after:bg-[#9B4A00] after:rounded-full after:mt-[8px]"
+          >
+            Best Seller
+          </div>
+          <div class="font-poppins font-medium text-[22px] text-black">
+            New Arrival
+          </div>
+        </div>
+
+        <!-- ✅ Product Grid -->
+        <div
+          class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-10 product-grid"
+        >
+          <!-- ✅ CARD 1 -->
+          <article
+            class="bg-white rounded-card shadow-card hover:shadow-cardHover transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div class="p-6 pb-4">
+                <span
+                  class="bg-cocoa text-white text-[14px] font-semibold rounded-md px-3 py-[3px]"
+                  >New</span
+                >
+              </div>
+              <div
+                class="px-6 -mt-3 flex items-center justify-center h-[140px]"
+              >
+                <img
+                  src="./figma/sec_6_product_1.png"
+                  alt="Pure honey"
+                  class="max-h-[140px] object-contain drop-shadow-sm"
+                  loading="lazy"
+                />
+              </div>
+              <div class="px-6 mt-2">
+                <div class="h-[2px] bg-cocoa600/90 rounded-full"></div>
+              </div>
+              <div class="px-6 pt-3 pb-2 flex flex-col justify-start">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-[20px] font-medium text-[#1F1F1F]">
+                    Pure Honey
+                  </h3>
+                  <span class="text-discount text-[13px] font-medium"
+                    >(70% off)</span
+                  >
+                </div>
+                <div class="mt-1 flex items-center gap-3">
+                  <div class="text-price font-bold text-[20px]">₹ 350/-</div>
+                  <div class="text-muted line-through text-[15px]">
+                    ₹ 550/-
+                  </div>
+                </div>
+                <p
+                  class="mt-1 text-[9px] text-[#8A8A8A] leading-[1.4] font-medium"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 flex items-center gap-4 mt-auto">
+              <select
+                class="custom-select h-[26px] w-[50px] border border-gray-300 rounded-md text-sm text-[#1f1f1f] px-2 focus:outline-none focus:ring-2 focus:ring-[#9B4A00]"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <button
+                class="add-btn h-[32px] w-[118px] bg-[#9B4A00] hover:bg-[#7A3700] text-white font-semibold text-[11px] uppercase rounded-md transition active:translate-y-[1px]"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- ✅ CARD 2 -->
+          <article
+            class="bg-white rounded-card shadow-card hover:shadow-cardHover transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div class="p-6 pb-4">
+                <span
+                  class="bg-transparent text-transparent text-[14px] px-3 py-[3px] font-semibold"
+                  >New</span
+                >
+              </div>
+              <div
+                class="px-6 -mt-3 flex items-center justify-center h-[140px]"
+              >
+                <img
+                  src="./figma/sec_6_product_2.png"
+                  alt="Multi Flower Honey"
+                  class="max-h-[140px] object-contain drop-shadow-sm"
+                  loading="lazy"
+                />
+              </div>
+              <div class="px-4 mt-2">
+                <div class="h-[2px] bg-cocoa600/90 rounded-full"></div>
+              </div>
+              <div class="px-3 pt-3 pb-2 flex flex-col justify-start">
+                <div class="flex justify-between gap-4 items-center">
+                  <h3 class="text-[18px] font-medium text-[#1F1F1F]">
+                    Multi Flower Honey
+                  </h3>
+                  <span class="text-discount text-[13px] font-medium"
+                    >(50% off)</span
+                  >
+                </div>
+                <div class="mt-1 flex items-center gap-3">
+                  <div class="text-price font-bold text-[20px]">₹ 650/-</div>
+                  <div class="text-muted line-through text-[15px]">
+                    ₹ 1300/-
+                  </div>
+                </div>
+                <p
+                  class="mt-1 text-[9px] text-[#8A8A8A] leading-[1.4] font-medium"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 flex items-center gap-4 mt-auto">
+              <select
+                class="custom-select h-[26px] w-[50px] border border-gray-300 rounded-md text-sm text-[#1f1f1f] px-2 focus:outline-none focus:ring-2 focus:ring-[#9B4A00]"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <button
+                class="add-btn h-[32px] w-[118px] bg-[#9B4A00] hover:bg-[#7A3700] text-white font-semibold text-[11px] uppercase rounded-md transition active:translate-y-[1px]"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- ✅ CARD 3 -->
+          <article
+            class="bg-white rounded-card shadow-card hover:shadow-cardHover transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div class="p-6 pb-4">
+                <span
+                  class="bg-transparent text-transparent text-[14px] px-3 py-[3px] font-semibold"
+                  >New</span
+                >
+              </div>
+              <div
+                class="px-6 -mt-3 flex items-center justify-center h-[140px]"
+              >
+                <img
+                  src="./figma/sec_6_product_3.png"
+                  alt="Malai Thaen"
+                  class="max-h-[140px] object-contain drop-shadow-sm"
+                  loading="lazy"
+                />
+              </div>
+              <div class="px-6 mt-2">
+                <div class="h-[2px] bg-cocoa600/90 rounded-full"></div>
+              </div>
+              <div class="px-6 pt-3 pb-2 flex flex-col justify-start">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-[20px] font-medium text-[#1F1F1F]">
+                    Malai Thaen
+                  </h3>
+                  <span class="text-discount text-[13px] font-medium"
+                    >(70% off)</span
+                  >
+                </div>
+                <div class="mt-1 flex items-center gap-3">
+                  <div class="text-price font-bold text-[20px]">₹ 950/-</div>
+                  <div class="text-muted line-through text-[15px]">
+                    ₹ 1850/-
+                  </div>
+                </div>
+                <p
+                  class="mt-1 text-[9px] text-[#8A8A8A] leading-[1.4] font-medium"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 flex items-center gap-4 mt-auto">
+              <select
+                class="custom-select h-[26px] w-[50px] border border-gray-300 rounded-md text-sm text-[#1f1f1f] px-2 focus:outline-none focus:ring-2 focus:ring-[#9B4A00]"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <button
+                class="add-btn h-[32px] w-[118px] bg-[#9B4A00] hover:bg-[#7A3700] text-white font-semibold text-[11px] uppercase rounded-md transition active:translate-y-[1px]"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- ✅ CARD 4 -->
+          <article
+            class="bg-white rounded-card shadow-card hover:shadow-cardHover transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div class="p-6 pb-4">
+                <span
+                  class="bg-cocoa text-white text-[14px] font-semibold rounded-md px-3 py-[3px]"
+                  >New</span
+                >
+              </div>
+              <div
+                class="px-6 -mt-3 flex items-center justify-center h-[140px]"
+              >
+                <img
+                  src="./figma/sec_6_product_4.png"
+                  alt="Pure honey premium"
+                  class="max-h-[140px] object-contain drop-shadow-sm"
+                  loading="lazy"
+                />
+              </div>
+              <div class="px-2 mt-2">
+                <div class="h-[2px] bg-cocoa600/90 rounded-full"></div>
+              </div>
+              <div class="px-2 pt-3 pb-2 flex flex-col justify-start">
+                <div class="flex justify-between gap-4 items-center">
+                  <h3 class="text-[17px] font-medium text-[#1F1F1F]">
+                    Pure Honey Premium
+                  </h3>
+                  <span class="text-discount text-[13px] font-medium"
+                    >(70% off)</span
+                  >
+                </div>
+                <div class="mt-1 flex items-center gap-3">
+                  <div class="text-price font-bold text-[20px]">₹ 350/-</div>
+                  <div class="text-muted line-through text-[15px]">
+                    ₹ 550/-
+                  </div>
+                </div>
+                <p
+                  class="mt-1 text-[9px] text-[#8A8A8A] leading-[1.4] font-medium"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 flex items-center gap-4 mt-auto">
+              <select
+                class="custom-select h-[26px] w-[50px] border border-gray-300 rounded-md text-sm text-[#1f1f1f] px-2 focus:outline-none focus:ring-2 focus:ring-[#9B4A00]"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <button
+                class="add-btn h-[32px] w-[118px] bg-[#9B4A00] hover:bg-[#7A3700] text-white font-semibold text-[11px] uppercase rounded-md transition active:translate-y-[1px]"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+           SECTION 7 – TESTIMONIALS
+    ====================================================== -->
+    <section
+      class="relative w-full overflow-hidden bg-cover bg-center"
+      style="background-image: url('./figma/sec7_bg_mirrored.jpg'); background-size: cover;"
+    >
+      <div class="absolute inset-0 bg-[rgba(0,0,0,0.45)]"></div>
+
+      <div
+        class="relative max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-20 flex flex-col lg:grid lg:grid-cols-[1fr_1.3fr] gap-10 items-start"
+      >
+        <!-- LEFT CONTENT -->
+        <div
+          class="order-1 text-white max-w-[600px] mx-auto lg:-ml-10 lg:mx-0 text-left sm:text-center lg:text-left px-3 sm:px-0"
+        >
+          <h2 class="font-alata text-[30px] sm:text-[34px] leading-[120%] mb-6 sm:mb-16">
+            What Our<br />Customer Say’s
+          </h2>
+          <p
+            class="text-[16px] sm:text-[18px] font-poppins font-normal leading-[150%] text-white/95 text-justify sm:text-left"
+          >
+            Here’s what our happy customers have to say about their experience
+            with Narpavai Honey. We take pride in delivering pure, high-quality
+            honey that’s loved and trusted by families across the country. Your
+            feedback inspires us to keep it natural, honest, and sweet—just like
+            our honey!
+          </p>
+        </div>
+
+        <!-- RIGHT TESTIMONIAL CARDS -->
+        <div
+          class="order-2 grid sm:grid-cols-2 gap-8 w-full justify-center items-stretch mt-10 lg:mt-0"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-[2px] shadow-[0_10px_25px_rgba(0,0,0,0.15)] 
+overflow-hidden flex flex-col justify-between hover:scale-[1.02] 
+transition-transform duration-300 
+min-h-[380px] sm:min-h-[400px] lg:min-h-[390px] 
+max-w-[420px] mx-auto w-full"
+          >
+            <div
+              class="px-6 sm:px-8 pt-8 lg:pt-8 pb-4 lg:pb-5 text-center flex flex-col flex-1"
+            >
+              <img
+                src="./figma/sec_7_man_img.png"
+                alt="Francis George"
+                class="mx-auto w-[130px] sm:w-[150px] h-auto object-contain -mb-1"
+              />
+              <p
+                class="mt-3 sm:mt-5 text-[14px] md:text-[15px] text-[#2B2B2B] 
+    font-poppins font-normal leading-[130%] text-center"
+              >
+                Our valued customers share their honest experiences with
+                Narpavai Honey—from taste to trust, and everything in between.
+              </p>
+            </div>
+
+            <div class="px-6 sm:px-8 pb-6 text-center">
+              <div class="flex justify-center gap-1.5 mb-3">
+                <!-- stars icons repeated -->
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-[16px] font-medium text-[#2B2B2B] leading-[28px] text-center"
+              >
+                Francis George
+              </h3>
+              <p
+                class="text-[12px] text-[#555] leading-[26px] font-poppins font-normal"
+              >
+                Customer
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-[2px] shadow-[0_10px_25px_rgba(0,0,0,0.15)] 
+overflow-hidden flex flex-col justify-between hover:scale-[1.02] 
+transition-transform duration-300 
+min-h-[380px] sm:min-h-[400px] lg:min-h-[390px] 
+max-w-[420px] mx-auto w-full"
+          >
+            <div
+              class="px-6 sm:px-8 pt-8 lg:pt-8 pb-4 lg:pb-5 text-center flex flex-col flex-1"
+            >
+              <div
+                class="mx-auto w-[130px] sm:w-[150px] h-[130px] sm:h-[150px] rounded-full overflow-hidden"
+              >
+                <img
+                  src="./figma/sec_7_girl_img.png"
+                  alt="Jasmine Albert"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <p
+                class="mt-3 sm:mt-5 text-[14px] md:text-[15px] text-[#2B2B2B] 
+    font-poppins font-normal leading-[130%] text-center"
+              >
+                Discover what our valued customers are saying about their
+                experience with Narpavai Honey—pure, flavorful, and trusted by
+                families nationwide.
+              </p>
+            </div>
+
+            <div class="px-6 sm:px-8 pb-6 text-center">
+              <div class="flex justify-center gap-1.5 mb-3">
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 fill-[#F6B800]"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 1.8l2.47 5 5.53.8-4 3.9.95 5.5L10 14.9 5.05 17l.95-5.5-4-3.9 5.53-.8z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-[16px] font-medium text-[#2B2B2B] leading-[28px] text-center"
+              >
+                Jasmine Albert
+              </h3>
+              <p
+                class="text-[12px] text-[#555] leading-[26px] font-poppins font-normal"
+              >
+                Customer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+           SECTION 8 – WHY CHOOSE US
+    ====================================================== -->
+    <section
+      class="relative honey-bg py-14 md:py-16 lg:py-20 overflow-hidden section-8-why"
+    >
+      <div class="jar-hotspot"></div>
+      <div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+        <h2
+          class="font-alata text-cocoa text-[25px] md:text-[30px] lg:text-[38px] leading-[1.2] mb-8 lg:mb-10 -mt-6 lg:-mt-8"
+        >
+          Why choose Us ?
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-8 lg:gap-10 relative"
+        >
+          <!-- LEFT -->
+          <div
+            class="flex flex-col justify-center space-y-16 md:space-y-20 lg:space-y-28"
+          >
+            <div
+              class="flex items-start gap-4 translate-x-8 md:translate-x-10 lg:translate-x-20"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-3"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  100% natural honey collected straight<br />from the hive with
+                  zero processing.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 -translate-x-2 md:-translate-x-4 lg:-translate-x-10 mt-6"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-1"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  Sustainably sourced honey that<br />protects bee welfare and
+                  the environment.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 translate-x-10 md:translate-x-14 lg:translate-x-24 mt-6"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-1"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  Every batch is tested to ensure<br />purity and quality for
+                  safe consumption.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER -->
+          <div
+            class="relative flex justify-center items-center min-h-[300px] md:min-h-[480px] lg:min-h-[560px]
+      -translate-y-6 md:-translate-y-8 lg:-translate-y-10 translate-x-2 md:translate-x-4 lg:translate-x-8"
+          >
+            <img
+              src="./figma/home_sec_8_4bee_bg.png"
+              alt=""
+              class="decor absolute drip-img"
+            />
+            <img
+              src="./figma/home_sec_8_honey_jar_image.png"
+              alt=""
+              class="relative z-10 drop-shadow-jar jar-img"
+            />
+            <img
+              src="./figma/home_sec_8_bee.png"
+              alt="Bee"
+              class="decor absolute bee-float -top-10 md:-top-12 lg:-top-14 right-[12%] md:right-[10%] lg:right-[6%] w-12 md:w-16 lg:w-24 rotate-[12deg]"
+            />
+          </div>
+
+          <!-- RIGHT -->
+          <div
+            class="flex flex-col justify-center space-y-16 md:space-y-20 lg:space-y-28"
+          >
+            <div
+              class="flex items-start gap-4 translate-x-2 md:translate-x-4 lg:translate-x-2"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-1"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  Packed with essential vitamins<br />and antioxidants for a
+                  healthy lifestyle.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 translate-x-12 md:translate-x-16 lg:translate-x-28 mt-6"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-1"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  Naturally sweet, golden, and flavorful<br />for your favorite
+                  dishes and drinks.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 translate-x-0 md:translate-x-2 lg:translate-x-0 mt-6"
+            >
+              <img
+                src="./figma/hex+bee.png"
+                class="w-12 md:w-14 mt-1"
+                alt=""
+              />
+              <div>
+                <h3
+                  class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#1F1F1F]"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="text-[13px] text-textdim leading-[1.7] max-w-[300px] md:max-w-[340px]"
+                >
+                  Narpavai Honey is trusted by thousands<br />for its purity and
+                  quality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+           SECTION 9 – FAQ
+    ====================================================== -->
+    <section
+      class="relative py-20 px-6 md:px-20 bg-[#FFF6DB] flex flex-col md:flex-row items-center justify-between"
+    >
+      <!-- 🍯 Left Column -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center text-center md:text-left gap-8 md:-ml-4"
+      >
+        <!-- 🟡 Heading -->
+        <h2
+          class="text-2xl md:text-[30px] font-semibold text-[#5b3a16] leading-tight md:pl-4"
+        >
+          Everything You Need to Know
+        </h2>
+
+        <!-- 🍯 Combined Image + Jar -->
+        <div
+          class="relative w-[330px] sm:w-[360px] md:w-[400px] md:ml-8 lg:ml-12 transition-all duration-300"
+        >
+          <img
+            src="./figma//sec_10_hex_polygon.png"
+            alt="Honey Hexagon"
+            class="w-full h-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)] rounded-[12px]"
+          />
+          <img
+            src="./figma/sec_10_jar.png"
+            alt="Honey Jar"
+            class="absolute bottom-[-35px] right-[10px] sm:right-[20px] w-32 sm:w-36 md:w-40 drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)]"
+          />
+        </div>
+
+        <!-- ✅ Space below for small screens -->
+        <div class="block md:hidden h-12"></div>
+      </div>
+
+      <!-- 🧾 Right Column (FAQ) -->
+      <div
+        class="w-full md:w-1/2 space-y-6 mt-10 md:mt-[70px] md:pl-10 text-[#5b3a16]"
+      >
+        <!-- Item 1 -->
+        <div
+          class="faq-item relative bg-white rounded-xl shadow-md p-6 cursor-pointer transition-transform duration-200"
+          onclick="toggleFAQ(1)"
+        >
+          <img
+            src="./figma/home_sec_4_bee.png"
+            alt="Bee"
+            class="absolute -top-14 right-6 w-20 md:w-24 rotate-[-8deg] drop-shadow-[0_6px_8px_rgba(0,0,0,0.15)] pointer-events-none select-none z-10"
+          />
+          <div class="flex items-start gap-4">
+            <span
+              id="icon1"
+              class="text-2xl font-bold text-[#d19a36] leading-none mt-[2px]"
+              >−</span
+            >
+            <div>
+              <h3 class="font-semibold text-lg md:text-xl">
+                Is Narpavai Honey 100% pure and natural?
+              </h3>
+              <div
+                id="answer1"
+                class="faq-answer mt-3 text-[15px] md:text-[17px] text-[#6b4e2f]"
+              >
+                Yes, Narpavai Honey is 100% pure, unprocessed, and free from any
+                additives or preservatives.
+                We source our honey directly from trusted beekeepers to ensure
+                natural goodness in every drop.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="faq-item bg-white rounded-xl shadow-md p-6 cursor-pointer transition-transform duration-200"
+          onclick="toggleFAQ(2)"
+        >
+          <div class="flex items-start gap-4">
+            <span
+              id="icon2"
+              class="text-2xl font-bold text-[#d19a36] leading-none mt-[2px]"
+              >+</span
+            >
+            <div>
+              <h3 class="font-semibold text-lg md:text-xl">
+                How do I store honey properly?
+              </h3>
+              <div
+                id="answer2"
+                class="hidden mt-3 text-[15px] md:text-[17px] text-[#6b4e2f]"
+              >
+                Store honey in a tightly sealed container at room temperature,
+                away from direct sunlight and moisture. Avoid refrigeration to
+                maintain its natural consistency.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div
+          class="faq-item bg-white rounded-xl shadow-md p-6 cursor-pointer transition-transform duration-200"
+          onclick="toggleFAQ(3)"
+        >
+          <div class="flex items-start gap-4">
+            <span
+              id="icon3"
+              class="text-2xl font-bold text-[#d19a36] leading-none mt-[2px]"
+              >+</span
+            >
+            <div>
+              <h3 class="font-semibold text-lg md:text-xl">
+                Is your honey safe for kids and elders?
+              </h3>
+              <div
+                id="answer3"
+                class="hidden mt-3 text-[15px] md:text-[17px] text-[#6b4e2f]"
+              >
+                Absolutely! Our honey is 100% natural and safe for all ages.
+                However, it’s not recommended for infants below one year old.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div
+          class="faq-item bg-white rounded-xl shadow-md p-6 cursor-pointer transition-transform duration-200"
+          onclick="toggleFAQ(4)"
+        >
+          <div class="flex items-start gap-4">
+            <span
+              id="icon4"
+              class="text-2xl font-bold text-[#d19a36] leading-none mt-[2px]"
+              >+</span
+            >
+            <div>
+              <h3 class="font-semibold text-lg md:text-xl">
+                Does honey expire or crystallize over time?
+              </h3>
+              <div
+                id="answer4"
+                class="hidden mt-3 text-[15px] md:text-[17px] text-[#6b4e2f]"
+              >
+                Honey never truly expires. Over time, it may crystallize
+                naturally due to its sugar content.
+                Gently warm it to return it to its smooth liquid form.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+           SECTION 10 – ACHIEVEMENTS CAROUSEL
+    ====================================================== -->
+    <section class="bg-cream py-20">
+      <div class="relative w-full">
+        <div class="swiper mySwiper select-none">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_1.png"
+                  alt="Award 1"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_2.png"
+                  alt="Award 2"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_1.png"
+                  alt="Award 3"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_4.png"
+                  alt="Award 4"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_1.png"
+                  alt="Award 5"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_2.png"
+                  alt="Award 6"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_2.png"
+                  alt="Award 7"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="swiper-slide flex justify-center">
+              <div class="zoom-box shadow-card overflow-hidden">
+                <img
+                  src="./figma/sec_11_slide_4.png"
+                  alt="Award 8"
+                  class="w-[260px] h-[235px] object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- ✅ Swiper Config for Achievements -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 2,
+        loop: true,
+        speed: 4200,
+        grabCursor: true,
+        allowTouchMove: false,
+        autoplay: { delay: 0, disableOnInteraction: false },
+        centeredSlides: false,
+        loopedSlides: 10,
+        slidesOffsetBefore: 5,
+        slidesOffsetAfter: 5,
+        breakpoints: {
+          1536: { slidesPerView: 5, spaceBetween: 2 },
+          1280: { slidesPerView: 4.5, spaceBetween: 2 },
+          1024: { slidesPerView: 3.5, spaceBetween: 2 },
+          768: { slidesPerView: 2.2, spaceBetween: 2 },
+          0: { slidesPerView: 1.3, spaceBetween: 1 },
+        },
+      });
+
+      // ✅ FAQ Toggle Script (same as your original)
+      function toggleFAQ(index) {
+        const answer = document.getElementById("answer" + index);
+        const icon = document.getElementById("icon" + index);
+
+        if (answer.classList.contains("hidden")) {
+          document
+            .querySelectorAll(".faq-answer")
+            .forEach((el) => el.classList.add("hidden"));
+          document
+            .querySelectorAll('[id^="icon"]')
+            .forEach((el) => (el.textContent = "+"));
+
+          answer.classList.remove("hidden");
+          icon.textContent = "−";
+        } else {
+          answer.classList.add("hidden");
+          icon.textContent = "+";
+        }
+      }
+    </script>
+  </body>
+</html>
