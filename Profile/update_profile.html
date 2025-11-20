@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="updateProfile()">Test Update</button>
+<pre id="res"></pre>
+
+<script>
+function updateProfile() {
+    const fd = new FormData();
+    fd.append("user_id", "10");
+    fd.append("name", "Updated Name");
+    fd.append("phone", "9876543210");
+    fd.append("email", "updated@gmail.com");
+    fd.append("dob", "1990-01-01");
+    fd.append("gender", "male");
+    fd.append("profile_image", "");
+
+    fetch("https://narpavihoney.brandmindz.com/routes/profile/update_profile.php", {
+        method: "POST",
+        body: fd
+    })
+    .then(r => r.json())
+    .then(d => document.getElementById("res").textContent = JSON.stringify(d, null, 2))
+}
+</script>
+</body>
+</html>

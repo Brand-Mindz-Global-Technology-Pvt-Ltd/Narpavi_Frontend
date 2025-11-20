@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Murukai Honey | Narpavai Honey</title>
+    <title>Product Details</title>
+    <script defer src="productdetail.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Auth Utils -->
+    <script src="../Auth/auth-utils.js"></script>
+    
     <style>
       body {
         font-family: "Inter", sans-serif;
@@ -14,349 +19,81 @@
   </head>
 
   <body class="text-gray-800">
-    <!--  Product Section with Peach Background -->
-    <section class="bg-[#fff3e0] py-16 px-6">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-        <!--  Left: Product Image -->
-        <div class="flex flex-col items-center h-full">
-          <img
-            src="./Images/honey.png"
-            alt="Murukai Honey"
-            class="w-full h-full rounded-xl shadow-md md:rounded-l-xl md:rounded-r-none"
-          />
-          <!-- Thumbnails -->
-          <div class="flex justify-center gap-3 mt-5 flex-wrap">
-            <img
-              src="./Images/honey.png"
-              class="w-20 h-20 rounded-lg border-2 border-amber-500 cursor-pointer object-cover"
-            />
-            <img
-              src="./Images/honey.png"
-              class="w-20 h-20 rounded-lg border hover:border-amber-500 cursor-pointer object-cover"
-            />
-            <img
-              src="./Images/honey.png"
-              class="w-20 h-20 rounded-lg border hover:border-amber-500 cursor-pointer object-cover"
-            />
-            <img
-              src="./Images/honey.png"
-              class="w-20 h-20 rounded-lg border hover:border-amber-500 cursor-pointer object-cover"
-            />
-          </div>
+    <div class="bg-[#FFE8D6]">
+ <section class="py-10 px-4">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-10 items-start">
+
+        <!-- LEFT: Dynamic Image Container -->
+        <div class="flex flex-col items-center">
+          <img id="mainImage" src="" class="w-full max-w-sm h-auto rounded-xl shadow-md mx-auto" />
+
+          <!-- Thumbnail images -->
+          <div id="thumbnailContainer" class="flex justify-center gap-3 mt-5 flex-wrap"></div>
         </div>
 
-        <!-- Right: Product Details Card -->
-        <div
-          class="bg-white rounded-2xl shadow-lg p-6 relative overflow-hidden"
-        >
-          <!-- Share Icon  -->
-          <button
-            id="shareBtn"
-            class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 8a3 3 0 100-6 3 3 0 000 6zM15 8l-6 4m0 0l6 4m-6-4a3 3 0 110 0 3 3 0 010 0zM21 20a3 3 0 100-6 3 3 0 000 6zM9 12l-6 4m0 0a3 3 0 100-6 3 3 0 000 6z"
-              />
-            </svg>
-          </button>
+        <!-- RIGHT -->
+        <div class="bg-white w-full rounded-2xl shadow-lg p-6">
+          <h2 id="productName" class="text-2xl font-bold text-gray-800"></h2>
 
-          <!-- Tooltip / Share Options -->
-          <div
-            id="shareTooltip"
-            class="hidden absolute top-12 right-4 bg-white border border-gray-200 shadow-xl rounded-lg p-3 w-44 z-50"
-          >
-            <p class="text-sm font-semibold text-gray-800 mb-2">
-              Share Product
-            </p>
-            <div class="flex flex-col gap-2 text-sm">
-              <a href="#" class="flex items-center gap-2 hover:text-green-600">
-                <img
-                  src="./Images/whatsapp.png"
-                  class="w-4 h-4"
-                  alt="WhatsApp"
-                />
-                WhatsApp
-              </a>
-              <a href="#" class="flex items-center gap-2 hover:text-pink-500">
-                <img
-                  src="./Images/instagram.png"
-                  class="w-4 h-4"
-                  alt="Instagram"
-                />
-                Instagram
-              </a>
-              <button
-                id="copyLink"
-                class="flex items-center gap-2 hover:text-blue-600"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 text-gray-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10 14L21 3m0 0a2.828 2.828 0 00-4-4L6 10a2.828 2.828 0 004 4l11-11z"
-                  />
-                </svg>
-                Copy Link
-              </button>
+<div id="productPriceContainer" class="mt-2 flex items-center gap-4">
+    <p id="productPrice" class="text-amber-700 text-xl font-semibold"></p>
+  </div>
+  <div id="productPriceContainer" class="mt-2 flex items-center gap-4">
+    <p id="productStrikePrice" class="text-gray-500 text-lg line-through"></p>
+  </div>
+          <p id="productDesc" class="mt-4 text-gray-700 leading-relaxed"></p>
+<div id="variationContainer" class="mt-4 flex gap-4 flex-wrap"></div>
+
+
+     
+    <div class="mt-4">
+  <h3 class="font-semibold">Weight</h3>
+  <div id="weightBox" class="inline-block bg-amber-100 text-[#8B4513] font-medium px-3 py-1 rounded-md text-sm mt-1">
+    <!-- quantity will come here -->
+  </div>
+</div>
+
+
+        <div class="mt-4">
+          <h3 class="font-semibold">Quantity</h3>
+          <div class="flex flex-wrap items-center gap-2 mt-2">
+            <div class="flex items-center gap-2">
+              <button class="px-3 py-1 border rounded hover:bg-gray-100">-</button>
+              <span class="px-4 py-1 border rounded">1</span>
+              <button class="px-3 py-1 border rounded hover:bg-gray-100">+</button>
             </div>
-          </div>
-
-          <h1 class="text-2xl font-bold mb-2">Murukai Honey</h1>
-          <div class="flex items-center text-yellow-400 mb-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4 fill-current"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-              />
-            </svg>
-            <p class="text-gray-500 text-sm ml-2">Reviews: 100 reviews</p>
-          </div>
-
-          <p class="text-gray-600 text-sm mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-
-          <div class="text-2xl font-semibold text-[#8B4513] mb-1">
-            Rs: 325.00
-          </div>
-          <span class="text-gray-400 line-through text-sm">Rs: 495.00</span>
-
-          <div class="mt-4">
-            <h3 class="font-semibold">Weight</h3>
-            <div
-              class="inline-block bg-amber-100 text-[#8B4513] font-medium px-3 py-1 rounded-md text-sm mt-1"
-            >
-              1/2 Kg
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <h3 class="font-semibold">Quantity</h3>
-            <div class="flex flex-wrap items-center gap-2 mt-2">
-              <div class="flex items-center gap-2">
-                <button class="px-3 py-1 border rounded hover:bg-gray-100">
-                  -
-                </button>
-                <span class="px-4 py-1 border rounded">1</span>
-                <button class="px-3 py-1 border rounded hover:bg-gray-100">
-                  +
-                </button>
-              </div>
-              <button
-                class="flex-1 border border-[#8B4513] text-[#8B4513] font-medium px-6 py-2 rounded hover:bg-[#8B4513] hover:text-white transition w-full sm:w-auto"
-              >
-                Add to cart
-              </button>
-            </div>
-            <button
-              class="w-full bg-[#8B4513] text-white font-medium py-2 rounded mt-3 hover:bg-[#A0522D] transition"
-            >
-              Buy it now
+            <button class="flex-1 border border-[#8B4513] text-[#8B4513] font-medium px-6 py-2 rounded hover:bg-[#8B4513] hover:text-white transition w-full sm:w-auto">
+              Add to cart
             </button>
           </div>
-
-          <!--  Features -->
-          <div class="grid grid-cols-2 gap-x-6 gap-y-5 mt-6 text-sm">
-            <div>
-              <h4 class="font-semibold flex items-center gap-2">
-                <img src="./Images/Aroma.png" class="w-5 h-5" /> Aroma
-              </h4>
-              <p class="text-gray-600">Fresh, clean, light</p>
-            </div>
-            <div>
-              <h4 class="font-semibold flex items-center gap-2">
-                <img src="./Images/Taste.png" class="w-5 h-5" /> Taste note
-              </h4>
-              <p class="text-gray-600">Wild, Light, Floral</p>
-            </div>
-            <div class="mr-8">
-              <h4 class="font-semibold flex items-center gap-2">
-                <img src="./Images/Sweetness.png" class="w-5 h-5" /> Sweetness
-              </h4>
-              <p class="text-gray-600">Regular sweetness</p>
-            </div>
-            <div>
-              <h4 class="font-semibold flex items-center gap-2">
-                <img src="./Images/Crystalization.png" class="w-5 h-5" />
-                Crystallization
-              </h4>
-              <p class="text-gray-600">Rarely crystallize</p>
-            </div>
-          </div>
-
-          <!--  Frequently Bought -->
-          <div class="mt-8 border rounded-lg p-4 bg-white font-[Alata]">
-            <h3 class="font-semibold text-gray-800 text-lg mb-4">
-              Frequently Bought
-            </h3>
-
-            <!-- Product Card -->
-            <div
-              class="relative flex flex-col sm:flex-row gap-4 border-b pb-6 mb-6 sm:pb-4 sm:mb-4"
-            >
-              <img
-                src="./Images/honey.png"
-                alt="Multi Flower Honey"
-                class="w-24 h-24 rounded-lg object-cover mx-auto sm:mx-0"
-              />
-              <div class="flex-1">
-                <p
-                  class="font-semibold text-gray-900 text-base truncate mt-2 sm:mt-0"
-                >
-                  Multi Flower Honey
-                </p>
-                <div
-                  class="flex justify-center sm:justify-start items-center gap-2 mt-1"
-                >
-                  <p class="text-[#8B4513] font-semibold text-sm">Rs: 325.00</p>
-                  <span class="text-gray-400 line-through text-xs"
-                    >Rs: 495.00</span
-                  >
-                </div>
-                <p class="text-gray-600 text-xs mt-1">1/2 Kg</p>
-
-                <div
-                  class="flex justify-center sm:justify-start items-center gap-2 mt-3"
-                >
-                  <button class="px-2 py-1 border rounded hover:bg-gray-100">
-                    -
-                  </button>
-                  <span class="px-3 py-1 border rounded">1</span>
-                  <button class="px-2 py-1 border rounded hover:bg-gray-100">
-                    +
-                  </button>
-                </div>
-
-                <div
-                  class="flex flex-col sm:flex-row gap-2 mt-4 justify-center sm:justify-start"
-                >
-                  <button
-                    class="w-full sm:w-40 border border-[#8B4513] text-[#8B4513] font-medium px-4 py-2 rounded hover:bg-[#8B4513] hover:text-white transition"
-                  >
-                    Add to cart
-                  </button>
-                  <button
-                    class="w-full sm:w-40 bg-[#8B4513] text-white font-medium px-4 py-2 rounded hover:bg-[#A0522D] transition"
-                  >
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="relative flex flex-col sm:flex-row gap-4 pb-6 sm:pb-0">
-              <img
-                src="./Images/honey.png"
-                alt="Multi Flower Honey"
-                class="w-24 h-24 rounded-lg object-cover mx-auto sm:mx-0"
-              />
-              <div class="flex-1">
-                <p
-                  class="font-semibold text-gray-900 text-base truncate mt-2 sm:mt-0"
-                >
-                  Multi Flower Honey
-                </p>
-                <div
-                  class="flex justify-center sm:justify-start items-center gap-2 mt-1"
-                >
-                  <p class="text-[#8B4513] font-semibold text-sm">Rs: 325.00</p>
-                  <span class="text-gray-400 line-through text-xs"
-                    >Rs: 495.00</span
-                  >
-                </div>
-                <p class="text-gray-600 text-xs mt-1">1/2 Kg</p>
-
-                <div
-                  class="flex justify-center sm:justify-start items-center gap-2 mt-3"
-                >
-                  <button class="px-2 py-1 border rounded hover:bg-gray-100">
-                    -
-                  </button>
-                  <span class="px-3 py-1 border rounded">1</span>
-                  <button class="px-2 py-1 border rounded hover:bg-gray-100">
-                    +
-                  </button>
-                </div>
-
-                <div
-                  class="flex flex-col sm:flex-row gap-2 mt-4 justify-center sm:justify-start"
-                >
-                  <button
-                    class="w-full sm:w-40 border border-[#8B4513] text-[#8B4513] font-medium px-4 py-2 rounded hover:bg-[#8B4513] hover:text-white transition"
-                  >
-                    Add to cart
-                  </button>
-                  <button
-                    class="w-full sm:w-40 bg-[#8B4513] text-white font-medium px-4 py-2 rounded hover:bg-[#A0522D] transition"
-                  >
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button class="w-full bg-[#8B4513] text-white font-medium py-2 rounded mt-3 hover:bg-[#A0522D] transition">
+            Buy it now
+          </button>
         </div>
+        </div>
+
       </div>
     </section>
+    </div>
 
     <!-- Product Description Section -->
-    <section class="bg-white py-16 px-6 font-[Alata]">
-      <div class="max-w-5xl mx-auto">
-        <!-- Title with underline styles -->
-        <div class="text-center mb-10 relative">
-          <h2 class="text-2xl font-bold mb-4">Product Description</h2>
+<section class="bg-white py-16 px-6 font-[Alata]">
+  <div class="max-w-5xl mx-auto">
+    <!-- Title with underline styles -->
+    <div class="text-center mb-10 relative">
+      <h2 class="text-2xl font-bold mb-4">Product Description</h2>
 
-          <!-- Full-width faint line -->
-          <div
-            class="absolute left-4 right-4 top-[calc(100%+2px)] h-[2px] bg-gray-300"
-          ></div>
-          <!-- Short highlighted black line -->
-          <div class="w-24 h-[3px] bg-black mx-auto mt-1 relative z-10"></div>
-        </div>
+      <!-- Full-width faint line -->
+      <div class="absolute left-4 right-4 top-[calc(100%+2px)] h-[2px] bg-gray-300"></div>
+      <!-- Short highlighted black line -->
+      <div class="w-24 h-[3px] bg-black mx-auto mt-1 relative z-10"></div>
+    </div>
 
-        <!-- Description content -->
-        <ul class="text-gray-700 text-left list-disc space-y-3 pl-6">
-          <li>
-            100% Natural & Unprocessed – Collected directly from bee farms
-            without any additives, preservatives, or artificial flavors.
-          </li>
-          <li>
-            Rich in Nutrients – Packed with natural antioxidants, vitamins, and
-            minerals that boost immunity and energy.
-          </li>
-          <li>
-            Authentic Taste & Aroma – Smooth texture, golden color, and the pure
-            sweetness of real honey.
-          </li>
-          <li>
-            Versatile & Healthy – Perfect for daily use in tea, desserts,
-            skincare, or as a natural sweetener.
-          </li>
-        </ul>
-      </div>
-    </section>
+    <!-- Description content dynamically from API -->
+    <ul id="productDescriptionList" class="text-gray-700 text-left list-disc space-y-3 pl-6"></ul>
+  </div>
+</section>
+
 
     <!-- Google Font -->
     <link
@@ -364,470 +101,17 @@
       rel="stylesheet"
     />
 
-    <!-- ACTIVE FILTER SECTION -->
-    <section class="py-16 px-6 md:px-12">
-      <div class="active-filter font-jost">
-        <div class="flex flex-wrap items-center gap-2 mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">
-            Recommended Product
-          </h3>
-        </div>
-      </div>
+    <!-- Recommended Product Section -->
+<section class="bg-white py-12 px-6 font-[Alata]">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6">Recommended Products</h2>
 
-      <!--  PRODUCT GRID -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full product-container"
-      >
-        <a href="product-details.html" class="block">
-          <div
-            class="relative bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 product-card cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-          >
-            <!-- Wishlist Icon -->
-            <button
-              class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition z-10"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.8"
-                stroke="#8B4513"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.015-4.5-4.5-4.5-1.74 0-3.255.99-4 2.445A4.498 4.498 0 008.5 3.75 4.5 4.5 0 004 8.25c0 7.22 8 11.25 8 11.25s8-4.03 8-11.25z"
-                />
-              </svg>
-            </button>
+<div id="recommendedProducts" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+        <!-- Dynamic items will come here -->
+    </div>
+  </div>
+</section>
 
-            <!-- Product Image -->
-            <img
-              src="./Images/honey.png"
-              alt="Narpavai Honey"
-              class="w-full h-52 object-cover"
-            />
-
-            <!-- Product Details -->
-            <div class="p-4 text-center">
-              <h2 class="font-semibold text-gray-800 text-lg">
-                Narpavai Honey
-              </h2>
-
-              <div class="mt-2">
-                <span class="text-[#8B4513] font-semibold text-base"
-                  >Rs. 325.00</span
-                >
-                <span class="text-gray-400 line-through text-sm ml-2"
-                  >Rs. 495.00</span
-                >
-              </div>
-
-              <div
-                class="flex justify-center items-center mt-1 text-yellow-400"
-              >
-                <!-- 4 filled stars + 1 empty -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current text-gray-300"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-              </div>
-
-              <div class="flex justify-center gap-2 mt-3">
-                <button
-                  class="shop-now-btn bg-[#8B4513] text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-[#A0522D] transition"
-                >
-                  Shop Now
-                </button>
-                <button
-                  class="add-cart-btn border border-[#8B4513] text-[#8B4513] text-xs font-medium px-3 py-1.5 rounded hover:bg-[#8B4513] hover:text-white transition"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="product-details.html" class="block">
-          <div
-            class="relative bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 product-card cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-          >
-            <!-- Wishlist Icon -->
-            <button
-              class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition z-10"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.8"
-                stroke="#8B4513"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.015-4.5-4.5-4.5-1.74 0-3.255.99-4 2.445A4.498 4.498 0 008.5 3.75 4.5 4.5 0 004 8.25c0 7.22 8 11.25 8 11.25s8-4.03 8-11.25z"
-                />
-              </svg>
-            </button>
-
-            <!-- Product Image -->
-            <img
-              src="./Images/honey.png"
-              alt="Narpavai Honey"
-              class="w-full h-52 object-cover"
-            />
-
-            <!-- Product Details -->
-            <div class="p-4 text-center">
-              <h2 class="font-semibold text-gray-800 text-lg">
-                Narpavai Honey
-              </h2>
-
-              <div class="mt-2">
-                <span class="text-[#8B4513] font-semibold text-base"
-                  >Rs. 325.00</span
-                >
-                <span class="text-gray-400 line-through text-sm ml-2"
-                  >Rs. 495.00</span
-                >
-              </div>
-
-              <div
-                class="flex justify-center items-center mt-1 text-yellow-400"
-              >
-                <!-- 4 filled stars + 1 empty -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current text-gray-300"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-              </div>
-
-              <div class="flex justify-center gap-2 mt-3">
-                <button
-                  class="shop-now-btn bg-[#8B4513] text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-[#A0522D] transition"
-                >
-                  Shop Now
-                </button>
-                <button
-                  class="add-cart-btn border border-[#8B4513] text-[#8B4513] text-xs font-medium px-3 py-1.5 rounded hover:bg-[#8B4513] hover:text-white transition"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="product-details.html" class="block">
-          <div
-            class="relative bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 product-card cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-          >
-            <!-- Wishlist Icon -->
-            <button
-              class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition z-10"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.8"
-                stroke="#8B4513"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.015-4.5-4.5-4.5-1.74 0-3.255.99-4 2.445A4.498 4.498 0 008.5 3.75 4.5 4.5 0 004 8.25c0 7.22 8 11.25 8 11.25s8-4.03 8-11.25z"
-                />
-              </svg>
-            </button>
-
-            <!-- Product Image -->
-            <img
-              src="./Images/honey.png"
-              alt="Narpavai Honey"
-              class="w-full h-52 object-cover"
-            />
-
-            <!-- Product Details -->
-            <div class="p-4 text-center">
-              <h2 class="font-semibold text-gray-800 text-lg">
-                Narpavai Honey
-              </h2>
-
-              <div class="mt-2">
-                <span class="text-[#8B4513] font-semibold text-base"
-                  >Rs. 325.00</span
-                >
-                <span class="text-gray-400 line-through text-sm ml-2"
-                  >Rs. 495.00</span
-                >
-              </div>
-
-              <div
-                class="flex justify-center items-center mt-1 text-yellow-400"
-              >
-                <!-- 4 filled stars + 1 empty -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current text-gray-300"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-              </div>
-
-              <div class="flex justify-center gap-2 mt-3">
-                <button
-                  class="shop-now-btn bg-[#8B4513] text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-[#A0522D] transition"
-                >
-                  Shop Now
-                </button>
-                <button
-                  class="add-cart-btn border border-[#8B4513] text-[#8B4513] text-xs font-medium px-3 py-1.5 rounded hover:bg-[#8B4513] hover:text-white transition"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a href="product-details.html" class="block">
-          <div
-            class="relative bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 product-card cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-          >
-            <!-- Wishlist Icon -->
-            <button
-              class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition z-10"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.8"
-                stroke="#8B4513"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.015-4.5-4.5-4.5-1.74 0-3.255.99-4 2.445A4.498 4.498 0 008.5 3.75 4.5 4.5 0 004 8.25c0 7.22 8 11.25 8 11.25s8-4.03 8-11.25z"
-                />
-              </svg>
-            </button>
-
-            <!-- Product Image -->
-            <img
-              src="./Images/honey.png"
-              alt="Narpavai Honey"
-              class="w-full h-52 object-cover"
-            />
-
-            <!-- Product Details -->
-            <div class="p-4 text-center">
-              <h2 class="font-semibold text-gray-800 text-lg">
-                Narpavai Honey
-              </h2>
-
-              <div class="mt-2">
-                <span class="text-[#8B4513] font-semibold text-base"
-                  >Rs. 325.00</span
-                >
-                <span class="text-gray-400 line-through text-sm ml-2"
-                  >Rs. 495.00</span
-                >
-              </div>
-
-              <div
-                class="flex justify-center items-center mt-1 text-yellow-400"
-              >
-                <!-- 4 filled stars + 1 empty -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 fill-current text-gray-300"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049.316l2.225 6.859h7.207l-5.832 4.242 2.225 6.859L9.05 14.034 3.225 18.276l2.225-6.859L-.382 7.175h7.207z"
-                  />
-                </svg>
-              </div>
-
-              <div class="flex justify-center gap-2 mt-3">
-                <button
-                  class="shop-now-btn bg-[#8B4513] text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-[#A0522D] transition"
-                >
-                  Shop Now
-                </button>
-                <button
-                  class="add-cart-btn border border-[#8B4513] text-[#8B4513] text-xs font-medium px-3 py-1.5 rounded hover:bg-[#8B4513] hover:text-white transition"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
     <!-- Customer Reviews Section -->
     <section class="bg-[#FFF6E6] py-12 px-4 md:px-12">
       <div
@@ -945,6 +229,11 @@
 
     <!-- JS for Share Tooltip -->
     <script>
+      // ======== AUTH PROTECTION ======== //
+      if (!AuthUtils.initPageProtection()) {
+        throw new Error('Authentication required');
+      }
+
       const shareBtn = document.getElementById("shareBtn");
       const tooltip = document.getElementById("shareTooltip");
       const copyLink = document.getElementById("copyLink");
@@ -975,5 +264,6 @@
         }
       });
     </script>
+
   </body>
 </html>
