@@ -74,9 +74,9 @@ body {
 
 .bee-img {
     position: absolute;
-    top: 90px;
-    right: 160px;
-    width: 165px;
+    top: -50px;
+    right: 300px;
+    width: 300px;
     transform: rotate(10deg);
 }
 
@@ -105,7 +105,7 @@ body {
 
 .connect-wrapper h2 {
     font-size: 40px;
-    text-align: center;
+    text-align: left;
 }
 
 .connect-wrapper hr {
@@ -275,14 +275,14 @@ body {
 @media (min-width: 1000px) {
 
     .text-wrap {
-        margin-left: -40px !important;   /* 🔥 Move left */
-        margin-top: -20px !important;    /* 🔥 Move slightly up */
+        margin-left: -0px !important;   /* 🔥 Move left */
+        margin-top: -0px !important;    /* 🔥 Move slightly up */
     }
 
     .text-wrap h1 {
-        font-size: 70px !important;
+        font-size: 60px !important;
         line-height: 1.1 !important;
-        text-align: center !important;
+        text-align: left !important;
         display: block !important;
     }
 
@@ -476,7 +476,7 @@ body {
     }
     .bee-img {
         position: absolute;
-        right: 24px;
+        right: 150px;
         top: -30px;
         width: 90px;
         min-width: 80px;
