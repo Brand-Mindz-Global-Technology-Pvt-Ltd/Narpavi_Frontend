@@ -84,18 +84,26 @@
         <div class="jar-wrap">
             <img src="./figma_contact/honeyjars.png" class="jar-img" />
         </div>
-
-        <!-- Text -->
         <div class="text-wrap">
-            <h1>
-                <span>Your</span><br>
-                <span class="orange">Sweet</span><br>
-                <span class="orange">Experience</span><br>
+          <h1>
+            <span class="line1">
+                <span>Your</span>
+                <span class="orange">Sweet</span>
+            </span>
+        
+            <span class="line2">
+                <span class="orange">Experience</span>
                 <span class="black">Start Here</span>
-            </h1>
+            </span>
+        </h1>
+      </div>
+      
+      
+      
 
             <img src="./figma_contact/bee.png" class="bee-img">
         </div>
+        
 
     </div>
 
@@ -159,23 +167,48 @@
 
     <!-- MAP -->
     <section class="relative bg-[#f5ecd3] w-full pt-0 pb-14">
-      <!-- Quote/Overlay Section -->
       <div class="relative h-[250px] sm:h-[320px] bg-quote-bg bg-cover bg-center flex items-center justify-center">
-        <!-- Overlay for the whole section -->
-        <div class="absolute inset-0 bg-black/30"></div>
-
-        <!-- Content with BG overlay and button overlay -->
-        <div class="relative z-10 flex flex-col items-center justify-center w-full">
-          <div class="backdrop-blur-sm bg-black/40 px-6 py-6 rounded-lg max-w-[680px] mx-auto flex flex-col items-center">
-            <p class="text-white text-base sm:text-lg font-medium text-center">
+        <div class="absolute inset-0 pointer-events-none"></div>
+        <div class="absolute inset-0" style="background-color: rgba(0, 0, 0, 0.35);"></div>
+        
+        <div class="relative z-10 flex flex-col items-center justify-center text-white">
+          <div
+            class="quote-box border border-white/10 rounded-lg px-32 py-5 max-w-10xl text-center shadow-lg"
+            style="background-color: rgba(0, 0, 0, 0.22);"
+          >
+        
+            <p 
+              class="
+                quote-text 
+                font-alata 
+                font-normal 
+                text-white 
+                text-[18px]
+                leading-[110%] 
+                tracking-[0px] 
+                drop-shadow-sm 
+                text-center 
+                mt-[2px]
+              "
+            >
               If You Want To Gather Honey, Don’t Kick Over The Beehive.<br>
-              Patience And Care Bring The Sweetest Rewards.
+              <span class="inline-block mt-[5px]">Patience And Care Bring The Sweetest Rewards.</span>
             </p>
-            <button class="mt-5 bg-[#de822b] hover:bg-[#b96d23] transition px-6 py-2 rounded text-white font-semibold shadow-md">
+        
+            <br>
+        
+            <button
+              class="quote-btn bg-[#a24a0f] text-white font-alata py-3 px-6 
+                     rounded-tl-[18px] rounded-br-[18px] rounded-tr-none rounded-bl-none
+                     shadow-md hover:bg-[#8b3c0a] transition duration-300 leading-none"
+            >
               Dale Carnegie
             </button>
+        
           </div>
         </div>
+        
+        
       </div>
       <!-- Overlapped MAP CARD -->
       <div class="absolute left-1/2 -translate-x-1/2 -bottom-[10px] w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-20">
