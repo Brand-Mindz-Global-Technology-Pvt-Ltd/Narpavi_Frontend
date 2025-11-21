@@ -278,6 +278,12 @@ html, body {
   .promise-next { right: calc(50% - 70px) !important; }
 }
 
+@media (max-width: 1000px) and (min-width: 200px) {
+  #hero .grid > div:first-child {
+    padding-left: 22px !important;   /* adjust left padding */
+    margin-left: 0 !important;        /* removes negative margin */
+  }
+}
 
 
 
@@ -818,14 +824,21 @@ body {
             </p>
 
             <h1
-              class="font-alata font-normal text-[45px] leading-[1] tracking-[0] text-cocoa mt-2"
-            >
-              <span class="block">Welcome to Narpavai Honey</span>
-              <span class="block text-cocoa mt-2"
-                >Taste the Purity of Nature</span
-              >
-            </h1>
-
+            class="font-alata font-normal leading-[1] tracking-[0] text-cocoa mt-2 text-left"
+            style="
+              font-size: clamp(
+                24px,
+                calc(24px + (35 - 24) * ((100vw - 200px) / (600 - 200))),
+                35px
+              );
+            "
+          >
+            <span class="block">Welcome to Narpavai Honey</span>
+            <span class="block text-cocoa mt-2">
+              Taste the Purity of Nature
+            </span>
+          </h1>
+          
             <p
               class="mt-4 font-poppins font-normal text-[18px] md:text-[15px] text-gray-700 max-w-lg leading-[30px] text-justify"
             >
