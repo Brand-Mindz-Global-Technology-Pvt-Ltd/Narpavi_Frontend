@@ -228,6 +228,75 @@
                     </div>
                 </div>
         </div>
+
+        <!-- Subcategory Modal -->
+<div id="subcategoryModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-sitemap me-2"></i>
+                    Manage Subcategories
+                </h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+            </div>
+
+            <div class="modal-body">
+                
+                <!-- Selected Category Title -->
+                <h6 id="subcatCategoryTitle" class="mb-3 text-primary fw-bold"></h6>
+
+                <!-- Add Subcategory Form -->
+                <form id="subcatForm" class="row g-3 mb-2" onsubmit="return false;">
+                    <!-- Hidden IDs -->
+                    <input type="hidden" id="subcatId" name="id">
+                    <input type="hidden" id="subcatCategoryId" name="category_id">
+                  
+                    <div class="col-md-5">
+                      <label class="form-label">Subcategory Name *</label>
+                      <input type="text" id="subcatName" class="form-control" required>
+                    </div>
+                  
+                    <div class="col-md-5">
+                      <label class="form-label">Slug *</label>
+                      <input type="text" id="subcatSlug" class="form-control" required>
+                    </div>
+                  
+                    <div class="col-md-2 d-flex align-items-end">
+                      <button type="button" class="btn btn-primary w-100" id="subcatAddBtn">
+                        <i class="fas fa-plus me-1"></i> Add
+                      </button>
+                    </div>
+                  </form>
+                  
+                  <!-- 🔹 Edit controls (hidden by default) -->
+                  <div class="row mb-3" id="subcatEditControls" style="display:none;">
+                    <div class="col-12 d-flex justify-content-end gap-2">
+                      <button type="button" class="btn btn-outline-secondary btn-sm" id="subcatCancelBtn">
+                        Cancel
+                      </button>
+                      <button type="button" class="btn btn-success btn-sm" id="subcatSaveBtn">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                  
+
+                <!-- Subcategory List -->
+                <div id="subcatList">
+                    <div class="text-center p-3">
+                        <div class="spinner-border text-primary"></div>
+                        <p class="mt-2">Loading...</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
       </section>
 
         <!-- Products Section -->
@@ -309,10 +378,20 @@
                         </div>
                         <div class="col-md-3">
                             <label for="prodCategory" class="form-label">Category *</label>
-                            <select id="prodCategory" name="category_id" class="form-select" required>
-                                <option value="">Select Category</option>
+                            <select id="prodCategory" name="category_id" class="form-select" required onchange="loadProductSubcategories()">
+                              <option value="">Select Category</option>
                             </select>
-                        </div>
+                          </div>
+                          
+                          <div class="col-md-3">
+                            <label for="prodSubcategory" class="form-label">Subcategory *</label>
+                            <select id="prodSubcategory" name="subcategory_id" class="form-select" required>
+                              <option value="">Select Subcategory</option>
+                            </select>
+                            <div class="form-text">Select a category first</div>
+                          </div>
+                          
+                        
                         <div class="col-md-3">
                             <label for="prodStatus" class="form-label">Status</label>
                             <select id="prodStatus" name="status" class="form-select">
