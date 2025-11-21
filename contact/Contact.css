@@ -35,23 +35,41 @@ body {
 }
 
 .text-wrap {
-    width: 55%;
-    margin-left: 20px;
-    position: flex;
+    width: 100%;
+    text-align: center;
 }
 
 .text-wrap h1 {
     font-size: 70px;
     line-height: 1.1;
-    color: #1f1f1f;
 }
 
-.text-wrap .orange {
-    color: #e76f23;
-}
+/* EXACT COLORS — no change */
+.orange { color: #e76f23; }
+.black { color: #000; }
 
-.text-wrap .black {
-    color: #000;
+
+
+
+@media (max-width: 766px) {
+
+    .text-wrap h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    /* FORCE LINE 1: Your Sweet */
+    .line1 {
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    /* FORCE LINE 2: Experience Start Here */
+    .line2 {
+        display: inline-block;
+        white-space: nowrap;
+    }
 }
 
 .bee-img {
@@ -223,6 +241,71 @@ body {
 .form-box {
     z-index: 2 !important;
     position: relative;
+}
+/* 🔥 Mobile Responsive for Transparent Quote Box (300px – 766px) */
+@media (max-width: 766px) {
+
+    .quote-box {
+        width: 88% !important;
+        padding: 18px 20px !important;
+        margin: 0 auto !important;
+    }
+  
+    .quote-text {
+        font-size: 15px !important;
+        line-height: 120% !important;
+        margin-bottom: 10px !important;
+    }
+  
+    .quote-text span {
+        margin-top: 5px !important; /* small gap between lines */
+        display: inline-block;
+    }
+  
+    .quote-btn {
+        font-size: 14px !important;
+        padding: 10px 22px !important;
+        border-radius: 16px 26px 26px 16px !important;
+    }
+  }
+  
+
+
+/* === EXACT 4-LINE LAYOUT FOR SCREENS ABOVE 1000px === */
+@media (min-width: 1000px) {
+
+    .text-wrap {
+        margin-left: -40px !important;   /* 🔥 Move left */
+        margin-top: -20px !important;    /* 🔥 Move slightly up */
+    }
+
+    .text-wrap h1 {
+        font-size: 70px !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        display: block !important;
+    }
+
+    .line1, .line2 {
+        display: block !important;
+        white-space: normal !important;
+    }
+
+    .line1 span {
+        display: block;      /* Your */
+    }
+
+    .line1 span.orange {
+        display: block;      /* Sweet */
+    }
+
+    .line2 span.orange {
+        display: block;      /* Experience */
+    }
+
+    .line2 span.black {
+        display: block;      /* Start Here */
+    }
 }
 
 
