@@ -74,7 +74,7 @@ overflow-x: hidden !important;
     .add-btn {
       width: 120px !important;
       height: 34px !important;
-      font-size: 11px !important;
+      font-size: 1px !important;
     }
 
     .custom-select {
@@ -183,9 +183,9 @@ width: 135px !important;
 
 /* Title center */
 section[style*="sec7_bg_mirrored"] h2 {
-text-align: center !important;
+text-align: left !important;
 font-size: 30px !important;
-margin-bottom: 40px !important;
+margin-bottom: 20px !important;
 }
 
 
