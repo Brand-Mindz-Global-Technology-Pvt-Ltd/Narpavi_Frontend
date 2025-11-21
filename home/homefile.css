@@ -1,0 +1,524 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fffaf3;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  /* 🔥 FIX SWIPER EXTRA WIDTH ISSUE */
+  .swiper {
+width: 100% !important;
+overflow: hidden !important;
+}
+.swiper-wrapper {
+margin-right: 0 !important;   /* remove added gap */
+padding-right: 0 !important;
+}
+
+/* Remove offset that pushes slides */
+.swiper-slide {
+margin-right: 0 !important;
+}
+
+/* Optional: Prevent scroll on small screens */
+body {
+overflow-x: hidden !important;
+}
+
+
+  /* ========================== SECTION 6 – PRODUCT LIST =========================== */
+  select.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    background-image: url("./figma/Arrow.png");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+
+
+  
+
+  /* ✅ TABLET VIEW (600–800px) */
+  @media (min-width: 600px) and (max-width: 800px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 30px !important;
+      justify-items: center !important;
+      align-items: start !important;
+    }
+
+    article {
+      width: 100%;
+      max-width: 300px !important;
+      min-height: 410px !important;
+    }
+
+    article img {
+      max-height: 130px !important;
+    }
+
+    article h3 {
+      font-size: 17px !important;
+    }
+
+    article p {
+      font-size: 10px !important;
+    }
+
+    .add-btn {
+      width: 120px !important;
+      height: 34px !important;
+      font-size: 11px !important;
+    }
+
+    .custom-select {
+      width: 55px !important;
+      height: 28px !important;
+    }
+    section {
+overflow-x: hidden !important;
+}
+.faq-item {
+overflow: hidden !important;
+}
+  }
+  /* ===========================================================
+ SECTION-7 — CARD COUNT FIX
+ 350px–450px : 1 Card Layout
+ 451px–599px : 2 Cards (same as 600px)
+ =========================================================== */
+
+/* 350px – 450px → 1 card layout */
+/* ===========================================================
+ SECTION-7 — CARD LAYOUT CONTROL
+ 350–450px = 1 column
+ 451–599px = 2 columns (same as 600px)
+ =========================================================== */
+/* ===========================================================
+ SECTION-7 — 350px–450px (Show 1 Card)
+ =========================================================== */
+/* ===========================================================
+ SECTION-7 — 350–450px → Single Card Layout
+ =========================================================== */
+/* ===========================================================
+ SECTION-7 — CORRECT FIXED RESPONSIVE RULES
+ 350–450px = 1 card
+ 451–599px = 2 cards
+ =========================================================== */
+
+/* ===========================================================
+ SECTION-7 — FINAL RESPONSIVE RULES
+ 300–450px  → 1 card
+ 451–599px  → 2 cards
+ =========================================================== */
+
+/* ⭐⭐⭐⭐⭐ 300px – 450px = 1 Card Per Row */
+@media (min-width: 300px) and (max-width: 450px) {
+
+/* FORCE SECTION 7 GRID = 1 column */
+section[style*="sec7_bg_mirrored"] .grid,
+section[style*="sec7_bg_mirrored.jpg"] .grid {
+display: grid !important;
+grid-template-columns: 1fr !important;   /* 1 column ONLY */
+gap: 24px !important;
+justify-items: center !important;
+}
+
+/* CARD WIDTH */
+section[style*="sec7_bg_mirrored"] .grid > div,
+section[style*="sec7_bg_mirrored.jpg"] .grid > div {
+width: 100% !important;
+max-width: 330px !important;
+}
+
+/* IMAGES */
+section[style*="sec7_bg_mirrored"] img[alt],
+section[style*="sec7_bg_mirrored.jpg"] img[alt] {
+width: 135px !important;
+}
+}
+
+
+/* ⭐ 451px – 599px → SHOW 2 CARDS */
+@media (min-width: 451px) and (max-width: 599px) {
+
+section[style*="sec7_bg_mirrored.jpg"] .grid {
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;   /* ← 2 COLUMNS */
+gap: 32px !important;
+justify-items: center !important;
+}
+
+section[style*="sec7_bg_mirrored.jpg"] .grid > div {
+max-width: 380px !important;
+min-height: 400px !important;
+}
+
+section[style*="sec7_bg_mirrored.jpg"] img[alt="Francis George"],
+section[style*="sec7_bg_mirrored.jpg"] img[alt="Jasmine Albert"] {
+width: 150px !important;
+}
+}
+
+
+
+/* Card width */
+section[style*="sec7_bg_mirrored"] .grid > div {
+max-width: 330px !important;
+width: 100% !important;
+min-height: 420px !important;
+}
+
+/* Image sizes adjust */
+section[style*="sec7_bg_mirrored"] img[alt="Francis George"],
+section[style*="sec7_bg_mirrored"] img[alt="Jasmine Albert"] {
+width: 135px !important;
+}
+
+/* Title center */
+section[style*="sec7_bg_mirrored"] h2 {
+text-align: center !important;
+font-size: 30px !important;
+margin-bottom: 40px !important;
+}
+
+
+
+/* 451px–599px = same as 600px look */
+@media (min-width: 451px) and (max-width: 599px) {
+
+section[style*="sec7_bg_mirrored.jpg"] .grid {
+grid-template-columns: 1fr 1fr !important;
+gap: 32px !important;
+}
+
+section[style*="sec7_bg_mirrored.jpg"] .grid > div {
+max-width: 380px !important;
+min-height: 400px !important;
+}
+
+}
+
+
+/* 451px – 599px → same as 600px (2 cards) */
+@media (min-width: 451px) and (max-width: 599px) {
+
+section[style*="sec7_bg_mirrored.jpg"] .grid {
+grid-template-columns: 1fr 1fr !important; /* Two cards */
+gap: 32px !important;
+justify-items: center !important;
+}
+
+section[style*="sec7_bg_mirrored.jpg"] .grid > div {
+max-width: 380px !important;
+min-height: 400px !important;
+}
+}
+
+
+
+
+  /* ✅ MOBILE STYLES (below 600px) */
+  /* ========================== SECTION 8 – WHY CHOOSE US =========================== */
+  :root {
+    --hex-size-sm: 380px;
+    --hex-size-lg: 395px;
+    --wash: 0.88;
+  }
+
+  .honey-bg {
+    position: relative;
+    isolation: isolate;
+    background: url("./figma/bgimage2.png") repeat left top;
+    background-size: var(--hex-size-sm) auto;
+  }
+
+  .honey-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 247, 230, var(--wash));
+    z-index: 0;
+  }
+
+  .honey-bg::after {
+    content: "";
+    position: absolute;
+    inset: -2vw;
+    background: radial-gradient(80% 70% at 50% 45%, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 45%, rgba(0, 0, 0, 0) 75%);
+    mix-blend-mode: multiply;
+    z-index: 0;
+  }
+
+  .jar-hotspot {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .jar-hotspot::before {
+    content: "";
+    width: min(65vw, 680px);
+    height: min(45vw, 480px);
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, rgba(255, 223, 128, 0.3) 0%, rgba(255, 223, 128, 0.16) 45%, rgba(255, 223, 128, 0) 78%);
+    filter: blur(6px);
+    transform: translateY(2rem);
+  }
+
+  .decor {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .drip-img {
+    transform: translate(-18px, -45px) scale(1.35) rotate(8deg);
+    transform-origin: 60% 70%;
+  }
+
+  .jar-img {
+    transform: translateY(-60px);
+  }
+
+  @media (min-width: 768px) {
+    .drip-img {
+      transform: translate(-30px, -60px) scale(1.55) rotate(8deg);
+    }
+
+    .jar-img {
+      transform: translateY(-120px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .drip-img {
+      transform: translate(-35px, -70px) scale(1.65) rotate(8deg);
+    }
+
+    .jar-img {
+      transform: translateY(-180px);
+    }
+
+    .honey-bg {
+      background-size: var(--hex-size-lg) auto;
+    }
+  }
+
+  
+
+
+
+
+  /* ✅ Tablet View (600–800px) – bee animation removed */
+  @media (min-width: 600px) and (max-width: 800px) {
+    .honey-bg {
+      background-size: 380px auto !important;
+      background-position: center top !important;
+    }
+
+    section.section-8-why h2 {
+      text-align: center !important;
+      margin-top: -0.1rem !important;
+      margin-bottom: 1.4rem !important;
+    }
+
+    section.section-8-why .grid {
+      grid-template-columns: 1fr 1fr 1fr !important;
+      gap: 2.4rem !important;
+      align-items: center !important;
+      justify-items: center !important;
+    }
+
+    .jar-img {
+      width: 950px !important;
+      transform: translate(0px, 60px) !important;
+    }
+
+    .drip-img {
+      width: 600px !important;
+      transform: translate(0px, 90px) scale(2.2) rotate(7deg) !important;
+    }
+
+    .bee-float {
+      top: 1.5rem !important;
+      right: 6% !important;
+      width: 4rem !important;
+      animation: none !important;
+    }
+
+  
+    
+    .translate-x-8,
+    .translate-x-10,
+    .translate-x-14,
+    .translate-x-20,
+    .translate-x-24,
+    .translate-x-28,
+    .translate-x-12,
+    .translate-x-16,
+    .-translate-x-2,
+    .-translate-x-4,
+    .-translate-x-10 {
+      transform: translateX(0) !important;
+    }
+  }
+
+
+  /* ======================================================
+ SECTION 8 — PERFECT MOBILE LAYOUT FIX (300–500px)
+ Removes ALL translate shifts → FULL VERTICAL alignment
+/* ======================================================
+ SECTION 8 — PERFECT MOBILE LAYOUT FIX (300–500px)
+ Fixes: icon left, text right, jar center, gap alignment
+ ====================================================== */
+ @media (min-width: 300px) and (max-width: 500px) {
+
+/* Disable all translate shifts (FULL RESET) */
+section.section-8-why [class*="translate-x"],
+section.section-8-why [class*="-translate-x"] {
+transform: translateX(0) !important;
+}
+
+/* Force every feature block (icon + text) to vertical layout */
+section.section-8-why .flex.items-start {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+text-align: center !important;
+}
+
+/* Feature icon center */
+section.section-8-why .flex.items-start img {
+margin-left: auto !important;
+margin-right: auto !important;
+display: block !important;
+}
+
+/* Title center */
+section.section-8-why .flex.items-start div h3 {
+font-size: 16px !important;
+text-align: center !important;
+margin-top: 10px !important;
+}
+
+/* Paragraph center */
+section.section-8-why .flex.items-start div p {
+font-size: 13px !important;
+line-height: 1.6 !important;
+text-align: center !important;
+max-width: 90% !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+
+/* Spacing between each item */
+section.section-8-why .flex.flex-col {
+gap: 2.2rem !important;
+}
+
+/* Jar image center & smaller */
+section.section-8-why .jar-img {
+transform: translateY(0) !important;
+width: 230px !important;
+}
+
+/* Drip image adjust */
+section.section-8-why .drip-img {
+transform: translateY(-10px) scale(1.4) rotate(8deg) !important;
+width: 280px !important;
+}
+
+/* Hide bee float (clean view) */
+section.section-8-why .bee-float {
+display: none !important;
+}
+}
+
+
+  /* =======================================================
+   ⭐ ENABLE ZOOM HOVER FOR ALL SCREEN SIZES
+   ======================================================= */
+
+   .zoom-box {
+    transform: perspective(900px) translateZ(0) scale(1);
+    transition: all 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+    will-change: transform, box-shadow;
+    border-radius: 16px;
+    background: white;
+  }
+  
+  .zoom-box:hover {
+    transform: perspective(900px) translateZ(40px) scale(1.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    z-index: 30;
+  }
+  
+  .zoom-box img {
+    transition: transform 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+  }
+  
+  .zoom-box:hover img {
+    transform: scale(1.12);
+  }
+  
+  
+      /* ✅ Bee Float Animation (desktop only) */
+      @keyframes beeHover {
+  
+        0%,
+        100% {
+          transform: translateY(0) rotate(12deg);
+        }
+  
+        50% {
+          transform: translateY(-8px) rotate(12deg);
+        }
+      }
+  
+      /* ========================== SECTION 9 – FAQ =========================== */
+      .faq-answer {
+        transition: all 0.3s ease-in-out;
+      }
+  
+      .faq-item:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+      }
+  
+      /* ========================== SECTION 10 – ACHIEVEMENTS =========================== */
+      /* FINAL SWIPER FIX */
+  .swiper {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+      .zoom-box {
+        transform: perspective(900px) translateZ(0) scale(1);
+        transition: all 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+        will-change: transform, box-shadow;
+        border-radius: 16px;
+        background: white;
+      }
+  
+      .zoom-box:hover {
+        transform: perspective(900px) translateZ(40px) scale(1.12);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        z-index: 30;
+      }
+  
+      .zoom-box img {
+        transition: transform 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+      }
+  
+      .zoom-box:hover img {
+        transform: scale(1.12);
+      }

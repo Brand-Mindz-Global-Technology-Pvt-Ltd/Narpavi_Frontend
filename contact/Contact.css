@@ -227,6 +227,126 @@ body {
 
 
 /* ==============================================
+   RESPONSIVE: SMALL DESKTOP (1440px → 1025px)
+==============================================*/
+@media (max-width: 1440px) and (min-width: 1025px) {
+    .sweet-wrapper {
+        max-width: 1140px;
+        padding: 55px 30px 0;
+    }
+
+    .sweet-inner {
+        gap: 32px;
+        transform: scale(1);
+    }
+
+    .jar-wrap {
+        width: 41%;
+    }
+
+    .jar-img {
+        height: 440px;
+    }
+
+    .text-wrap {
+        width: 59%;
+        margin-left: 14px;
+    }
+
+    .text-wrap h1 {
+        font-size: 54px;
+    }
+
+    .bee-img {
+        top: 58px;
+        right: 105px;
+        width: 110px;
+    }
+
+    /* --- Connect popup: Stretches and wraps if it hits the form --- */
+    .connect-wrapper {
+        position: relative !important;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        max-width: 100%;
+        min-width: 270px;
+        margin-left: 300px;
+        margin-top: -130px;
+        padding: 18px 20px;
+        border-radius: 12px;
+        background: #fff;
+        z-index: 5 !important;
+        box-sizing: border-box;
+        transition: width 0.22s cubic-bezier(.6,1.6,.4,1), 
+                    box-shadow 0.2s;
+        box-shadow: 0 6px 24px rgba(40,28,3,0.13);
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    /* Responsive wrap/expand effect for overlap scenario */
+    .connect-wrapper:has(+ .form-wrapper),
+    .form-wrapper:has(~ .connect-wrapper) {
+        /* This selector attempts to simulate JS/interactivity 
+            Fallback for overlap: Make connect-wrapper take full width 
+            if it would visually "touch" or overlap the form
+            Tune this for your real layout as needed!
+        */
+        width: 50%;
+        min-width: 250px;
+        max-width: 96vw;
+        margin-left: 80px !important;
+        margin-right: 10px !important;
+        left: 0;
+        right: 0;
+        top: unset;
+        margin-top: 20px;
+        border-radius: 16px;
+        z-index: 10 !important;
+        /* Optional: visually indicate connection */
+        box-shadow: 0 8px 38px rgba(40,28,3,0.18);
+    }
+
+    .flower-img {
+        width: 95px;
+        top: -35px;
+        left: -42px;
+    }
+
+    .connect-wrapper h2 {
+        font-size: 30px;
+        word-break: break-word;
+    }
+
+    .form-wrapper {
+        max-width: 620px;
+        margin-right: 50px;
+        margin-top: -335px;
+        padding: 38px 0;
+        border-radius: 15px;
+        box-sizing: border-box;
+    }
+    .form-box {
+        max-width: 300px;
+    }
+
+    .form-box input,
+    .form-box textarea {
+        font-size: 14px;
+        border-radius: 7px;
+        padding: 10px 13px;
+    }
+
+    .form-box button {
+        font-size: 14px;
+        border-radius: 24px;
+        width: 65%;
+        padding: 10px;
+    }
+}
+
+/* ==============================================
    TABLET RESPONSIVE (1024px → 768px)
 ==============================================*/
 
