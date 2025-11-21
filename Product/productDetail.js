@@ -123,6 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // ------------------------------------------------------------------
 // FUNCTION TO LOAD RECOMMENDED PRODUCTS
 // ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// FUNCTION TO LOAD RECOMMENDED PRODUCTS (product.js style)
+// ------------------------------------------------------------------
 function loadRecommendedProducts() {
     const recommendedContainer = document.getElementById("recommendedProducts");
 
@@ -140,22 +143,38 @@ function loadRecommendedProducts() {
             recommendedContainer.innerHTML = "";
 
             recommended.forEach(product => {
-                // Fallback image if none exists
+                // Use full URL from API or fallback
                 let imgSrc = "assets/images/no-image.jpg";
                 if (product.images && Array.isArray(product.images) && product.images.length > 0) {
-                    imgSrc = product.images[0]; // already full URL from API
+                    imgSrc = product.images[0];
                 }
 
                 const card = document.createElement("div");
-                card.className = "bg-white rounded-lg shadow p-3 cursor-pointer hover:shadow-lg transition";
+                card.className = "relative bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 product-card cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 p-3";
 
                 card.innerHTML = `
-                    <img src="${imgSrc}" alt="${product.name}" class="h-32 w-full object-cover rounded-lg">
-                    <h4 class="text-sm font-semibold mt-2">${product.name}</h4>
-                    <p class="text-amber-700 font-bold">₹${product.variations && product.variations.length > 0 ? product.variations[0].amount : product.price}</p>
+                    <!-- Product Image -->
+                    <img src="${imgSrc}" alt="${product.name}" class="w-full h-40 object-cover rounded-lg mb-2">
+
+                    <!-- Product Name -->
+                    <h4 class="text-sm font-semibold mt-2 text-gray-800">${product.name}</h4>
+
+                    <!-- Price -->
+                    <p class="text-amber-700 font-bold mt-1">₹${product.variations && product.variations.length > 0 ? product.variations[0].amount : product.price}</p>
+
+                    <!-- Buttons -->
+                    <div class="flex justify-center gap-2 mt-3">
+                        <button class="shop-now-btn bg-[#8B4513] text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-[#A0522D] transition">
+                            Shop Now
+                        </button>
+                        <button class="add-cart-btn border border-[#8B4513] text-[#8B4513] text-xs font-medium px-3 py-1.5 rounded hover:bg-[#8B4513] hover:text-white transition">
+                            Add to Cart
+                        </button>
+                    </div>
                 `;
 
-                card.addEventListener("click", () => {
+                // Navigate to product detail on card click
+                card.querySelector(".shop-now-btn").addEventListener("click", () => {
                     window.location.href = `product-details.html?id=${product.id}&category_id=${product.category_id}`;
                 });
 
@@ -167,7 +186,4 @@ function loadRecommendedProducts() {
             recommendedContainer.innerHTML = "<p>Error loading recommended products.</p>";
         });
 }
-
-
-
 });
