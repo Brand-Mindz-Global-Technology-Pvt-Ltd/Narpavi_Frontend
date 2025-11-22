@@ -57,7 +57,12 @@
         transform: translateY(0);
       }
     }
+
+
+    
   </style>
+
+  
 </head>
 
 <body class="bg-honeybg overflow-x-hidden">
@@ -525,7 +530,7 @@
     </div>
   </section>
   
-  
+  <!-- SECTION 4 -->
   
   <section class="relative overflow-hidden py-16 sm:py-20 px-4 sm:px-8 md:px-20 bg-[#FFF7E3]">
 
@@ -672,7 +677,7 @@ class="group mt-6 bg-[#A34E03] text-white
   
 
 
-
+<!-- SECTION 5 -->
 
     <section
       class="relative bg-[url('./figma/Testimonialbackgroun.png')] bg-cover bg-center bg-no-repeat text-white py-24 sm:py-28 md:py-32 px-4 sm:px-8 md:px-12 flex flex-col justify-center items-center overflow-hidden"
@@ -682,57 +687,55 @@ class="group mt-6 bg-[#A34E03] text-white
       <div
         class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-center gap-16 md:gap-20"
       >
-        <div
-          class="space-y-6 text-center md:text-left px-2 sm:px-6 flex flex-col justify-center md:pr-10"
-        >
+      <div class="space-y-6 text-left px-2 sm:px-6 flex flex-col justify-center md:pr-10">
+
+        <!-- TITLE SMALL -->
         <p
-        class="
-          text-white font-alata font-normal
-          leading-[100%]        /* Figma line-height = 100% */
-          tracking-[0.2px]      /* Smooth spacing like Figma */
-      
-          text-[18px]           /* 300–450px */
-          sm:text-[20px]        /* 450–700px */
-          md:text-[22px]        /* 700–1000px */
-          lg:text-[24px]        /* 1000–1300px */
-          xl:text-[24px]        /* EXACT Figma size above 1300px */
-      
-          max-w-[900px]
-        "
-      >
-        Testimonials  <span
-        class="inline-block w-[60px] sm:w-[80px] h-[2px] bg-white ml-3 -translate-y-1"
-      ></span>
-      </p>
-      
-          
-          
-          </p>
-
-          <h2
-            class="text-white font-normal text-[26px] sm:text-[38px] md:text-[48px] leading-[120%]"
-          >
-            What Our <br class="hidden sm:block" />Customers Say
-          </h2>
-
-          <p
           class="
-            font-[Poppins] font-normal text-justify
-            text-[16px]            /* 🔥 your requested size */
-            leading-[150%]         /* Figma: 150% */
-            tracking-[0px]         /* No letter spacing */
+            text-white font-alata font-normal
+            leading-[100%] tracking-[0.2px]
+            text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]
+            text-left
+            pl-0 sm:pl-0 md:pl-0          /* 🔥 removed all padding */
+          "
+        >
+          Testimonials
+          <span class="inline-block w-[60px] sm:w-[80px] h-[2px] bg-white ml-3 -translate-y-1"></span>
+        </p>
+      
+        <!-- MAIN HEADING -->
+        <h2
+          class="
+            text-white font-normal
+            text-[26px] sm:text-[28px] md:text-[48px]
+            leading-[120%]
+            text-left
+            pl-0 sm:pl-0 md:pl-0           /* 🔥 perfectly aligned */
+          "
+        >
+          What Our <br class="hidden sm:block" />Customers Say
+        </h2>
+      
+        <!-- PARAGRAPH -->
+        <p
+          class="
+            font-[Poppins] font-normal
+            text-[16px]
+            leading-[150%]
+            tracking-[0px]
             text-white/85
-            max-w-md mx-auto md:mx-0
+            text-left                     /* 🔥 force left */
+            max-w-md
+            mx-0                          /* 🔥 remove auto centering */
           "
         >
           Here’s what our happy customers have to say about their experience
           with Narpavai Honey. We take pride in delivering pure, high-quality
           honey that’s loved and trusted by families across the country.
         </p>
-        
-        
-        
-        </div>
+      
+      </div>
+      
 
           <div class="relative flex justify-center w-full mt-10 sm:mt-0">
           <div
@@ -851,6 +854,8 @@ class="group mt-6 bg-[#A34E03] text-white
       </div>
     </section>
 
+    <!-- SECTION 6 -->
+
     <section
     class="relative py-20 px-6 md:px-20 bg-[#FFF6DB] flex flex-col md:flex-row items-center justify-between"
   >
@@ -874,45 +879,52 @@ class="group mt-6 bg-[#A34E03] text-white
     
   
       <!-- FIXED IMAGE BLOCK (780–880px SPECIFIC REDUCTION) -->
-      <div
-        class="
-          relative 
-          w-[330px] sm:w-[360px] md:w-[400px]
-          md:ml-8 lg:ml-12
-          transition-all duration-300
-  
-          /* 780px → 880px: reduce size */
-          [@media(min-width:780px)]:scale-[0.85]
-          [@media(min-width:780px)]:-translate-x-4   /* slight left shift */
-          [@media(min-width:880px)]:scale-[0.95]
-          [@media(min-width:880px)]:translate-x-0
-  
-          /* 900px+ normal */
-          [@media(min-width:900px)]:scale-100
-        "
-      >
-        <!-- MAIN IMAGE -->
-        <img
-          src="./figma/faqallimg.png"
-          class="w-full h-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)] rounded-[12px]"
-        />
-  
-        <!-- HONEY JAR -->
-        <img
-          src="./figma/fayhoneyjar.png"
-          class="
-            absolute bottom-[-35px] right-[10px] sm:right-[20px]
-            w-32 sm:w-36 md:w-40 drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)]
-  
-            /* 780–880px scale reduction */
-            [@media(min-width:780px)]:scale-[0.85]
-            [@media(min-width:880px)]:scale-[0.95]
-  
-            /* Normal above 900 */
-            [@media(min-width:900px)]:scale-100
-          "
-        />
-      </div>
+      <!-- FIXED IMAGE BLOCK (Perfect for 767px → 900px) -->
+<div
+class="
+  relative 
+  w-[300px] sm:w-[340px] md:w-[380px] lg:w-[400px]
+
+  mx-auto md:ml-8 lg:ml-12 
+  transition-all duration-300
+
+  /* 767px → 900px PERFECT CENTER & SCALE */
+  [@media(max-width:900px)]:scale-[0.90]
+  [@media(max-width:900px)]:mx-auto
+  [@media(max-width:900px)]:md:ml-0
+  [@media(max-width:900px)]:translate-x-0
+
+  /* 780px → 880px SPECIFIC FIX */
+  [@media(min-width:780px) and (max-width:880px)]:scale-[0.85]
+  [@media(min-width:780px) and (max-width:880px)]:translate-x-[-6px]
+"
+>
+
+<!-- MAIN IMAGE -->
+<img
+  src="./figma/faqallimg.png"
+  class="w-full h-auto object-contain 
+         drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)] 
+         rounded-[12px]"
+/>
+
+<!-- HONEY JAR -->
+<img
+  src="./figma/fayhoneyjar.png"
+  class="
+    absolute bottom-[-35px] right-[12px] sm:right-[20px]
+    w-28 sm:w-32 md:w-36 lg:w-40
+    drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)]
+
+    /* 767px → 900px CENTER FIX */
+    [@media(max-width:900px)]:right-[10px]
+
+    /* 780px → 880px scale */
+    [@media(min-width:780px) and (max-width:880px)]:scale-[0.85]
+  "
+/>
+</div>
+
   
       <div class="block md:hidden h-12"></div>
     </div>
