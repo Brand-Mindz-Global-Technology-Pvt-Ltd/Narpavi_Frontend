@@ -69,7 +69,7 @@
       class="relative flex flex-col items-center justify-center text-center 
       w-full bg-[url('./figma/about1page.png')] bg-cover bg-center bg-no-repeat
       min-h-[55vh] sm:min-h-[60vh] md:min-h-[50vh] lg:min-h-[48vh] xl:min-h-[46vh]
-      px-0 mx-0 mt-[100px] sm:mt-[110px] md:mt-[120px]"
+      px-0 mx-0 mt-[100px] sm:mt-[110px] md:mt-[80px]"
     >
       <div class="absolute inset-0 bg-black/2"></div>
 
@@ -257,7 +257,7 @@
                tracking-[0.2px]    /* Small visual spacing */
       
                text-[16px]
-               [@media(min-width:700px)]:text-[18px]
+               [@media(min-width:700px)]:text-[16px]
                [@media(min-width:1300px)]:text-[28px]
         "
       >
@@ -368,13 +368,18 @@
           class="
             font-[Alata] font-normal text-white tracking-wide leading-[100%]
             text-[clamp(20px,4vw,34px)]
-            whitespace-nowrap
-  
-            /* ⭐ NO OVERLAP — PROPER SPACING at 350–750px */
             mt-3
             [@media(min-width:400px)]:mt-4
             [@media(min-width:600px)]:mt-5
             [@media(min-width:750px)]:mt-2
+
+            max-w-full                   /* Ensure it does not overflow parent by default */
+            [@media(max-width:380px)]:whitespace-normal   /* Wrap text on small screens */
+            [@media(max-width:380px)]:max-w-[95vw]        /* Adjust max width on very small screens */
+          "
+          style="
+            /* Fallback for max-width in case Tailwind isn't processed */
+            max-width: 100%;
           "
         >
           Discover The Core Principles That Guide Us
@@ -522,17 +527,6 @@
   
   
   
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
   <section class="relative overflow-hidden py-16 sm:py-20 px-4 sm:px-8 md:px-20 bg-[#FFF7E3]">
 
     <!-- LEFT BG -->
@@ -599,7 +593,9 @@ class="group mt-6 bg-[#A34E03] text-white
        rounded-[0px]           /* EXACT—no radius */
        shadow-none             /* your image has no shadow */
        flex items-center justify-center gap-4
-       transition-all duration-300"
+       transition-all duration-300
+       mx-auto md:mx-0          /* Center on mobile, align left on md+ */
+       [@media(max-width:500px)]:mx-auto"
 >
 <span>Learn More</span>
 
@@ -1005,6 +1001,84 @@ onclick="toggleFAQ(4)"
     </div>
   </section>
   
+   <!-- YOUR FOOTER SECTION -->
+   <footer class="w-full bg-white py-12 px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-20">
+
+<!-- LOGO + TEXT -->
+<div class="col-span-1 w-full max-w-[420px]">
+<img src="../Footer/assets/Narpavai-logo.webp" class="w-20 h-20 object-contain mb-3" alt="Narpavai Honey">
+
+<p class="text-sm leading-relaxed text-gray-700">
+  Experience the pure essence of honey with Narpavai — raw, unprocessed,
+  and ethically harvested. Packed with natural flavor and nutrients,
+  every drop delivers health, trust, and tradition.
+</p>
+</div>
+
+    <!-- PAGES -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Pages</h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li><a href="../home/new_file_home_1_5sec.html" class="hover:text-yellow-600">Home</a></li>
+        <li><a href="../about/about.html" class="hover:text-yellow-600">About Us</a></li>
+        <li><a href="../Product/product.html" class="hover:text-yellow-600">Products</a></li>
+        <!-- <li><a href="#" class="hover:text-yellow-600">Blog</a></li> -->
+        <li><a href="../contact/contact_fullcode.html" class="hover:text-yellow-600">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- USEFUL LINKS -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Useful Link</h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li><a href="#" class="hover:text-yellow-600">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-yellow-600">Cookies Policy</a></li>
+        <li><a href="#" class="hover:text-yellow-600">Terms and Condition</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Contact</h3>
+      <ul class="space-y-3 text-sm text-[#222439] text-[22px]">
+        <li class="flex items-center gap-3">
+          <img src="../Footer/assets/Phone-icon.svg" alt="Phone" class="w-6 h-6 object-contain" />
+          +91 9876543210
+        </li>
+        <li class="flex items-center gap-3">
+          <img src="../Footer/assets/email-icon.svg" alt="Email" class="w-6 h-6 object-contain" />
+          narpavai123@gmail.com
+        </li>
+        <li class="flex items-center gap-3">
+          <img src="../Footer/assets/Locaion-icon.svg" alt="Location" class="w-6 h-6 object-contain" />
+          123, North main road
+        </li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Social media</h3>
+      <div class="flex items-center gap-4 text-xl">
+        <a href="#" class="text-black hover:text-yellow-600 transition-colors" aria-label="Facebook">
+          <img src="../Footer/assets/Facebook-Icon.svg" alt="Facebook" class="w-6 h-6 object-contain" />
+        </a>
+        <a href="#" class="text-black hover:text-yellow-600 transition-colors" aria-label="Twitter">
+          <img src="../Footer/assets/x-Icon.svg" alt="Twitter" class="w-6 h-6 object-contain" />
+        </a>
+        <a href="#" class="text-black hover:text-yellow-600 transition-colors" aria-label="LinkedIn">
+          <img src="../Footer/assets/linkedin-icon (3).svg" alt="LinkedIn" class="w-6 h-6 object-contain" />
+        </a>
+        <a href="#" class="text-black hover:text-yellow-600 transition-colors" aria-label="Instagram">
+          <img src="../Footer/assets/Instagram-Icon.svg" alt="Instagram" class="w-6 h-6 object-contain" />
+        </a>
+      </div>
+    </div>
+      
+
+  </div>
+</footer>
   
   </main>
 

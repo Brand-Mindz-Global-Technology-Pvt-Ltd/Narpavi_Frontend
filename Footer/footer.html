@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Company Footer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col justify-end">
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t-2 border-purple-200 px-4 py-8 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Logo and Description Column -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class=" rounded-full flex items-center justify-center overflow-hidden">
+                            <img src="../Footer/assets/Narpavai-logo.webp" alt="Narpaoli Logo" class="w-24 h-24 object-contain" />
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Experience the pure essence of honey with Narpaoli – raw, unprocessed, and ethically harvested. 
+                        Packed with natural flavor and nutrients, every drop delivers health, trust, and tradition.
+                    </p>
+                </div>
+
+                <!-- Pages Column -->
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-gray-800 text-lg">Pages</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Products</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Useful Links Column -->
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-gray-800 text-lg">Useful Link</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../components/privacypolicy.html" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Privacy Policy</a></li>
+                        <li><a href="../components/refundpolicy.html" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Refund & Return Policy</a></li>
+                        <li><a href="../components/termscondition.html" class="text-gray-600 hover:text-[#7E4A1D] transition-colors text-sm">Terms and Condition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact and Social Media Column -->
+                <div class="space-y-6">
+                    <!-- Contact Section -->
+                    <div class="space-y-4">
+                        <h3 class="font-semibold text-gray-800 text-lg">Contact</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-phone text-black w-4"></i>
+                                <span class="text-gray-600 text-sm">+91 9876543210</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-black w-4"></i>
+                                <span class="text-gray-600 text-sm">narpaoli23@gmail.com</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-black w-4 mt-1"></i>
+                                <span class="text-gray-600 text-sm">123, North main road</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="space-y-4">
+                        <h3 class="font-semibold text-gray-800 text-lg">Social media</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors">
+                                <i class="fab fa-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#7E4A1D] transition-colors">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add hover effects for better interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialLinks = document.querySelectorAll('footer a');
+            
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // Responsive behavior for mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        }
+
+        // Handle window resize for responsive adjustments
+        window.addEventListener('resize', function() {
+            // Any additional responsive logic can be added here
+        });
+    </script>
+
+    <style>
+        /* Custom styles for better mobile experience */
+        @media (max-width: 640px) {
+            footer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        footer a {
+            transition: all 0.3s ease;
+        }
+        
+        /* Custom purple color to match the design */
+        .text-purple-custom {
+            color: #8B5CF6;
+        }
+        
+        .bg-purple-custom {
+            background-color: #ffffff;
+        }
+        
+        /* Border styling */
+        .border-purple-custom {
+            border-color: #ffffff;
+        }
+    </style>
+</body>
+</html>
